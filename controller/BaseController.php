@@ -45,6 +45,7 @@ class BaseController {
       //add current user to the view, since some views require it
       $this->view->setVariable("currentusername", 
 				  $this->currentUser->getUsername());
-    }     
+    }
+    // Prueba Commit 1
   }
 }
