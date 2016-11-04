@@ -46,8 +46,5 @@ class BaseController {
       $this->view->setVariable("currentusername", 
 				  $this->currentUser->getUsername());
     }
-    // Prueba Commit 1
-
-      //Prueba commit 2
   }
 }
