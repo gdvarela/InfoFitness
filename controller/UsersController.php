@@ -185,5 +185,20 @@ class UsersController extends BaseController {
     $this->view->redirect("users", "login");
    
   }
+
+  public function alta() {
+
+      if (isset($_POST["username"])){
+
+          $user = new User($_POST["username"], $_POST["passwd"]);
+
+
+          $this->userMapper->save($user);
+
+
+      } else {
+          $this->view->render("users", "alta");
+      }
+  }
   
 }
