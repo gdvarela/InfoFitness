@@ -5,3 +5,4 @@ $view = ViewManager::getInstance();
 ?>
 
 <a href="?controller=users&action=alta">Alta Usuario </a>
+<a href="?controller=activities&action=listActivities">Gestion Actividades </a>

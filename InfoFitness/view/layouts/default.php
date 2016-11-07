@@ -17,10 +17,9 @@
   <body>    
     <!-- header -->
     <header>
-      <h1>Blog</h1>
+      <h1>InfoFitness</h1>
       <nav id="menu" style="background-color:grey">
 	<ul>
-	<li><a href="index.php?controller=posts&amp;action=index">Posts</a></li>
 	
 	<?php if (isset($currentuser)): ?>      
 	  <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
