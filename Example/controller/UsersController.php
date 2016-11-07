@@ -200,5 +200,4 @@ class UsersController extends BaseController {
           $this->view->render("users", "alta");
       }
   }
-  //commit 1
 }

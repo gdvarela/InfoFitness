@@ -5,9 +5,9 @@ require_once(__DIR__."/../controller/BaseController.php");
 
 class IndexController extends BaseController {
 
-    public function wellcome () {
+    public function welcome () {
 
-       $this->view->render("wellcome", "index");
+       $this->view->render("index", "welcome");
     }
 }
 
