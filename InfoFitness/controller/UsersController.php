@@ -23,13 +23,36 @@ class UsersController extends BaseController {
     $this->view->setLayout("welcome");
   }
 
-  public function alta() {
+  /*public function alta() {
 
       if (isset($_POST["username"])){
 
           $user = new User($_POST["username"], $_POST["passwd"]);
 
           $this->userMapper->save($user);
+
+      } else {
+          $this->view->render("users", "alta");
+      }
+  }*/
+  public function alta() {
+    //$name=NULL,$firstname=NULL, $dni=NULL, $fechanac=NULL, $email=NULL, $telef=NULL
+      if (isset($_POST["username"])
+              && $_POST["passwd"]
+              && $_POST["nombre"]
+              && $_POST["apellidos"]
+              && $_POST["dni"]
+              && $_POST["fechanac"]
+              && $_POST["email"]
+              && $_POST["telef"]
+              && $_POST["permiso"]){
+
+          /*llamar a  la funcion validar datos del modelo user*/
+          $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"], $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);
+
+
+          $this->userMapper->save($user);
+
 
       } else {
           $this->view->render("users", "alta");
