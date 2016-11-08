@@ -46,7 +46,8 @@
     "Email" => "Email",
     "Phone number" => "Telefono",
     "Birthdate" => "Fecha de nacimiento",
-    "Permissions" => "Permisos"
+    "Permissions" => "Permisos",
+    "Alta usuario" => "New user"
 
   )
 ?>
