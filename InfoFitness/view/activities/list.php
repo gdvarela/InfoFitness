@@ -26,7 +26,8 @@ $monitors = $view->getVariable("monitors");
                     <th> <input name="activityPlace" value="<?= $activity->getPlace() ?>"> </th>
                     <th> <select name="monitor">
                             <?php foreach($monitors as $monitor): ?>
-                                <option value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
+                                <option <?php if($monitor["id_entrenador"]==$activity->getMonitor()){echo "selected";} ?>
+                                    value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </th>
