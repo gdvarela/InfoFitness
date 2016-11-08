@@ -12,6 +12,7 @@
     "Create post" => "Crear artículo",
     "Hello %s" => "Hola %s",
     "Modify post" => "Modificar artículo",
+    "Modify" => "Modificar",
     "Post \"%s\" successfully added." => "Artículo \"%s\" añadido.",
     "Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
     "Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
@@ -32,6 +33,13 @@
     "Spanish" => "Español",
     "English" => "Inglés",
     "Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
-    "are you sure?" => "¿Estás seguro?"
+    "are you sure?" => "¿Estás seguro?",
+    "Name" => "Nombre",
+    "Max. Assistents" => "Max. Asistentes",
+    "Description" => "Descripcion",
+    "Price" => "Precio",
+    "Place" => "Lugar",
+    "Monitor" => "Monitor",
+    "Add" => "Añadir"
   )
 ?>

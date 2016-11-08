@@ -5,6 +5,7 @@ require_once(__DIR__."/../core/ValidationException.php");
 
 class Activity {
 
+    private $id;
     private $activityName;
     private $max_assis;
     private $description;
@@ -12,13 +13,19 @@ class Activity {
     private $place;
     private $monitor;
 
-    public function __construct($activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
+    public function __construct($id=NULL, $activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
+        $this->id = $id;
         $this->activityName = $activityname;
         $this->max_assis = $max_assis;
         $this->description = $description;
         $this->price = $price;
         $this->place = $place;
         $this->monitor = $monitor;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getActivityName()
@@ -79,5 +86,13 @@ class Activity {
     public function setMonitor($monitor)
     {
         $this->monitor = $monitor;
+    }
+
+    public function changeActivity($activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL) {
+        $this->activityName = $activityname;
+        $this->max_assis = $max_assis;
+        $this->description = $description;
+        $this->price = $price;
+        $this->place = $place;
     }
 }
