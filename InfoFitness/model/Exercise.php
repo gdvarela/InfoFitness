@@ -92,7 +92,7 @@ class Exercise{
       $this->description = $description;
       $this->dificulty = $dificulty;
       $this->media = $media;
-      $this->muscleGroup = (integer) $musclegroup;
+      $this->muscleGroup = $musclegroup;
   }
 
 }
