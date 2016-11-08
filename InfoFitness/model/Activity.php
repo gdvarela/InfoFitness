@@ -88,11 +88,12 @@ class Activity {
         $this->monitor = $monitor;
     }
 
-    public function changeActivity($activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL) {
+    public function changeActivity($activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
         $this->activityName = $activityname;
         $this->max_assis = $max_assis;
         $this->description = $description;
         $this->price = $price;
         $this->place = $place;
+        $this->monitor = (integer) $monitor;
     }
 }

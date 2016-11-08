@@ -4,6 +4,7 @@ $view = ViewManager::getInstance();
 
 $activities = $view->getVariable("activities");
 $newActivity = $view->getVariable("newActivity");
+$monitors = $view->getVariable("monitors");
 ?>
 
     <table>
@@ -23,6 +24,12 @@ $newActivity = $view->getVariable("newActivity");
                     <th> <input name="activityDes" value="<?= $activity->getDescription() ?>"> </th>
                     <th> <input name="activityPrice" value="<?= $activity->getPrice() ?>"> </th>
                     <th> <input name="activityPlace" value="<?= $activity->getPlace() ?>"> </th>
+                    <th> <select name="monitor">
+                            <?php foreach($monitors as $monitor): ?>
+                                <option value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </th>
                     <th>
                         <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
                         <button type="submit"><?= i18n("Modify")?></button>
@@ -43,6 +50,11 @@ $newActivity = $view->getVariable("newActivity");
                 <th> <input name="activityDes" value="<?= $newActivity->getDescription() ?>"> </th>
                 <th> <input name="activityPrice" value="<?= $newActivity->getPrice() ?>"> </th>
                 <th> <input name="activityPlace" value="<?= $newActivity->getPlace() ?>"> </th>
+                <th> <select name="monitor">
+                        <?php foreach($monitors as $monitor): ?>
+                            <option value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
+                        <?php endforeach; ?>
+                    </select> </th>
                 <th>
                     <button type="submit"><?= i18n("Add")?></button>
                 </th>

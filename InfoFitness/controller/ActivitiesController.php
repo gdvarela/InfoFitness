@@ -31,6 +31,9 @@ class ActivitiesController extends BaseController {
 
         $this->view->setVariable("newActivity", $this->newActivity);
 
+        $monitors = $this->activityMapper->listMonitors();
+        $this->view->setVariable("monitors", $monitors);
+
         $this->view->render("activities", "list");
     }
 
@@ -62,7 +65,7 @@ class ActivitiesController extends BaseController {
 
         if(isset($_POST["activityName"])) {
             $this->newActivity->changeActivity($_POST["activityName"], $_POST["activityMaxAssis"], $_POST["activityDes"],
-                $_POST["activityPrice"], $_POST["activityPlace"]);
+                $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"]);
 
             $this->activityMapper->save($this->newActivity);
             $this->view->redirect("activities", "listActivities");
