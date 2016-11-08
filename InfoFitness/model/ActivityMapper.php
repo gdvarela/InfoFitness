@@ -8,7 +8,7 @@ class ActivityMapper {
 
     public function __construct() {
         $this->db = PDOConnection::getInstance();
-    }
+}
 
     public function listActivities() {
         $stmt = $this->db->query("SELECT * FROM Actividad");
@@ -17,10 +17,35 @@ class ActivityMapper {
         $activities = array();
 
         foreach ($list_db as $activity) {
-            array_push($activities, new Activity($activity["nombre"], $activity["max_asistentes"], $activity["descricion"],
-                $activity["precio"], $activity["lugar"], $activity["monitor"]));
+            array_push($activities, new Activity($activity["id_actividad"], $activity["nombre"], $activity["max_asistentes"],
+                $activity["descricion"], $activity["precio"], $activity["lugar"], $activity["monitor"]));
         }
 
         return $activities;
+    }
+
+    public function listMonitors() {
+        $stmt = $this->db->query("SELECT nombre, id_entrenador FROM Monitor, usuario WHERE Monitor.id_usuario = usuario.id_usuario");
+        $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list_db;
+    }
+
+    public function save($activity) {
+        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descricion, precio, lugar, monitor) values(?,?,?,?,?,?)");
+        $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
+            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor()));
+    }
+
+    public function update($activity) {
+        $stmt = $this->db->prepare("UPDATE Actividad set nombre=?, max_asistentes=?, descricion=?, precio=?,
+            lugar=?  where id_actividad=?");
+        $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
+            $activity->getPrice(), $activity->getPlace(), $activity->getId()));
+    }
+
+    public function delete($activityId) {
+        $stmt = $this->db->prepare("DELETE FROM Actividad WHERE id_actividad=?");
+        $stmt->execute(array($activityId));
     }
 }

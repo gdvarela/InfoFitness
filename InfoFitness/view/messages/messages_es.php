@@ -12,6 +12,7 @@
     "Create post" => "Crear artículo",
     "Hello %s" => "Hola %s",
     "Modify post" => "Modificar artículo",
+    "Modify" => "Modificar",
     "Post \"%s\" successfully added." => "Artículo \"%s\" añadido.",
     "Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
     "Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
@@ -33,6 +34,7 @@
     "English" => "Inglés",
     "Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
     "are you sure?" => "¿Estás seguro?",
+<<<<<<< HEAD
     "Name" => "Nombre", //**************************************** Clau
     "Surnames" => "Apellidos",
     "ID" => "DNI",
@@ -40,5 +42,14 @@
     "Phone number" => "Telefono",
     "Birthdate" => "Fecha de nacimiento",
     "Permissions" => "Permisos"
+=======
+    "Name" => "Nombre",
+    "Max. Assistents" => "Max. Asistentes",
+    "Description" => "Descripcion",
+    "Price" => "Precio",
+    "Place" => "Lugar",
+    "Monitor" => "Monitor",
+    "Add" => "Añadir"
+>>>>>>> 7c26c6ebd311d67d2164a6838da4e837639c15e3
   )
 ?>
