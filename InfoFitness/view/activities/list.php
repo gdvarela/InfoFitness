@@ -17,7 +17,7 @@ $monitors = $view->getVariable("monitors");
             <th><?= i18n("Monitor")?></th>
         </tr>
         <?php foreach($activities as $activity): ?>
-            <tr clas="mainTable">
+            <tr class="mainTable">
                 <form action="?controller=activities&action=modify" method="POST">
                     <th> <input name="activityName" value="<?= $activity->getActivityName() ?>"> </th>
                     <th> <input name="activityMaxAssis" value="<?= $activity->getMaxAssistants() ?>"> </th>

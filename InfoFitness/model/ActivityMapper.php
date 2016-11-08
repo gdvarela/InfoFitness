@@ -8,7 +8,7 @@ class ActivityMapper {
 
     public function __construct() {
         $this->db = PDOConnection::getInstance();
-}
+    }
 
     public function listActivities() {
         $stmt = $this->db->query("SELECT * FROM Actividad");

@@ -1,11 +1,11 @@
 <?php
   //file: /view/messages/messages_es.php
-  $i18n_messages = 
+  $i18n_messages =
   array(
     "Post" => "Artículo",
     "by %s" => "por %s",
     "Posts" => "Artículos",
-    "Title" => "Título",    
+    "Title" => "Título",
     "Contents" => "Contenido",
     "Author" => "Autor",
     "Actions" => "Acciones",
@@ -40,6 +40,10 @@
     "Price" => "Precio",
     "Place" => "Lugar",
     "Monitor" => "Monitor",
-    "Add" => "Añadir"
+    "Add" => "Añadir",
+    "Machine" => "Maquina",
+    "Dificulty" => "Dificultad",
+    "Media" => "Multimedia",
+    "Muscle Group" => "Grupo muscular"
   )
 ?>
