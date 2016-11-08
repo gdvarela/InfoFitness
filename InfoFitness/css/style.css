@@ -1,11 +1,15 @@
-@keyframes backgroundflash {    
+@keyframes backgroundflash {
     75% { opacity:1.0}
     100% {opacity:0.0; display:none}
 }
 
 #flash {
   background-color:green;
-  animation: backgroundflash 5s forwards; 
+  animation: backgroundflash 5s forwards;
+}
+
+.indexlink{
+  text-decoration: none;
 }
 
 .topTable {
@@ -20,4 +24,3 @@
     font-size:14px;
     border: solid 1px black;
 }
-
