@@ -44,6 +44,15 @@
     "Machine" => "Maquina",
     "Dificulty" => "Dificultad",
     "Media" => "Multimedia",
-    "Muscle Group" => "Grupo muscular"
+    "Muscle Group" => "Grupo muscular",
+    "Exercises Management" => "Gestion Ejercicios",
+    "Surnames" => "Apellidos",
+    "ID" => "DNI",
+    "Email" => "Email",
+    "Phone number" => "Telefono",
+    "Birthdate" => "Fecha de nacimiento",
+    "Permissions" => "Permisos",
+    "Alta usuario" => "New user"
+
   )
 ?>
