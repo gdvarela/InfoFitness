@@ -34,22 +34,19 @@
     "English" => "Inglés",
     "Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
     "are you sure?" => "¿Estás seguro?",
-<<<<<<< HEAD
-    "Name" => "Nombre", //**************************************** Clau
-    "Surnames" => "Apellidos",
-    "ID" => "DNI",
-    "Email" => "Email",
-    "Phone number" => "Telefono",
-    "Birthdate" => "Fecha de nacimiento",
-    "Permissions" => "Permisos"
-=======
     "Name" => "Nombre",
     "Max. Assistents" => "Max. Asistentes",
     "Description" => "Descripcion",
     "Price" => "Precio",
     "Place" => "Lugar",
     "Monitor" => "Monitor",
-    "Add" => "Añadir"
->>>>>>> 7c26c6ebd311d67d2164a6838da4e837639c15e3
+    "Add" => "Añadir",
+    "Surnames" => "Apellidos", //**************************************** Clau
+    "ID" => "DNI",
+    "Email" => "Email",
+    "Phone number" => "Telefono",
+    "Birthdate" => "Fecha de nacimiento",
+    "Permissions" => "Permisos"
+
   )
 ?>
