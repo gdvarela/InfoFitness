@@ -88,12 +88,25 @@ class Activity {
         $this->monitor = $monitor;
     }
 
-    public function changeActivity($activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
+    public function changeActivity($activityname=NULL, $max_assis=0, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
         $this->activityName = $activityname;
-        $this->max_assis = $max_assis;
+        $this->max_assis = (integer) $max_assis;
         $this->description = $description;
         $this->price = $price;
         $this->place = $place;
         $this->monitor = (integer) $monitor;
+    }
+
+    public function checkValidForAdd() {
+
+        $errors = array();
+//TODO
+        if (strlen($this->activityName) > 10) {
+            $errors["activityName"] = "Activity Name must be max 100 characters length";
+        }
+
+        if (sizeof($errors)> 0){
+            throw new ValidationException($errors, "Activity is not valid");
+        }
     }
 }

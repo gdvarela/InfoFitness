@@ -67,6 +67,13 @@ class ActivitiesController extends BaseController {
             $this->newActivity->changeActivity($_POST["activityName"], $_POST["activityMaxAssis"], $_POST["activityDes"],
                 $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"]);
 
+            try {
+                $this->newActivity->checkValidForAdd();
+            } catch (ValidationException $ex) {
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
+            }
+
             $this->activityMapper->save($this->newActivity);
             $this->view->redirect("activities", "listActivities");
         } else {
