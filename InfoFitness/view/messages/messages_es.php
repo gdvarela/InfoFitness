@@ -42,7 +42,7 @@
     "Monitor" => "Monitor",
     "Add" => "Añadir",
     "Machine" => "Maquina",
-    "Muscle Group" => "Grupo Muscular",
+    "Muscle group" => "Grupo Muscular",
     "Dificulty" => "Dificultad",
     "Media" => "Multimedia",
     "Exercises Management" => "Gestion Ejercicios",
