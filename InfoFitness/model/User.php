@@ -6,6 +6,8 @@ require_once(__DIR__."/../core/ValidationException.php");
 
 class User {
 
+//añadir atributo idusuario, pero no mostrarlo en el formulario.
+  private $id_usuario;
   private $username;
   private $passwd;
   private $nombre;
@@ -14,18 +16,25 @@ class User {
   private $fechanac;
   private $email;
   private $telef;
-  private $permiso; //el tema de los permisos?????????????
+  private $permiso;
 
-  public function __construct($username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL, $dni, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL) {
+  public function __construct($id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
+  $dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL) {
+
+    $this->id_usuario = $id_usuario;
     $this->username = $username;
     $this->passwd = $passwd;
     $this->nombre = $nombre;
     $this->apellidos = $apellidos;
     $this->dni = $dni;
     $this->fechanac = $fechanac;
-    $this->permiso = $permiso;
+    $this->permiso = (integer) $permiso;
     $this->email = $email;
     $this->telef = $telef;
+  }
+
+  public function getIdUsr() {
+    return $this->id_usuario;
   }
 
   public function getUsername() {

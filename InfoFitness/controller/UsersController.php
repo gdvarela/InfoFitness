@@ -11,27 +11,24 @@ require_once(__DIR__."/../controller/BaseController.php");
 class UsersController extends BaseController {
 
   private $userMapper;
+  private $newUser;
 
   public function __construct() {
     parent::__construct();
 
     $this->userMapper = new UserMapper();
-
-    $this->view->setLayout("welcome");
+    $this->newUser = new User();
+    $this->view->setLayout("default");
   }
 
-  /*public function alta() {
+  public function listUsuario(){
+    $users = $this->userMapper->listarUsuario();
+    $this->view->setVariable("users", $users);
+    $this->view->setVariable("newUser", $this->newUser);
+    $this->view->render("users", "alta");
+  }
 
-      if (isset($_POST["username"])){
 
-          $user = new User($_POST["username"], $_POST["passwd"]);
-
-          $this->userMapper->save($user);
-
-      } else {
-          $this->view->render("users", "alta");
-      }
-  }*/
   public function alta() {
     //$name=NULL,$firstname=NULL, $dni=NULL, $fechanac=NULL, $email=NULL, $telef=NULL
 
@@ -50,10 +47,19 @@ class UsersController extends BaseController {
           //comprobar que el usuario a insertar no existe en la BD
           if(!($this->userMapper->usernameExists($_POST["username"]))) {
 
-            $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
-            $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);
+            /*$user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+            $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);*/
+            $this->newUser->setUsername($_POST["username"]);
+            $this->newUser->setPassword($_POST["passwd"]);
+            $this->newUser->setNombre($_POST["nombre"]);
+            $this->newUser->setApellidos($_POST["apellidos"]);
+            $this->newUser->setDni($_POST["dni"]);
+            $this->newUser->setFechanac($_POST["fechanac"]);
+            $this->newUser->setPermiso($_POST["permiso"]);
+            $this->newUser->setEmail($_POST["email"]);
+            $this->newUser->setTelefono($_POST["telef"]);
 
-            $this->userMapper->save($user);
+            $this->userMapper->save($this->newUser);
 
             echo "Usuario añadido a la BD";
           }else{
@@ -61,7 +67,7 @@ class UsersController extends BaseController {
           }
 
       } else {
-          $this->view->render("users", "alta");
+          $this->view->render("users", "listUsuario");
       }
   }
 
@@ -72,7 +78,7 @@ class UsersController extends BaseController {
 
         $this->userMapper->update($user);
 
-      $this->view->redirect("users", "alta");
+      $this->view->redirect("users", "listUsuario");
     } else {
         throw new Exception("modify only form POST");
     }
@@ -82,7 +88,7 @@ class UsersController extends BaseController {
   public function baja(){
         if(isset($_POST["username"])) {
             $this->userMapper->delete($_POST["username"]);
-            $this->view->redirect("user", "alta");
+            $this->view->redirect("user", "listUsuario");
             echo "Usuario eliminado";
         } else {
             throw new Exception("delete only form POST");
