@@ -59,7 +59,7 @@ CREATE TABLE `Actividad_meta` (
   `id_meta` int(11) NOT NULL AUTO_INCREMENT,
   `id_actividad` int(11) DEFAULT NULL,
   `comienzo` timestamp NULL DEFAULT NULL,
-  `intervalo` bigint(20) DEFAULT NULL,
+  `intervalo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_meta`),
   UNIQUE KEY `id_meta_UNIQUE` (`id_meta`),
   KEY `id_actividad_idx` (`id_actividad`),
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10 12:10:04
+-- Dump completed on 2016-11-10 12:13:34
