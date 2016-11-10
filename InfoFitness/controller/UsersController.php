@@ -67,7 +67,7 @@ class UsersController extends BaseController {
           }
 
       } else {
-          $this->view->render("users", "listUsuario");
+          $this->view->redirect("users", "listUsuario");
       }
   }
 

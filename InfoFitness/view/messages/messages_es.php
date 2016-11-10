@@ -52,7 +52,8 @@
     "Phone number" => "Telefono",
     "Birthdate" => "Fecha de nacimiento",
     "Permissions" => "Permisos",
-    "Alta usuario" => "New user"
+    "Users Management" => "Gestion de Usuarios",
+    "Activities Management" => "Gestion de Actividades"
 
   )
 ?>
