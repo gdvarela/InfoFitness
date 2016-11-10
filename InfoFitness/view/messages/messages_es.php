@@ -32,7 +32,7 @@
     "do comment" => "comentar",
     "Spanish" => "Español",
     "English" => "Inglés",
-    "Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
+    "Welcome to Infofitness App!" => "¡Bienvenido a la App Infofitness!",
     "are you sure?" => "¿Estás seguro?",
     "Name" => "Nombre",
     "Max. Assistents" => "Max. Asistentes",
