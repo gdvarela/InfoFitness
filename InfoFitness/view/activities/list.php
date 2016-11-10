@@ -1,21 +1,12 @@
 <?php
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
-
 $activities = $view->getVariable("activities");
 $newActivity = $view->getVariable("newActivity");
 $monitors = $view->getVariable("monitors");
+$errors = $view->getVariable("errors");
 ?>
-
-<?php
-require_once(__DIR__."/../../core/ViewManager.php");
-$view = ViewManager::getInstance();
-
-$activities = $view->getVariable("activities");
-$newActivity = $view->getVariable("newActivity");
-$monitors = $view->getVariable("monitors");
-?>
-
+<?= isset($errors["activityName"])?$errors["activityName"]:"" ?><br>
 <table>
     <tr class="topTable">
         <th><?= i18n("Name")?></th>
@@ -26,33 +17,32 @@ $monitors = $view->getVariable("monitors");
         <th><?= i18n("Monitor")?></th>
     </tr>
     <?php foreach($activities as $activity): ?>
-        <tr clas="mainTable">
-            <form action="?controller=activities&action=modify" method="POST">
-                <th> <input name="activityName" value="<?= $activity->getActivityName() ?>"> </th>
-                <th> <input type="number" min="1" name="activityMaxAssis" value="<?= $activity->getMaxAssistants() ?>"> </th>
-                <th> <input name="activityDes" value="<?= $activity->getDescription() ?>"> </th>
-                <th> <input type="number" min="0" name="activityPrice" value="<?= $activity->getPrice() ?>">&euro;</th>
-                <th> <input name="activityPlace" value="<?= $activity->getPlace() ?>"> </th>
-                <th> <select name="monitor">
-                        <?php foreach($monitors as $monitor): ?>
-                            <option <?php if($monitor["id_entrenador"]==$activity->getMonitor()){echo "selected";} ?>
-                                value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </th>
-                <th>
-                    <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
-                    <button type="submit"><?= i18n("Modify")?></button>
-                </th>
-            </form>
-            <th>
-                <form action="?controller=activities&action=delete" method="POST">
-                    <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
-                    <button><?= i18n("Delete")?></button>
-                </form>
+    <tr clas="mainTable">
+        <form action="?controller=activities&action=modify" method="POST">
+            <th> <input name="activityName" value="<?= $activity->getActivityName() ?>"> </th>
+            <th> <input type="number" min="1" name="activityMaxAssis" value="<?= $activity->getMaxAssistants() ?>"> </th>
+            <th> <input name="activityDes" value="<?= $activity->getDescription() ?>"> </th>
+            <th> <input type="number" min="0" name="activityPrice" value="<?= $activity->getPrice() ?>">&euro;</th>
+            <th> <input name="activityPlace" value="<?= $activity->getPlace() ?>"> </th>
+            <th> <select name="monitor">
+                    <?php foreach($monitors as $monitor): ?>
+                        <option <?php if($monitor["id_entrenador"]==$activity->getMonitor()){echo "selected";} ?>
+                            value="<?= $monitor["id_entrenador"] ?>"><?= $monitor["nombre"] ?></option>
+                    <?php endforeach; ?>
+                </select>
             </th>
-        </tr>
-        <?= isset($errors["activityName"])?$errors["activityName"]:"" ?><br>
+            <th>
+                <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
+                <button type="submit"><?= i18n("Modify")?></button>
+            </th>
+        </form>
+        <th>
+            <form action="?controller=activities&action=delete" method="POST">
+                <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
+                <button><?= i18n("Delete")?></button>
+            </form>
+        </th>
+    </tr>
     <?php endforeach; ?>
     <tr>
         <form action="?controller=activities&action=add" method="POST">

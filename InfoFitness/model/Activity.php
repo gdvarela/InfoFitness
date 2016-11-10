@@ -100,10 +100,10 @@ class Activity {
     public function checkValidForAdd() {
 
         $errors = array();
-//TODO
         if (strlen($this->activityName) > 10) {
-            $errors["activityName"] = "Activity Name must be max 100 characters length";
+            $errors["activityName"] = "Activity Name length must be max 100 characters length";
         }
+
 
         if (sizeof($errors)> 0){
             throw new ValidationException($errors, "Activity is not valid");

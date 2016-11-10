@@ -18,7 +18,7 @@ class ActivityMapper {
 
         foreach ($list_db as $activity) {
             array_push($activities, new Activity($activity["id_actividad"], $activity["nombre"], $activity["max_asistentes"],
-                $activity["descricion"], $activity["precio"], $activity["lugar"], $activity["monitor"]));
+                $activity["descripcion"], $activity["precio"], $activity["lugar"], $activity["monitor"]));
         }
 
         return $activities;
@@ -32,13 +32,13 @@ class ActivityMapper {
     }
 
     public function save($activity) {
-        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descricion, precio, lugar, monitor) values(?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descripcion, precio, lugar, monitor) values(?,?,?,?,?,?)");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
             $activity->getPrice(), $activity->getPlace(), $activity->getMonitor()));
     }
 
     public function update($activity) {
-        $stmt = $this->db->prepare("UPDATE Actividad set nombre=?, max_asistentes=?, descricion=?, precio=?,
+        $stmt = $this->db->prepare("UPDATE Actividad set nombre=?, max_asistentes=?, descripcion=?, precio=?,
             lugar=?  where id_actividad=?");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
             $activity->getPrice(), $activity->getPlace(), $activity->getId()));

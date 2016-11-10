@@ -12,6 +12,7 @@ class ActivitiesController extends BaseController {
 
     private $activityMapper;
     private $newActivity;
+    private $errors = array();
 
     public function __construct() {
         parent::__construct();
@@ -30,6 +31,11 @@ class ActivitiesController extends BaseController {
         $this->view->setVariable("activities", $activities);
 
         $this->view->setVariable("newActivity", $this->newActivity);
+
+        if(!empty($this->errors)){
+            $this->view->setVariable("errors", $this->errors);
+            $this->errors = null;
+        }
 
         $monitors = $this->activityMapper->listMonitors();
         $this->view->setVariable("monitors", $monitors);
@@ -69,13 +75,13 @@ class ActivitiesController extends BaseController {
 
             try {
                 $this->newActivity->checkValidForAdd();
+                $this->activityMapper->save($this->newActivity);
+                $this->newActivity = null;
+                $this->view->redirect("activities", "listActivities");
             } catch (ValidationException $ex) {
-                $errors = $ex->getErrors();
-                $this->view->setVariable("errors", $errors);
+                $this->errors = $ex->getErrors();
             }
-
-            $this->activityMapper->save($this->newActivity);
-            $this->view->redirect("activities", "listActivities");
+            $this->listActivities();
         } else {
             throw new Exception("add only form POST");
         }
