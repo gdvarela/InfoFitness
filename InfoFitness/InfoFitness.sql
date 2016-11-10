@@ -35,7 +35,7 @@ CREATE TABLE `Actividad` (
   PRIMARY KEY (`id_actividad`),
   KEY `monitor` (`monitor`),
   CONSTRAINT `monitor` FOREIGN KEY (`monitor`) REFERENCES `Monitor` (`id_entrenador`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `Actividad` (
 
 LOCK TABLES `Actividad` WRITE;
 /*!40000 ALTER TABLE `Actividad` DISABLE KEYS */;
-INSERT INTO `Actividad` VALUES (1,'Spinning',50,'Pedalear a tope',0,'Sala de spinning',NULL),(13,'Aerodance',30,'Bailar a tope',0,'Sala de actividades',NULL),(14,'Circuit Fit',35,'A sudar todos',0,'Sala de actividades',NULL),(15,'Pilates',40,'Clase de pilates',4,'Sala de actividades',NULL),(16,'Tai Chi',45,'Clase de tai chi tope zen tetes',6,'Sala de Actividades',NULL);
+INSERT INTO `Actividad` VALUES (1,'Spinning',50,'Pedalear a tope',0,'Sala de spinning',3),(13,'Aerodance',30,'Bailar a tope',0,'Sala de actividades',4),(14,'Circuit Fit',35,'A sudar todos',0,'Sala de actividades',4),(15,'Pilates',40,'Clase de pilates',4,'Sala de actividades',4),(16,'Tai Chi',45,'Clase de tai chi tope zen tetes',6,'Sala de Actividades',3);
 /*!40000 ALTER TABLE `Actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +91,7 @@ CREATE TABLE `Deportista` (
   `tipo_tarjeta` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id_deportista`),
   UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`),
-  CONSTRAINT `id_usuario_deportista` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_usuario_deportista` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -210,7 +210,7 @@ CREATE TABLE `Sesion` (
   KEY `id_tabla_sesion_idx` (`id_tabla`),
   CONSTRAINT `id_actividad_sesion` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_tabla_sesion` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_usuario_sesion` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_usuario_sesion` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE SET NULL ON UPDATE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -261,8 +261,8 @@ CREATE TABLE `Tabla_Ejercicios_Deportista` (
   `id_deportista` int(11) NOT NULL,
   PRIMARY KEY (`id_tabla`,`id_deportista`),
   KEY `id_tabla_deportista_idx` (`id_deportista`),
-  CONSTRAINT `id_tabla_deportista` FOREIGN KEY (`id_deportista`) REFERENCES `Deportista` (`id_deportista`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_tabla_ejercicios` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_tabla_deportista` FOREIGN KEY (`id_deportista`) REFERENCES `Deportista` (`id_deportista`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_tabla_ejercicios` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -288,8 +288,8 @@ CREATE TABLE `Tabla_Ejercicios_Detalles` (
   `id_ejercicio` int(11) NOT NULL,
   PRIMARY KEY (`id_tabla`,`id_ejercicio`),
   KEY `id_ejercicio_idx` (`id_ejercicio`),
-  CONSTRAINT `id_ejercicio` FOREIGN KEY (`id_ejercicio`) REFERENCES `Ejercicio` (`id_ejercicio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_tabla` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_ejercicio` FOREIGN KEY (`id_ejercicio`) REFERENCES `Ejercicio` (`id_ejercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_tabla` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10 12:17:40
+-- Dump completed on 2016-11-10 16:17:09
