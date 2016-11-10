@@ -56,12 +56,12 @@ DROP TABLE IF EXISTS `Actividad_meta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Actividad_meta` (
+  `id_meta` int(11) NOT NULL AUTO_INCREMENT,
   `id_actividad` int(11) DEFAULT NULL,
   `comienzo` timestamp NULL DEFAULT NULL,
   `intervalo` bigint(20) DEFAULT NULL,
-  `id_meta` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_meta`),
-  UNIQUE KEY `id_actividad_UNIQUE` (`id_actividad`),
+  UNIQUE KEY `id_meta_UNIQUE` (`id_meta`),
   KEY `id_actividad_idx` (`id_actividad`),
   CONSTRAINT `id_actividad` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -73,7 +73,7 @@ CREATE TABLE `Actividad_meta` (
 
 LOCK TABLES `Actividad_meta` WRITE;
 /*!40000 ALTER TABLE `Actividad_meta` DISABLE KEYS */;
-INSERT INTO `Actividad_meta` VALUES (13,'2016-11-10 10:49:13',32000,2),(1,'2016-10-10 10:00:00',65000,3),(14,'2016-11-07 07:50:13',45000,4);
+INSERT INTO `Actividad_meta` VALUES (2,13,'2016-11-10 10:49:13',32000),(3,1,'2016-10-10 10:00:00',65000),(4,14,'2016-11-07 07:50:13',45000);
 /*!40000 ALTER TABLE `Actividad_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10 11:56:07
+-- Dump completed on 2016-11-10 12:10:04
