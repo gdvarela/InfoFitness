@@ -57,13 +57,13 @@ DROP TABLE IF EXISTS `Actividad_meta`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Actividad_meta` (
   `id_meta` int(11) NOT NULL AUTO_INCREMENT,
-  `id_actividad` int(11) DEFAULT NULL,
-  `comienzo` timestamp NULL DEFAULT NULL,
-  `intervalo` int(11) DEFAULT NULL,
+  `id_actividad_meta` int(11) DEFAULT NULL,
+  `comienzo_actividad` timestamp NULL DEFAULT NULL,
+  `intervalo_actividad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_meta`),
   UNIQUE KEY `id_meta_UNIQUE` (`id_meta`),
-  KEY `id_actividad_idx` (`id_actividad`),
-  CONSTRAINT `id_actividad` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `id_actividad_idx` (`id_actividad_meta`),
+  CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10 12:13:34
+-- Dump completed on 2016-11-10 12:17:40
