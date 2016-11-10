@@ -34,9 +34,9 @@ $newUser = $view->getVariable("newUser");
                     <th> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </th>
                     <th> <input name="telef" value="<?= $user->getTelefono() ?>"> </th>
                     <th> <select name="permiso">
-                          <option value="0"><?i18n("Deportista") ?></option>
-                          <option value="1"><?i18n("Entrenador") ?></option>
-                          <option value="2"><?i18n("Admin") ?></option>
+                          <option <?php if($user->getPermiso()==0){echo "selected";} ?> value="0"><?=i18n("Athlete") ?></option>
+                          <option <?php if($user->getPermiso()==1){echo "selected";} ?> value="1"><?=i18n("Coach") ?></option>
+                          <option <?php if($user->getPermiso()==2){echo "selected";} ?> value="2"><?=i18n("Administrator") ?></option>
                         </select>
                     </th>
                     <th>
@@ -59,13 +59,13 @@ $newUser = $view->getVariable("newUser");
               <th> <input name="nombre" value="<?= $newUser->getNombre() ?>"> </th>
               <th> <input name="apellidos" value="<?= $newUser->getApellidos() ?>"> </th>
               <th> <input name="dni" value="<?= $newUser->getDni() ?>"> </th>
-              <th> <input name="fechanac" value="<?= $newUser->getFechanac() ?>"> </th>
-              <th> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </th>
+              <th> <input type="date" name="fechanac" value="<?= $newUser->getFechanac() ?>"> </th>
+              <th> <input type="email" name="email" value="<?= $newUser->getEmail() ?>"> </th>
               <th> <input name="telef" value="<?= $newUser->getTelefono() ?>"> </th>
               <th> <select name="permiso">
-                    <option value="0"><?i18n("Deportista") ?></option>
-                    <option value="1"><?i18n("Entrenador") ?></option>
-                    <option value="2"><?i18n("Admin") ?></option>
+                    <option value="0"><?=i18n("Athlete") ?></option>
+                    <option value="1"><?=i18n("Coach") ?></option>
+                    <option value="2"><?=i18n("Administrator") ?></option>
                   </select>
               </th>
 

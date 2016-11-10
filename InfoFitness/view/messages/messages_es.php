@@ -53,7 +53,9 @@
     "Birthdate" => "Fecha de nacimiento",
     "Permissions" => "Permisos",
     "Users Management" => "Gestion de Usuarios",
-    "Activities Management" => "Gestion de Actividades"
-
+    "Activities Management" => "Gestion de Actividades",
+    "Athlete" => "Deportista",
+    "Administrator" => "Administrador",
+    "Coach" => "Entrenador"
   )
 ?>

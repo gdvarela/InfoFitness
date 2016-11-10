@@ -18,8 +18,10 @@ class UserMapper {
       $users = array();
 
       foreach ($list_db as $user) {
-          array_push($users, new User($user["id_usuario"], $user["login"], $user["dni"], $user["nombre"], $user["apellidos"],
-              $user["mail"], $user["contraseña"], $user["permisos"], $user["telefono"], $user["fecha_nacimiento"]));
+        //$id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
+        //$dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL
+          array_push($users, new User($user["id_usuario"], $user["login"], $user["contraseña"], $user["nombre"], $user["apellidos"], $user["dni"],
+              $user["fecha_nacimiento"], $user["permisos"], $user["mail"], $user["telefono"]));
       }
 
       return $users;
@@ -31,7 +33,7 @@ class UserMapper {
     $stmt = $this->db->prepare("INSERT INTO Usuario (login, dni, nombre, apellidos, mail, contraseña, permisos, telefono, fecha_nacimiento)
     values (?,?,?,?,?,?,?,?,?)");
     $stmt->execute(array($user->getUsername(), $user->getDni(), $user->getNombre(), $user->getApellidos(), $user->getEmail(),
-     $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac()));
+    $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac()));
   }
 
   //Usuario existente??
@@ -61,9 +63,9 @@ class UserMapper {
   //actualizar/modificar usuario en la BD
   public function update($user) {
       $stmt = $this->db->prepare("UPDATE Usuario set login=?, nombre=?, apellidos=?, mail=?, contraseña=?,
-          permisos=?, telefono=?, fecha_nacimiento=?  where dni=?");
+          permisos=?, telefono=?, fecha_nacimiento=?, dni= ? where id_usuario=?");
       $stmt->execute(array($user->getUsername(), $user->getNombre(), $user->getApellidos(),
-          $user->getEmail(), $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac(), $user->getDni()));
+          $user->getEmail(), $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac(), $user->getDni(), $user->getIdUsr()));
   }
 
   //eliminar usuario de la BD
