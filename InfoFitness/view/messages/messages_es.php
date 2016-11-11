@@ -56,6 +56,11 @@
     "Activities Management" => "Gestion de Actividades",
     "Athlete" => "Deportista",
     "Administrator" => "Administrador",
-    "Coach" => "Entrenador"
+    "Coach" => "Entrenador",
+    "Tables Management" => "Gestion de Tablas",
+    "Details" => "Detalles",
+    "Table Exercises" => "Ejercicios Tabla",
+    "Add Exercises" => "Añadir ejercicios"
+
   )
 ?>
