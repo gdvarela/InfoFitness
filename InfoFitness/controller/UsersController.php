@@ -21,6 +21,27 @@ class UsersController extends BaseController {
     $this->view->setLayout("default");
   }
 
+    public function login() {
+        if (isset($_POST["username"])){ // reaching via HTTP Post...
+            //process login form
+            if ($this->userMapper->isValidUser($_POST["username"], $_POST["passwd"])) {
+
+                $_SESSION["currentuser"] = $_POST["username"];
+                $_SESSION["type"] =
+                // send user to the restricted area (HTTP 302 code)
+                $this->view->redirect("index", "welcome");
+
+            } else {
+                $errors = array();
+                $errors["general"] = "Username is not valid";
+                $this->view->setVariable("errors", $errors);
+            }
+        }
+
+        // render the view (/view/users/login.php)
+        $this->view->render("users", "login");
+    }
+
   public function listUsuario(){
     $users = $this->userMapper->listarUsuario();
     $this->view->setVariable("users", $users);

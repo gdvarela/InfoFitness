@@ -50,15 +50,18 @@ class UserMapper {
 
   //usuario y contraseña valido????
   public function isValidUser($username, $passwd) {
-    $stmt = $this->db->prepare("SELECT count(login) FROM Usuario where login=? and contraseña=?");
+    $stmt = $this->db->prepare("SELECT * FROM Usuario where login=? and contraseña=?");
     $stmt->execute(array($username, $passwd));
 
     if ($stmt->fetchColumn() > 0) {
+
+       $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return true;
     }else{
       return false;
     }
   }
+
 
   //actualizar/modificar usuario en la BD
   public function update($user) {
