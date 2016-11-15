@@ -86,5 +86,9 @@ class ActivitiesController extends BaseController {
             throw new Exception("add only form POST");
         }
     }
+
+    public function  assistanceControl() {
+        $activities = $this->activityMapper->listActivities();
+    }
 }
 ?>
