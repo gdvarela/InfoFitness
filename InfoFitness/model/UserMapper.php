@@ -68,10 +68,22 @@ class UserMapper
     public function save($user)
     {
 
-        $stmt = $this->db->prepare("INSERT INTO Usuario (login, dni, nombre, apellidos, mail, contraseña, permisos, telefono, fecha_nacimiento)
+        $stmt = $this->db->prepare("INSERT INTO usuario (login, dni, nombre, apellidos, mail, contraseña, permisos, telefono, fecha_nacimiento)
     values (?,?,?,?,?,?,?,?,?)");
         $stmt->execute(array($user->getUsername(), $user->getDni(), $user->getNombre(), $user->getApellidos(), $user->getEmail(),
             $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac()));
+
+
+            //************************************PREGUNTAR SI ID_USUARIO AL SER FK TAMBIEN HAY QUE INSERTARLA***********
+            if($user->getPermiso()==0){
+              $stmt = $this->db->prepare("INSERT INTO deportista (tipo_tarjeta, comentario) values (?,?)");
+              $stmt->execute(array($user->getTipoDeportista(), $user->getComentario()));
+            }
+
+            if($user->getPermiso()==1){
+              $stmt = $this->db->prepare("INSERT INTO monitor (jornada) values (?)");
+              $stmt->execute(array($user->getJornada()));
+            }
     }
 
     //Usuario existente??
@@ -91,13 +103,13 @@ class UserMapper
     public function validUser($username, $passwd)
     {
 
-        $stmt = $this->db->query("SELECT * FROM Usuario where login= '$username' and contraseña= '$passwd'");
+        $stmt = $this->db->query("SELECT * FROM usuario where login= '$username' and contraseña= '$passwd'");
         $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if(sizeof($user_db) == 1) {
             $user_db = $user_db[0];
             $user = new User($user_db["id_usuario"], $user_db["login"], $user_db["contraseña"], $user_db["nombre"], $user_db["apellidos"], $user_db["dni"],
-                $user_db["fecha_nacimiento"], $user_db["permisos"], $user_db["mail"], $user_db["telefono"],NULL,NULL);
+                $user_db["fecha_nacimiento"], $user_db["permisos"], $user_db["mail"], $user_db["telefono"],NULL,NULL,NULL);
 
             return $user;
         } else {
@@ -110,10 +122,21 @@ class UserMapper
     //actualizar/modificar usuario en la BD
     public function update($user)
     {
-        $stmt = $this->db->prepare("UPDATE Usuario set login=?, nombre=?, apellidos=?, mail=?, contraseña=?,
+        $stmt = $this->db->prepare("UPDATE usuario set login=?, nombre=?, apellidos=?, mail=?, contraseña=?,
           permisos=?, telefono=?, fecha_nacimiento=?, dni= ? where id_usuario=?");
         $stmt->execute(array($user->getUsername(), $user->getNombre(), $user->getApellidos(),
             $user->getEmail(), $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac(), $user->getDni(), $user->getIdUsr()));
+
+            //************************************PREGUNTAR SI ID_USUARIO AL SER FK TAMBIEN HAY QUE INSERTARLA***********
+            if($user->getPermiso()==0){
+              $stmt = $this->db->prepare("UPDATE deportista set tipo_tarjeta=?, comentario=? where id_usuario=?");
+              $stmt->execute(array($user->getTipoDeportista(), $user->getComentario()));
+            }
+
+            if($user->getPermiso()==1){
+              $stmt = $this->db->prepare("UPDATE monitor set jornada=? where id_usuario=?");
+              $stmt->execute(array($user->getJornada()));
+            }
     }
 
     //eliminar usuario de la BD
