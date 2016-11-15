@@ -90,5 +90,20 @@ class ActivitiesController extends BaseController {
     public function  assistanceControl() {
         $activities = $this->activityMapper->listActivities();
     }
+
+    public function  slotsControl() {
+        $activities = $this->activityMapper->listActivities();
+        $this->view->setVariable("activities", $activities);
+
+        $this->view->render("activities", "slots");
+
+    }
+
+    public function  reserve() {
+
+        $this->view->setVariable("activity", $_POST["activityName"]);
+        $this->view->render("activities", "reserve");
+
+    }
 }
 ?>
