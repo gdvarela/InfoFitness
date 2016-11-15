@@ -1,6 +1,11 @@
 <?php
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
+
+if($_SESSION["type"] != 2) {
+    $view->redirect("index", "unauthorized");
+}
+
 $activities = $view->getVariable("activities");
 $newActivity = $view->getVariable("newActivity");
 $monitors = $view->getVariable("monitors");
