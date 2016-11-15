@@ -1,33 +1,37 @@
 <?php
 
-require_once(__DIR__."/../core/ViewManager.php");
-require_once(__DIR__."/../core/I18n.php");
+require_once(__DIR__ . "/../core/ViewManager.php");
+require_once(__DIR__ . "/../core/I18n.php");
 
-require_once(__DIR__."/../model/User.php");
-require_once(__DIR__."/../model/UserMapper.php");
+require_once(__DIR__ . "/../model/User.php");
+require_once(__DIR__ . "/../model/UserMapper.php");
 
-require_once(__DIR__."/../controller/BaseController.php");
+require_once(__DIR__ . "/../controller/BaseController.php");
 
-class UsersController extends BaseController {
+class UsersController extends BaseController
+{
 
-  private $userMapper;
-  private $newUser;
+    private $userMapper;
+    private $newUser;
 
-  public function __construct() {
-    parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
-    $this->userMapper = new UserMapper();
-    $this->newUser = new User();
-    $this->view->setLayout("default");
-  }
+        $this->userMapper = new UserMapper();
+        $this->newUser = new User();
+        $this->view->setLayout("default");
+    }
 
-    public function login() {
-        if (isset($_POST["username"])){ // reaching via HTTP Post...
+    public function login()
+    {
+        if (isset($_POST["username"])) { // reaching via HTTP Post...
             //process login form
-            if ($this->userMapper->isValidUser($_POST["username"], $_POST["passwd"])) {
+            $user = $this->userMapper->validUser($_POST["username"], $_POST["passwd"]);
+            if (isset($user)) {
 
                 $_SESSION["currentuser"] = $_POST["username"];
-                $_SESSION["type"] =
+                $_SESSION["type"] = $user->getPermiso();
                 // send user to the restricted area (HTTP 302 code)
                 $this->view->redirect("index", "welcome");
 
@@ -42,27 +46,29 @@ class UsersController extends BaseController {
         $this->view->render("users", "login");
     }
 
-  public function listUsuario(){
-    $users = $this->userMapper->listarUsuario();
-    $this->view->setVariable("users", $users);
-    $this->view->setVariable("newUser", $this->newUser);
-    $this->view->render("users", "alta");
-  }
+    public function listUsuario()
+    {
+        $users = $this->userMapper->listarUsuario();
+        $this->view->setVariable("users", $users);
+        $this->view->setVariable("newUser", $this->newUser);
+        $this->view->render("users", "alta");
+    }
 
 
-  public function alta() {
+    public function alta()
+    {
 
-      //si los campos del formulario no estan vacios
-      if (isset($_POST["username"])
-              && isset($_POST["passwd"])
-              && isset($_POST["nombre"])
-              && isset($_POST["apellidos"])
-              && isset($_POST["dni"])
-              && isset($_POST["fechanac"])
-              && isset($_POST["email"])
-              && isset($_POST["telef"])
-              && isset($_POST["permiso"])){
-
+        //si los campos del formulario no estan vacios
+        if (isset($_POST["username"])
+            && isset($_POST["passwd"])
+            && isset($_POST["nombre"])
+            && isset($_POST["apellidos"])
+            && isset($_POST["dni"])
+            && isset($_POST["fechanac"])
+            && isset($_POST["email"])
+            && isset($_POST["telef"])
+            && isset($_POST["permiso"])
+        ) {
 
 
             /*$user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
@@ -77,66 +83,68 @@ class UsersController extends BaseController {
             $this->newUser->setEmail($_POST["email"]);
             $this->newUser->setTelefono($_POST["telef"]);
 
-            try{
+            try {
                 //comprobar que los datos recibidos del formulario son validos
-              //  $this->newUser->checkIsValidForRegister();
+                //  $this->newUser->checkIsValidForRegister();
 
                 //comprobar que el usuario a insertar no existe en la BD
-                if(!($this->userMapper->usernameExists($_POST["username"]))) {
+                if (!($this->userMapper->usernameExists($_POST["username"]))) {
 
-                  //echo "Usuario añadido a la BD";
-                  $this->userMapper->save($this->newUser);
-                //  $this->newUser = null;
-                  $this->view->setFlash("Usuario añadido a la BD");
-                  $this->view->redirect("users", "listUsuario");
+                    //echo "Usuario añadido a la BD";
+                    $this->userMapper->save($this->newUser);
+                    //  $this->newUser = null;
+                    $this->view->setFlash("Usuario añadido a la BD");
+                    $this->view->redirect("users", "listUsuario");
 
-                //si ya existe el usuario
-                }else{
-                  $errors = array();
-              	  $errors["username"] = "Username already exists";
-              	  $this->view->setVariable("errors", $errors);
+                    //si ya existe el usuario
+                } else {
+                    $errors = array();
+                    $errors["username"] = "Username already exists";
+                    $this->view->setVariable("errors", $errors);
                 }
 
-            }catch(ValidationException $ex) {
-              	// Obtener los errores de la validacion
-              	$errors = $ex->getErrors();
-              	$this->view->setVariable("errors", $errors);
+            } catch (ValidationException $ex) {
+                // Obtener los errores de la validacion
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
             }
 
             $this->listUsuario();
 
-        }else {
-                $this->view->redirect("users", "listUsuario");
-                //throw new Exception("Add only form POST");
+        } else {
+            $this->view->redirect("users", "listUsuario");
+            //throw new Exception("Add only form POST");
 
         }
 
-  }//fin funcion alta
+    }//fin funcion alta
 
-  public function modificar(){
-      if(isset($_POST["id_usuario"])) {
-          $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
-           $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);
+    public function modificar()
+    {
+        if (isset($_POST["id_usuario"])) {
+            $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);
 
-           try{
+            try {
                 $this->user->checkIsValidForRegister();
                 $this->userMapper->update($user);
-           }catch(ValidationException $ex) {
-               // Obtener los errores de la validacion
-               $errors = $ex->getErrors();
-               $this->view->setVariable("errors", $errors);
-           }
+            } catch (ValidationException $ex) {
+                // Obtener los errores de la validacion
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
+            }
 
 
-        $this->view->redirect("users", "listUsuario");
-      } else {
-          throw new Exception("modify only form POST");
-      }
-  }
+            $this->view->redirect("users", "listUsuario");
+        } else {
+            throw new Exception("modify only form POST");
+        }
+    }
 
 
-  public function baja(){
-        if(isset($_POST["id_usuario"])) {
+    public function baja()
+    {
+        if (isset($_POST["id_usuario"])) {
             $this->userMapper->delete($_POST["id_usuario"]);
             $this->view->redirect("users", "listUsuario");
             echo "Usuario eliminado";
@@ -145,4 +153,4 @@ class UsersController extends BaseController {
         }
     }
 
-  }
+}
