@@ -12,8 +12,13 @@ class Activity {
     private $price;
     private $place;
     private $monitor;
+    private $startTime;
+    private $endTime;
+    private $date;
+    private $period;
 
-    public function __construct($id=NULL, $activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
+    public function __construct($id=NULL, $activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL,
+                                $monitor=NULL, $startTime=NULL, $endTime=NULL, $date=NULL, $period=NULL) {
         $this->id = $id;
         $this->activityName = $activityname;
         $this->max_assis = $max_assis;
@@ -21,6 +26,10 @@ class Activity {
         $this->price = $price;
         $this->place = $place;
         $this->monitor = $monitor;
+        $this->startTime = $startTime;
+        $this->endTime = $endTime;
+        $this->date = $date;
+        $this->period = $period;
     }
 
     public function getId()
@@ -88,6 +97,47 @@ class Activity {
         $this->monitor = $monitor;
     }
 
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
+
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+    }
+
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
+
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    public function getPeriod()
+    {
+        return $this->period;
+    }
+
+    public function setPeriod($period)
+    {
+        $this->period = $period;
+    }
+
+
     public function changeActivity($activityname=NULL, $max_assis=0, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
         $this->activityName = $activityname;
         $this->max_assis = (integer) $max_assis;
@@ -104,7 +154,6 @@ class Activity {
         if (strlen($this->activityName) > 10) {
             $errors["activityName"] = "Activity Name length must be max 100 characters length";
         }
-
 
         if (sizeof($errors)> 0){
             throw new ValidationException($errors, "Activity is not valid");
