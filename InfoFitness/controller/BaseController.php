@@ -30,7 +30,7 @@ class BaseController
             //add current user to the view, since some views require it
             $this->view->setVariable("currentusername", $this->currentUser->getUsername());
         } else {
-            $this->view->redirect("users", "login");
+            $this->view->render("users", "login");
         }
     }
 }
