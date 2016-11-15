@@ -334,7 +334,7 @@ CREATE TABLE `Usuario` (
 
 LOCK TABLES `Usuario` WRITE;
 /*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','dshfbfb',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356',NULL),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1973-02-11'),(8,'test','12345678A','Test','Test','Test@Test.test','test',3,'111111111',NULL);
+INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','dshfbfb',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356',NULL),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1973-02-11');
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-15 11:48:33
+-- Dump completed on 2016-11-15 12:15:16

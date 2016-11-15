@@ -18,13 +18,14 @@ class IndexController extends BaseController
             case 2:
                 $this->view->render("index", "admin");
                 break;
-            case 3:
-                $this->view->render("index", "test");
-                break;
             default:
                 $this->view->render("index", "error");
                 break;
         }
+    }
+
+    public function unauthorized() {
+        $this->view->render("index", "unauthorized");
     }
 }
 
