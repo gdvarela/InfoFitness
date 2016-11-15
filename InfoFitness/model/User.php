@@ -17,9 +17,12 @@ class User {
   private $email;
   private $telef;
   private $permiso;
+  private $tipo_deportista;
+  private $comentario;
+  private $jornada_laboral;
 
   public function __construct($id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
-  $dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL) {
+  $dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL, $tipo_deportista=NULL, $comentario=NULL, $jornada_laboral=NULL) {
 
     $this->id_usuario = $id_usuario;
     $this->username = $username;
@@ -31,6 +34,9 @@ class User {
     $this->permiso = (integer) $permiso;
     $this->email = $email;
     $this->telef = $telef;
+    $this->tipo_deportista = $tipo_deportista;
+    $this->comentario = $comentario;
+    $this->jornada_laboral = $jornada_laboral;
   }
 
   public function getIdUsr() {
@@ -107,6 +113,30 @@ class User {
 
   public function setPermiso($permiso) {
     $this->permiso = $permiso;
+  }
+
+  public function getTipoDeportista() {
+    return $this->tipo_deportista;
+  }
+
+  public function setTipoDeportista() {
+   $this->tipo_deportista=$tipo_deportista;
+  }
+
+  public function getComentario() {
+    return $this->comentario;
+  }
+
+  public function setComentario($comentario) {
+    $this->comentario = $comentario;
+  }
+
+  public function getJornada(){
+    return $this->jornada_laboral;
+  }
+
+  public function setJornada($jornada_laboral){
+    $this->jornada_laboral = $jornada_laboral;
   }
 
   public function checkIsValidForRegister() {

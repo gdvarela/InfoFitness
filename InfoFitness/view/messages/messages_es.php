@@ -60,7 +60,10 @@
     "Tables Management" => "Gestion de Tablas",
     "Details" => "Detalles",
     "Table Exercises" => "Ejercicios Tabla",
-    "Add Exercises" => "Añadir ejercicios"
+    "Add Exercises" => "Añadir ejercicios",
+    "Type" => "Tipo",
+    "Comment" => "Comentario",
+    "Working hours" => "Jornada laboral"
 
   )
 ?>

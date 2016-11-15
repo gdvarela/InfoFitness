@@ -48,11 +48,19 @@ class UsersController extends BaseController
 
     public function listUsuario()
     {
-        $users = $this->userMapper->listarUsuario();
+        $users = $this->userMapper->listarDeportista();
         $this->view->setVariable("users", $users);
-        $this->view->setVariable("newUser", $this->newUser);
+        //$this->view->setVariable("newUser", $this->newUser);
+      //  $this->view->render("users", "alta");
+
+        $monitores= $this->userMapper->listarMonitor();
+        $this->view->setVariable("monitores", $monitores);
+
+        $admins= $this->userMapper->listarAdmin();
+        $this->view->setVariable("admins", $admins);
         $this->view->render("users", "alta");
     }
+
 
 
     public function alta()
@@ -123,7 +131,7 @@ class UsersController extends BaseController
     {
         if (isset($_POST["id_usuario"])) {
             $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
-                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"]);
+                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], $_POST["tipo_deportista"], $_POST["comentario"]);
 
             try {
                 $this->user->checkIsValidForRegister();
