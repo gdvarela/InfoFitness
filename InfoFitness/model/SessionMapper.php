@@ -12,8 +12,13 @@ class SessionMapper {
 public function listSessions() {
   $id=$_SESSION["userId"];
   $stmt = $this->db->query("SELECT * FROM Sesion WHERE id_usuario=$id");
-  $sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $sessions = array();
 
+  foreach ($list_db as $session) {
+      array_push($sessions, new Sesion($session["id_sesion"],$session["fecha"], $session["id_usuario"],
+              $session["comentario"],$session["id_tabla"]));
+  }
 
   return $sessions;
 
