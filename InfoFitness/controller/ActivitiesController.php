@@ -1,20 +1,22 @@
 <?php
 
-require_once(__DIR__."/../core/ViewManager.php");
-require_once(__DIR__."/../core/I18n.php");
+require_once(__DIR__ . "/../core/ViewManager.php");
+require_once(__DIR__ . "/../core/I18n.php");
 
-require_once(__DIR__."/../model/Activity.php");
-require_once(__DIR__."/../model/ActivityMapper.php");
+require_once(__DIR__ . "/../model/Activity.php");
+require_once(__DIR__ . "/../model/ActivityMapper.php");
 
-require_once(__DIR__."/../controller/BaseController.php");
+require_once(__DIR__ . "/../controller/BaseController.php");
 
-class ActivitiesController extends BaseController {
+class ActivitiesController extends BaseController
+{
 
     private $activityMapper;
     private $newActivity;
     private $errors = array();
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->activityMapper = new ActivityMapper();
@@ -25,15 +27,15 @@ class ActivitiesController extends BaseController {
         $this->view->setLayout("default");
     }
 
-    public function listActivities() {
+    public function listActivities()
+    {
 
         $activities = $this->activityMapper->listActivities();
         $this->view->setVariable("activities", $activities);
 
-        echo $_SESSION["currentuser"];
         $this->view->setVariable("newActivity", $this->newActivity);
 
-        if(!empty($this->errors)){
+        if (!empty($this->errors)) {
             $this->view->setVariable("errors", $this->errors);
             $this->errors = null;
         }
@@ -44,11 +46,13 @@ class ActivitiesController extends BaseController {
         $this->view->render("activities", "list");
     }
 
-    public function modify() {
+    public function modify()
+    {
 
-        if(isset($_POST["activityId"])) {
+        if (isset($_POST["activityId"])) {
             $activity = new Activity($_POST["activityId"], $_POST["activityName"], $_POST["activityMaxAssis"],
-                $_POST["activityDes"], $_POST["activityPrice"], $_POST["activityPlace"]);
+                $_POST["activityDes"], $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"], $_POST["startTime"],
+                $_POST["endTime"], $_POST["day"]);
 
             $this->activityMapper->update($activity);
 
@@ -58,9 +62,10 @@ class ActivitiesController extends BaseController {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
 
-        if(isset($_POST["activityId"])) {
+        if (isset($_POST["activityId"])) {
             $this->activityMapper->delete($_POST["activityId"]);
             $this->view->redirect("activities", "listActivities");
         } else {
@@ -68,11 +73,13 @@ class ActivitiesController extends BaseController {
         }
     }
 
-    public function add() {
+    public function add()
+    {
 
-        if(isset($_POST["activityName"])) {
+        if (isset($_POST["activityName"])) {
             $this->newActivity->changeActivity($_POST["activityName"], $_POST["activityMaxAssis"], $_POST["activityDes"],
-                $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"]);
+                $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"], $_POST["startTime"], $_POST["endTime"],
+                $_POST["day"]);
 
             try {
                 $this->newActivity->checkValidForAdd();
@@ -88,23 +95,34 @@ class ActivitiesController extends BaseController {
         }
     }
 
-    public function  assistanceControl() {
+    public function assistanceControl()
+    {
         $activities = $this->activityMapper->listActivities();
     }
 
-    public function  slotsControl() {
-        $activities = $this->activityMapper->listActivities();
-        $this->view->setVariable("activities", $activities);
+    public function slotsControl()
+    {
+        $unreservedActivities = $this->activityMapper->listUnreservedActivities($_SESSION["userId"]);
+        $reservedActivities = $this->activityMapper->listReservedActivities($_SESSION["userId"]);
+
+        $this->view->setVariable("unreservedActivities", $unreservedActivities);
+        $this->view->setVariable("reservedActivities", $reservedActivities);
 
         $this->view->render("activities", "slots");
 
     }
 
-    public function  reserve() {
+    public function reserve()
+    {
+        $this->activityMapper->reserve($_SESSION["userId"], $_POST["activityId"]);
+        $this->view->redirect("activities", "slotsControl");
+    }
 
-        $this->view->setVariable("activity", $_POST["activityName"]);
-        $this->view->render("activities", "reserve");
-
+    public function unreserve()
+    {
+        $this->activityMapper->unReserve($_SESSION["userId"], $_POST["activityId"]);
+        $this->view->redirect("activities", "slotsControl");
     }
 }
+
 ?>

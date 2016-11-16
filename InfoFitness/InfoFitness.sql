@@ -32,10 +32,13 @@ CREATE TABLE `Actividad` (
   `precio` float DEFAULT NULL,
   `lugar` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
   `monitor` int(11) DEFAULT NULL,
+  `hora_ini` time DEFAULT NULL,
+  `hora_fin` time DEFAULT NULL,
+  `dia` varchar(10) COLLATE latin1_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_actividad`),
   KEY `monitor` (`monitor`),
   CONSTRAINT `monitor` FOREIGN KEY (`monitor`) REFERENCES `Monitor` (`id_entrenador`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,37 +47,8 @@ CREATE TABLE `Actividad` (
 
 LOCK TABLES `Actividad` WRITE;
 /*!40000 ALTER TABLE `Actividad` DISABLE KEYS */;
-INSERT INTO `Actividad` VALUES (1,'Spinning',40,'Pedalear a tope',0,'Sala de spinning',3),(13,'Aerodance',30,'Bailar a tope',0,'Sala de actividades',4),(14,'Circuit Fit',35,'A sudar todos',0,'Sala de actividades',4),(15,'Pilates',40,'Clase de pilates',4,'Sala de actividades',4),(16,'Tai Chi',45,'Clase de tai chi tope zen tetes',6,'Sala de Actividades',3);
+INSERT INTO `Actividad` VALUES (1,'Spinning',40,'Pedalear a tope',0,'Sala de spinning',3,'18:00:00','19:00:00','Lunes'),(13,'Aerodance',30,'Bailar a tope',0,'Sala de actividades',4,'18:00:00','19:00:00','Lunes'),(14,'Circuit Fit',35,'A sudar todos',0,'Sala de actividades',4,'16:00:00','17:00:00','Miercoles'),(15,'Pilates',40,'Clase de pilates',4,'Sala de actividades',4,'18:00:00','19:00:00','Jueves'),(16,'Tai Chi',45,'Clase de tai chi tope zen tetes',6,'Sala de Actividades',3,'19:00:00','20:00:00','Viernes');
 /*!40000 ALTER TABLE `Actividad` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Actividad_meta`
---
-
-DROP TABLE IF EXISTS `Actividad_meta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Actividad_meta` (
-  `id_meta` int(11) NOT NULL AUTO_INCREMENT,
-  `id_actividad_meta` int(11) DEFAULT NULL,
-  `comienzo_actividad` timestamp NULL DEFAULT NULL,
-  `intervalo_actividad` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_meta`),
-  UNIQUE KEY `id_meta_UNIQUE` (`id_meta`),
-  KEY `id_actividad_idx` (`id_actividad_meta`),
-  CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Actividad_meta`
---
-
-LOCK TABLES `Actividad_meta` WRITE;
-/*!40000 ALTER TABLE `Actividad_meta` DISABLE KEYS */;
-INSERT INTO `Actividad_meta` VALUES (2,13,'2016-11-10 10:49:13',32000),(3,1,'2016-10-10 10:00:00',65000),(4,14,'2016-11-07 07:50:13',45000);
-/*!40000 ALTER TABLE `Actividad_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -92,7 +66,7 @@ CREATE TABLE `Deportista` (
   PRIMARY KEY (`id_deportista`),
   UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`),
   CONSTRAINT `id_usuario_deportista` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +75,7 @@ CREATE TABLE `Deportista` (
 
 LOCK TABLES `Deportista` WRITE;
 /*!40000 ALTER TABLE `Deportista` DISABLE KEYS */;
-INSERT INTO `Deportista` VALUES (1,1,'flojillo',''),(2,2,'to tocho','\0'),(3,6,'vago','\0'),(4,7,'','');
+INSERT INTO `Deportista` VALUES (1,1,'flojillo',''),(2,2,'to tocho','\0'),(3,6,'vago','\0'),(4,7,'Grande',''),(5,11,'Usuario','');
 /*!40000 ALTER TABLE `Deportista` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +151,7 @@ CREATE TABLE `Reserva` (
   KEY `id_actividad_reserva_idx` (`id_actividad`),
   CONSTRAINT `id_actividad_reserva` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_deportista` FOREIGN KEY (`id_deportista`) REFERENCES `Deportista` (`id_deportista`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +160,7 @@ CREATE TABLE `Reserva` (
 
 LOCK TABLES `Reserva` WRITE;
 /*!40000 ALTER TABLE `Reserva` DISABLE KEYS */;
-INSERT INTO `Reserva` VALUES (9,13,1),(10,15,2),(11,16,4),(12,14,3),(13,14,4),(14,14,2),(15,13,3),(16,15,4);
+INSERT INTO `Reserva` VALUES (9,13,1),(10,15,2),(11,16,4),(12,14,3),(14,14,2),(15,13,5),(16,15,4),(27,13,5),(30,1,5);
 /*!40000 ALTER TABLE `Reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +273,7 @@ CREATE TABLE `Tabla_Ejercicios_Detalles` (
 
 LOCK TABLES `Tabla_Ejercicios_Detalles` WRITE;
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Detalles` DISABLE KEYS */;
-INSERT INTO `Tabla_Ejercicios_Detalles` VALUES (1,2),(1,3),(2,3),(1,4),(1,5),(2,5),(2,7),(2,8);
+INSERT INTO `Tabla_Ejercicios_Detalles` VALUES (1,2),(1,3),(2,3),(1,4),(2,5),(1,7),(2,7),(2,8);
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Detalles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-15 12:19:28
+-- Dump completed on 2016-11-16 12:48:28

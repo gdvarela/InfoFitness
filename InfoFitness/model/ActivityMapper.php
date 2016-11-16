@@ -33,20 +33,72 @@ class ActivityMapper {
     }
 
     public function save($activity) {
-        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descripcion, precio, lugar, monitor) values(?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descripcion, precio, lugar, monitor, hora_ini, hora_fin, dia) values(?,?,?,?,?,?,?,?,?)");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
-            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor()));
+            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor(), $activity->getStartTime(), $activity->getEndTime(), $activity->getDay()));
     }
 
     public function update($activity) {
         $stmt = $this->db->prepare("UPDATE Actividad set nombre=?, max_asistentes=?, descripcion=?, precio=?,
-            lugar=?  where id_actividad=?");
+            lugar=?, monitor=?, hora_ini=?, hora_fin=?, dia=?  where id_actividad=?");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
-            $activity->getPrice(), $activity->getPlace(), $activity->getId()));
+            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor(), $activity->getStartTime(),
+            $activity->getEndTime(), $activity->getDay(), $activity->getId()));
     }
 
     public function delete($activityId) {
         $stmt = $this->db->prepare("DELETE FROM Actividad WHERE id_actividad=?");
         $stmt->execute(array($activityId));
+    }
+
+    public function listReservedActivities($user) {
+        $depor = $this->getDeporId($user);
+        $stmt = $this->db->query("SELECT * FROM Actividad LEFT JOIN Reserva ON Actividad.id_actividad=Reserva.id_actividad 
+              WHERE Reserva.id_deportista=$depor GROUP BY Actividad.id_actividad");
+        $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $activities = array();
+
+        foreach ($list_db as $activity) {
+            array_push($activities, new Activity($activity["id_actividad"], $activity["nombre"], $activity["max_asistentes"],
+                $activity["descripcion"], $activity["precio"], $activity["lugar"], $activity["monitor"], $activity["hora_ini"],
+                $activity["hora_fin"], $activity["dia"]));
+        }
+
+        return $activities;
+    }
+
+    public function listUnreservedActivities($user) {
+        $depor = $this->getDeporId($user);
+        $stmt = $this->db->query("SELECT * FROM Actividad where id_actividad NOT IN (SELECT id_actividad FROM Reserva where id_deportista=$depor)");
+        $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $activities = array();
+
+        foreach ($list_db as $activity) {
+            array_push($activities, new Activity($activity["id_actividad"], $activity["nombre"], $activity["max_asistentes"],
+                $activity["descripcion"], $activity["precio"], $activity["lugar"], $activity["monitor"], $activity["hora_ini"],
+                $activity["hora_fin"], $activity["dia"]));
+        }
+
+        return $activities;
+    }
+
+    public function reserve($user, $activityID) {
+        $depor = $this->getDeporId($user);
+        $stmt = $this->db->prepare("INSERT INTO Reserva (id_actividad, id_deportista) values(?,?)");
+        $stmt->execute(array($activityID, $depor));
+    }
+
+    public function unReserve($user, $activityID) {
+        $depor = $this->getDeporId($user);
+        $stmt = $this->db->prepare("DELETE FROM Reserva WHERE id_actividad=? AND id_deportista=?");
+        $stmt->execute(array($activityID, $depor));
+    }
+
+    public function getDeporId($user) {
+        $stmt = $this->db->query("SELECT id_deportista FROM Deportista WHERE id_usuario=$user");
+        $depor = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $depor[0]['id_deportista'];
     }
 }
