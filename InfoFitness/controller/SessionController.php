@@ -3,23 +3,38 @@
  require_once(__DIR__."/../core/ViewManager.php");
  require_once(__DIR__."/../core/I18n.php");
 
- require_once(__DIR__."/../model/Table.php");
- require_once(__DIR__."/../model/TableMapper.php");
+ require_once(__DIR__."/../model/Session.php");
+ require_once(__DIR__."/../model/SessionMapper.php");
 
  require_once(__DIR__."/../controller/BaseController.php");
 
  class SessionController extends BaseController {
+
+  private $sessionMapper;
+  private $newSession;
+
    public function __construct() {
        parent::__construct();
 
        $this->sessionMapper = new SessionMapper();
        $this->newSession = new Session();
-
-       $this->view>setLayout("default");
+       // Users controller operates in a "welcome" layout
+       // different to the "default" layout where the internal
+       // menu is displayed
+       $this->view->setLayout("default");
+   }
+   public function newSession(){
+     if(isset($_POST["tableId"])){
+       $fecha=date("Y-m-d", time());
+       $idUser=$_SESSION["userId"];
+       $this->newSession->changeSession($fecha, $idUser, $_POST("anotacion"), $_POST("tableId"));
+       $this->sessionMapper->save($this->newSession);
+       $this->view->redirect("workouts", "list");
+     }
    }
 
 
  }
- 
+
 
  ?>
