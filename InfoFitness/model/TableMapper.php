@@ -48,7 +48,7 @@ class TableMapper {
     }
 
     public function fechExercisesTable($id_tabla) {
-      $stmt = $this->db->prepare("SELECT ejercicio.nombre, ejercicio.descripcion, ejercicio.id_ejercicio FROM tabla_ejercicios_detalles inner join ejercicio on
+      $stmt = $this->db->prepare("SELECT ejercicio.nombre, ejercicio.descripcion,ejercicio.grupo_muscular, ejercicio.maquina, ejercicio.id_ejercicio FROM tabla_ejercicios_detalles inner join ejercicio on
                                   tabla_ejercicios_detalles.id_ejercicio=ejercicio.id_ejercicio
                                    WHERE tabla_ejercicios_detalles.id_tabla=?");
       $stmt->execute(array($id_tabla));

@@ -56,7 +56,7 @@ class TablesController extends BaseController {
           $this->view->setVariable("newTable", $this->newTable);
           $this->view->setVariable("exercisesTable", $exercisesTable);
           $this->view->setVariable("exercises", $exercises);
-          $this->view->render("tables", "details_public");
+          $this->view->render("workouts", "details");
     }
 
     public function detailsAdd() {
