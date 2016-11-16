@@ -121,7 +121,6 @@ class ActivityMapper {
         }
 
         return $users;
-
     }
 
     public function getDeporId($user) {

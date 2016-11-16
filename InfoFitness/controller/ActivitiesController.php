@@ -5,6 +5,8 @@ require_once(__DIR__ . "/../core/I18n.php");
 
 require_once(__DIR__ . "/../model/Activity.php");
 require_once(__DIR__ . "/../model/ActivityMapper.php");
+require_once(__DIR__ . "/../model/User.php");
+require_once(__DIR__ . "/../model/UserMapper.php");
 
 require_once(__DIR__ . "/../controller/BaseController.php");
 
@@ -12,6 +14,7 @@ class ActivitiesController extends BaseController
 {
 
     private $activityMapper;
+    private $userMapper;
     private $newActivity;
     private $errors = array();
 
@@ -20,6 +23,7 @@ class ActivitiesController extends BaseController
         parent::__construct();
 
         $this->activityMapper = new ActivityMapper();
+        $this->userMapper = new UserMapper();
         $this->newActivity = new Activity();
         // Users controller operates in a "welcome" layout
         // different to the "default" layout where the internal
@@ -97,11 +101,12 @@ class ActivitiesController extends BaseController
 
     public function assistanceControl()
     {
-        if (isset($_POST["date"])) {
+        if (isset($_POST["activityId"])) {
 
             $users = $this->activityMapper->listUsersOnActivity($_POST["activityId"]);
 
             $this->view->setVariable("users", $users);
+            $this->view->setVariable("activityId", $_POST["activityId"]);
             $this->view->setVariable("activityName", $_POST["activityName"]);
             $this->view->setVariable("activityPlace", $_POST["place"]);
 
@@ -118,8 +123,15 @@ class ActivitiesController extends BaseController
 
     public function checkAssistance()
     {
+        if(isset($_POST["activityId"])) {
+            
+            var_dump($_POST);
+        } else {
+            $users = $this->userMapper->listarDeportista();
 
-        $this->view->render("activities", "checkAssistance");
+            $this->view->setVariable("users", $users);
+            $this->view->render("activities", "checkAssistance");
+        }
     }
 
     public function slotsControl()
@@ -139,16 +151,15 @@ class ActivitiesController extends BaseController
         $max_assis = $this->activityMapper->getMaxAssistants($_POST["activityId"]);
         $assis = $this->activityMapper->getAssistants($_POST["activityId"]);
 
-        if($max_assis > $assis){
+        if ($max_assis > $assis) {
 
-          $this->activityMapper->reserve($_SESSION["userId"], $_POST["activityId"]);
-          $this->view->redirect("activities", "slotsControl");
+            $this->activityMapper->reserve($_SESSION["userId"], $_POST["activityId"]);
+            $this->view->redirect("activities", "slotsControl");
 
-        }
-        else{
+        } else {
 
-          $this->view->setFlash(i18n("Slot complete"));
-          $this->view->redirect("activities", "slotsControl");
+            $this->view->setFlash(i18n("Slot complete"));
+            $this->view->redirect("activities", "slotsControl");
 
         }
     }

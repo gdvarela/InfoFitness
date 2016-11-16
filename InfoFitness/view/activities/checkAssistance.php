@@ -7,9 +7,20 @@ if ($_SESSION["type"] != 1) {
 }
 
 $users = $view->getVariable("users");
+$activityId = $view->getVariable("activityId");
+$activityName = $view->getVariable("activityName");
+$activityPlace = $view->getVariable("activityPlace");
 ?>
-<span><?= i18n("Activity") ?></span>
-<span><?= i18n("Place") ?></span>
+<table>
+    <tr>
+        <th><?= i18n("Activity") ?>:</th>
+        <th><?= $activityName ?></th>
+    </tr>
+    <tr>
+        <th><?= i18n("Place") ?>:</th>
+        <th><?= $activityPlace ?></th>
+    </tr>
+</table>
 <table>
     <tr class="topTable">
         <th><?= i18n("User") ?></th>
@@ -18,15 +29,16 @@ $users = $view->getVariable("users");
         <th><?= i18n("DNI") ?></th>
     </tr>
     <form action="?controller=activities&action=checkAssistance" method="POST">
-        <?php foreach($users as $user): ?>
+        <?php foreach ($users as $user): ?>
             <tr clas="mainTable">
-                <td><?= $user->getUsername()?></td>
-                <td><?= $user->getNombre()?></td>
-                <td><?= $user->getApellidos()?></td>
+                <td><?= $user->getUsername() ?></td>
+                <td><?= $user->getNombre() ?></td>
+                <td><?= $user->getApellidos() ?></td>
                 <td><?= $user->getDni() ?></td>
-                <td> <input type="checkbox" name="<?= $user->getIdUsr() ?>"></td>
+                <td><input type="checkbox" name="users[]" value="<?= $user->getIdUsr() ?>"></td>
             </tr>
         <?php endforeach; ?>
+        <input name="activityId" value="<?= $activityId ?>" hidden="true">
         <button type="submit"><?= i18n("Save") ?></button>
     </form>
 </table>
