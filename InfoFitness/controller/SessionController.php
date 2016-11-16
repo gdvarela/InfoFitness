@@ -23,13 +23,21 @@
        // menu is displayed
        $this->view->setLayout("default");
    }
+
+   public function listSessions(){
+     $sessions = $this->sessionMapper->listSessions();
+     $this->view->setVariable("sessions", $sessions);
+     $this->view->setVariable("newSession", $this->newSession);
+     $this->view->render("session", "list");
+   }
+
    public function newSession(){
      if(isset($_POST["tableId"])){
-       $fecha=date("Y-m-d", time());
+       $date=date("Y-m-d", time());
        $idUser=$_SESSION["userId"];
-       $this->newSession->changeSession($fecha, $idUser, $_POST("anotacion"), $_POST("tableId"));
+       $this->newSession->changeSession($date, $idUser, $_POST["anotacion"], $_POST["tableId"]);
        $this->sessionMapper->save($this->newSession);
-       $this->view->redirect("workouts", "list");
+       $this->view->redirect("session", "listSessions");
      }
    }
 
