@@ -128,15 +128,62 @@ class UsersController extends BaseController
 
     }//fin funcion alta
 
-    public function modificar()
+    public function modificaradmin()
     {
+
         if (isset($_POST["id_usuario"])) {
-            $user = new User($_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
-                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], $_POST["tipo_deportista"], $_POST["comentario"]);
+            $user = new User($_POST["id_usuario"], $_POST["username"], NULL,$_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], NULL, NULL, NULL);
 
             try {
-                $this->user->checkIsValidForRegister();
+                //$this->user->checkIsValidForRegister();
                 $this->userMapper->update($user);
+            } catch (ValidationException $ex) {
+                // Obtener los errores de la validacion
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
+            }
+
+
+            $this->view->redirect("users", "listUsuario");
+        } else {
+            throw new Exception("modify only form POST");
+        }
+    }
+
+    public function modificarmonitor()
+    {
+
+        if (isset($_POST["id_usuario"])) {
+            $user = new User($_POST["id_usuario"], $_POST["username"], NULL,$_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], NULL, NULL, $_POST["jornada_laboral"]);
+
+            try {
+                //$this->user->checkIsValidForRegister();
+                $this->userMapper->updatemonitor($user);
+            } catch (ValidationException $ex) {
+                // Obtener los errores de la validacion
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
+            }
+
+
+            $this->view->redirect("users", "listUsuario");
+        } else {
+            throw new Exception("modify only form POST");
+        }
+    }
+
+    public function modificardeportista()
+    {
+
+        if (isset($_POST["id_usuario"])) {
+            $user = new User($_POST["id_usuario"], $_POST["username"], NULL, $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+                $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], $_POST["tipo_deportista"], $_POST["comentario"], NULL);
+
+            try {
+                //$this->user->checkIsValidForRegister();
+                $this->userMapper->updatedepor($user);
             } catch (ValidationException $ex) {
                 // Obtener los errores de la validacion
                 $errors = $ex->getErrors();
@@ -161,5 +208,7 @@ class UsersController extends BaseController
             throw new Exception("delete only form POST");
         }
     }
+
+
 
 }

@@ -12,7 +12,7 @@ $monitores = $view->getVariable("monitores");
 $admins = $view->getVariable("admins");
 //$newUser = $view->getVariable("newUser");
 
-
+//***************************************VISTA ADMIN*******************************************
 ?>
     <!-- DEPORTISTAS -->
     <h2><?=i18n("Athlete") ?></h2>
@@ -32,7 +32,7 @@ $admins = $view->getVariable("admins");
 
         <?php  foreach($users as $user): ?>
             <tr class="mainTable">
-                <form action="?controller=users&amp;action=modificar" method="POST">
+                <form action="?controller=users&amp;action=modificardeportista" method="POST">
 
                     <td> <input name="username" value="<?= $user->getUsername() ?>"> </td>
                     <td> <input name="nombre" value="<?= $user->getNombre() ?>"> </td>
@@ -85,7 +85,7 @@ $admins = $view->getVariable("admins");
         </tr>
         <?php  foreach($monitores as $monitor): ?>
             <tr class="mainTable">
-                <form action="?controller=users&amp;action=modificar" method="POST">
+                <form action="?controller=users&amp;action=modificarmonitor" method="POST">
 
                     <th> <input name="username" value="<?= $monitor->getUsername() ?>"> </th>
                     <th> <input name="nombre" value="<?= $monitor->getNombre() ?>"> </th>
@@ -132,7 +132,7 @@ $admins = $view->getVariable("admins");
         </tr>
         <?php foreach($admins as $admin): ?>
             <tr class="mainTable">
-                <form action="?controller=users&amp;action=modificar" method="POST">
+                <form action="?controller=users&amp;action=modificaradmin" method="POST">
 
                     <th> <input name="username" value="<?= $admin->getUsername() ?>"> </th>
                     <th> <input name="nombre" value="<?= $admin->getNombre() ?>"> </th>

@@ -21,7 +21,7 @@ class User {
   private $comentario;
   private $jornada_laboral;
 
-  public function __construct($id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
+  public function __construct($id_usuario=NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
   $dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL, $tipo_deportista=NULL, $comentario=NULL, $jornada_laboral=NULL) {
 
     $this->id_usuario = $id_usuario;
