@@ -97,7 +97,29 @@ class ActivitiesController extends BaseController
 
     public function assistanceControl()
     {
-        $activities = $this->activityMapper->listActivities();
+        if (isset($_POST["date"])) {
+
+            $users = $this->activityMapper->listUsersOnActivity($_POST["activityId"]);
+
+            $this->view->setVariable("users", $users);
+            $this->view->setVariable("activityName", $_POST["activityName"]);
+            $this->view->setVariable("activityPlace", $_POST["place"]);
+
+            $this->view->render("activities", "checkAssistance");
+        } else {
+            $activities = $this->activityMapper->listActivities();
+            $monitors = $this->activityMapper->listMonitors();
+
+            $this->view->setVariable("monitors", $monitors);
+            $this->view->setVariable("activities", $activities);
+            $this->view->render("activities", "assistanceControl");
+        }
+    }
+
+    public function checkAssistance()
+    {
+
+        $this->view->render("activities", "checkAssistance");
     }
 
     public function slotsControl()

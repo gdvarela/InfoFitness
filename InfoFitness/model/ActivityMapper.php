@@ -96,8 +96,24 @@ class ActivityMapper {
         $stmt->execute(array($activityID, $depor));
     }
 
+    public function listUsersOnActivity($activity) {
+        $stmt = $this->db->query("SELECT * FROM Usuario, Reserva, Deportista where Deportista.id_deportista = Reserva.id_deportista 
+              AND Usuario.id_usuario = Deportista.id_usuario AND id_actividad=$activity");
+        $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $users = array();
+
+        foreach ($list_db as $user) {
+            array_push($users, new User($user["id_usuario"], $user["login"], NULL , $user["nombre"], $user["apellidos"], $user["dni"],
+                $user["fecha_nacimiento"], $user["permisos"], $user["mail"], $user["telefono"], $user["tipo_tarjeta"], $user["comentario"], NULL));
+        }
+
+        return $users;
+
+    }
+
     public function getDeporId($user) {
-        $stmt = $this->db->query("SELECT id_deportista FROM Deportista WHERE id_usuario=$user");
+        $stmt = $this->db->query("SELECT * FROM Deportista WHERE id_usuario=$user");
         $depor = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $depor[0]['id_deportista'];
     }
