@@ -63,7 +63,8 @@
     "Add Exercises" => "Añadir ejercicios",
     "Type" => "Tipo",
     "Comment" => "Comentario",
-    "Working hours" => "Jornada laboral"
+    "Working hours" => "Jornada laboral",
+    "Slot complete" => "Espacio completo"
 
   )
 ?>

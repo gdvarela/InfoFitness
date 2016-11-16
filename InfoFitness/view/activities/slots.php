@@ -12,6 +12,9 @@ $errors = $view->getVariable("errors");
 ?>
 
 <table>
+    <tr>
+      <?= $view->popFlash() ?>
+    </tr>
     <tr class="topTable">
         <th><?= i18n("Activities")?></th>
         <th><?= i18n("Place")?></th>
@@ -26,7 +29,7 @@ $errors = $view->getVariable("errors");
         <th><?= $activity->getStartTime() ?></th>
         <th><?= $activity->getEndTime() ?></th>
         <th><?= $activity->getDay() ?></th>
-        <th><form action="?controller=activities&action=reserve" method="POST">
+        <th><form action="?controller=activities&amp;action=reserve" method="POST">
                 <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
                 <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
                 <button type="submit"><?= i18n("Reserve")?></button>
@@ -44,7 +47,7 @@ $errors = $view->getVariable("errors");
         <th><?= $activity->getStartTime() ?></th>
         <th><?= $activity->getEndTime() ?></th>
         <th><?= $activity->getDay() ?></th>
-        <th><form action="?controller=activities&action=unreserve" method="POST">
+        <th><form action="?controller=activities&amp;action=unreserve" method="POST">
             <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
             <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
             <button type="submit"><?= i18n("Unreserve")?></button>

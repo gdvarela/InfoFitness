@@ -136,9 +136,23 @@ class ActivitiesController extends BaseController
 
     public function reserve()
     {
-        $this->activityMapper->reserve($_SESSION["userId"], $_POST["activityId"]);
-        $this->view->redirect("activities", "slotsControl");
+        $max_assis = $this->activityMapper->getMaxAssistants($_POST["activityId"]);
+        $assis = $this->activityMapper->getAssistants($_POST["activityId"]);
+
+        if($max_assis > $assis){
+
+          $this->activityMapper->reserve($_SESSION["userId"], $_POST["activityId"]);
+          $this->view->redirect("activities", "slotsControl");
+
+        }
+        else{
+
+          $this->view->setFlash(i18n("Slot complete"));
+          $this->view->redirect("activities", "slotsControl");
+
+        }
     }
+
 
     public function unreserve()
     {
