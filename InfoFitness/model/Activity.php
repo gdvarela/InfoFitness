@@ -115,23 +115,27 @@ class Activity {
         $this->endTime = $endTime;
     }
 
-    public function getDate()
+    public function getDay()
     {
         return $this->day;
     }
 
-    public function setDate($day)
+    public function setDay($day)
     {
         $this->day = $day;
     }
 
-    public function changeActivity($activityname=NULL, $max_assis=0, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
+    public function changeActivity($activityname=NULL, $max_assis=0, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL
+                    , $startTime=NULL, $endTime=NULL, $day=NULL) {
         $this->activityName = $activityname;
         $this->max_assis = (integer) $max_assis;
         $this->description = $description;
         $this->price = $price;
         $this->place = $place;
         $this->monitor = (integer) $monitor;
+        $this->startTime = $startTime;
+        $this->endTime = $endTime;
+        $this->day = $day;
     }
 
     public function checkValidForAdd() {

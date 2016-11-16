@@ -30,7 +30,6 @@ class ActivitiesController extends BaseController {
         $activities = $this->activityMapper->listActivities();
         $this->view->setVariable("activities", $activities);
 
-        echo $_SESSION["currentuser"];
         $this->view->setVariable("newActivity", $this->newActivity);
 
         if(!empty($this->errors)){
@@ -48,7 +47,8 @@ class ActivitiesController extends BaseController {
 
         if(isset($_POST["activityId"])) {
             $activity = new Activity($_POST["activityId"], $_POST["activityName"], $_POST["activityMaxAssis"],
-                $_POST["activityDes"], $_POST["activityPrice"], $_POST["activityPlace"]);
+                $_POST["activityDes"], $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"], $_POST["startTime"],
+                $_POST["endTime"], $_POST["day"]);
 
             $this->activityMapper->update($activity);
 
@@ -72,7 +72,8 @@ class ActivitiesController extends BaseController {
 
         if(isset($_POST["activityName"])) {
             $this->newActivity->changeActivity($_POST["activityName"], $_POST["activityMaxAssis"], $_POST["activityDes"],
-                $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"]);
+                $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"], $_POST["startTime"], $_POST["endTime"],
+                $_POST["day"]);
 
             try {
                 $this->newActivity->checkValidForAdd();

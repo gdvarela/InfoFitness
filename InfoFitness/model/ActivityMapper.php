@@ -33,16 +33,17 @@ class ActivityMapper {
     }
 
     public function save($activity) {
-        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descripcion, precio, lugar, monitor) values(?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO Actividad (nombre, max_asistentes, descripcion, precio, lugar, monitor, hora_ini, hora_fin, dia) values(?,?,?,?,?,?,?,?,?)");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
-            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor()));
+            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor(), $activity->getStartTime(), $activity->getEndTime(), $activity->getDay()));
     }
 
     public function update($activity) {
         $stmt = $this->db->prepare("UPDATE Actividad set nombre=?, max_asistentes=?, descripcion=?, precio=?,
-            lugar=?  where id_actividad=?");
+            lugar=?, monitor=?, hora_ini=?, hora_fin=?, dia=?  where id_actividad=?");
         $stmt->execute(array($activity->getActivityName(), $activity->getMaxAssistants(), $activity->getDescription(),
-            $activity->getPrice(), $activity->getPlace(), $activity->getId()));
+            $activity->getPrice(), $activity->getPlace(), $activity->getMonitor(), $activity->getStartTime(),
+            $activity->getEndTime(), $activity->getDay(), $activity->getId()));
     }
 
     public function delete($activityId) {
