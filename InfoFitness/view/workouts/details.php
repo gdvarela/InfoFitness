@@ -32,9 +32,8 @@ $newTable = $view->getVariable("newTable");
             </tr>
             <?php endforeach;
         }?>
-        <tr>
-          <form action="?controller=session&amp;action=newSession" method="POST">
-              <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
-              <button><?= i18n("Register Session")?></button></form>
-        </tr>
 </table>
+<form action="?controller=session&amp;action=newSession" method="POST">
+    <textarea name="anotacion"></textarea></br>
+    <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
+    <button><?= i18n("Register Session")?></button></form>
