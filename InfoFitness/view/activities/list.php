@@ -22,8 +22,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Monitor")?></th>
         <th><?= i18n("Start")?></th>
         <th><?= i18n("End")?></th>
-        <th><?= i18n("Date")?></th>
-        <th><?= i18n("Period")?></th>
+        <th><?= i18n("Day")?></th>
     </tr>
     <?php foreach($activities as $activity): ?>
     <tr clas="mainTable">
@@ -42,8 +41,7 @@ $errors = $view->getVariable("errors");
             </th>
             <th> <input type="time" min="0" name="startTime" value="<?= $activity->getStartTime() ?>"></th>
             <th> <input type="time" min="0" name="endTime" value="<?= $activity->getEndTime() ?>"></th>
-            <th> <input type="date" min="0" name="date" value="<?= $activity->getDate() ?>"></th>
-            <th> <input type="number" min="0" name="period" value="<?= $activity->getPeriod() ?>"></th>
+            <th> <input name="day" value="<?= $activity->getDay() ?>"></th>
             <th>
                 <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
                 <button type="submit"><?= i18n("Modify")?></button>
@@ -72,8 +70,7 @@ $errors = $view->getVariable("errors");
             </th>
             <th> <input type="time" min="0" name="startTime" value="<?= $newActivity->getStartTime() ?>"></th>
             <th> <input type="time" min="0" name="endTime" value="<?= $newActivity->getEndTime() ?>"></th>
-            <th> <input type="date" min="0" name="date" value="<?= $newActivity->getDate() ?>"></th>
-            <th> <input type="number" min="0" name="period" value="<?= $newActivity->getPeriod() ?>"></th>
+            <th> <input name="day" value="<?= $newActivity->getDay() ?>"></th>
             <th>
                 <button type="submit"><?= i18n("Add")?></button>
             </th>

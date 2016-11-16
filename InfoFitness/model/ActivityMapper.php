@@ -19,7 +19,7 @@ class ActivityMapper {
         foreach ($list_db as $activity) {
             array_push($activities, new Activity($activity["id_actividad"], $activity["nombre"], $activity["max_asistentes"],
                 $activity["descripcion"], $activity["precio"], $activity["lugar"], $activity["monitor"], $activity["hora_ini"],
-                $activity["hora_fin"], $activity["fecha_ini"], $activity["repeticion"]));
+                $activity["hora_fin"], $activity["dia"]));
         }
 
         return $activities;

@@ -30,6 +30,7 @@ class UsersController extends BaseController
             $user = $this->userMapper->validUser($_POST["username"], $_POST["passwd"]);
             if (isset($user)) {
 
+                $_SESSION["userId"] = $user->getIdUsr();
                 $_SESSION["currentuser"] = $_POST["username"];
                 $_SESSION["type"] = $user->getPermiso();
                 // send user to the restricted area (HTTP 302 code)

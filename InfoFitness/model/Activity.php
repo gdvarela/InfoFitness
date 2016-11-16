@@ -14,11 +14,10 @@ class Activity {
     private $monitor;
     private $startTime;
     private $endTime;
-    private $date;
-    private $period;
+    private $day;
 
     public function __construct($id=NULL, $activityname=NULL, $max_assis=NULL, $description=NULL, $price=NULL, $place=NULL,
-                                $monitor=NULL, $startTime=NULL, $endTime=NULL, $date=NULL, $period=NULL) {
+                                $monitor=NULL, $startTime=NULL, $endTime=NULL, $day=NULL) {
         $this->id = $id;
         $this->activityName = $activityname;
         $this->max_assis = $max_assis;
@@ -28,8 +27,7 @@ class Activity {
         $this->monitor = $monitor;
         $this->startTime = $startTime;
         $this->endTime = $endTime;
-        $this->date = $date;
-        $this->period = $period;
+        $this->day = $day;
     }
 
     public function getId()
@@ -119,24 +117,13 @@ class Activity {
 
     public function getDate()
     {
-        return $this->date;
+        return $this->day;
     }
 
-    public function setDate($date)
+    public function setDate($day)
     {
-        $this->date = $date;
+        $this->day = $day;
     }
-
-    public function getPeriod()
-    {
-        return $this->period;
-    }
-
-    public function setPeriod($period)
-    {
-        $this->period = $period;
-    }
-
 
     public function changeActivity($activityname=NULL, $max_assis=0, $description=NULL, $price=NULL, $place=NULL, $monitor=NULL) {
         $this->activityName = $activityname;

@@ -30,6 +30,7 @@ class ActivitiesController extends BaseController {
         $activities = $this->activityMapper->listActivities();
         $this->view->setVariable("activities", $activities);
 
+        echo $_SESSION["currentuser"];
         $this->view->setVariable("newActivity", $this->newActivity);
 
         if(!empty($this->errors)){
