@@ -47,7 +47,7 @@ $admins = $view->getVariable("admins");
                           <option <?php if($user->getPermiso()==2){echo "selected";} ?> value="2"><?=i18n("Administrator") ?></option>
                         </select>
                     </td>
-                    <td> <select name="tipo_deportista">
+                    <td> <select name="tipo_deportista"> 
                         <option <?php if($user->getTipoDeportista()==0){echo "selected";} ?> value="0"><?=i18n("PEF") ?></option>
                         <option <?php if($user->getTipoDeportista()==1){echo "selected";} ?> value="1"><?=i18n("TDU") ?></option>
                     </td>
