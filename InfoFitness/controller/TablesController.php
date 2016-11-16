@@ -23,6 +23,13 @@ class TablesController extends BaseController {
         // menu is displayed
         $this->view->setLayout("default");
     }
+    public function listWorkouts() {
+
+        $workouts = $this->tableMapper->listWorkouts();
+        $this->view->setVariable("workouts", $workouts);
+        $this->view->setVariable("newWorkout", $this->newTable);
+        $this->view->render("workouts", "list");
+    }
 
     public function listTables() {
         $tables = $this->tableMapper->listTables();
@@ -40,6 +47,16 @@ class TablesController extends BaseController {
           $this->view->setVariable("exercisesTable", $exercisesTable);
           $this->view->setVariable("exercises", $exercises);
           $this->view->render("tables", "details");
+    }
+    public function detailsPublic() {
+          $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
+          $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
+          $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
+          $this->view->setVariable("tables", $tables);
+          $this->view->setVariable("newTable", $this->newTable);
+          $this->view->setVariable("exercisesTable", $exercisesTable);
+          $this->view->setVariable("exercises", $exercises);
+          $this->view->render("tables", "details_public");
     }
 
     public function detailsAdd() {
