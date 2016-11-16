@@ -26,12 +26,25 @@
   {
       return $this->idUsuario;
   }
-
-   public function setUsuario($idUsuario)
+  public function getFecha()
   {
-       $this->$idUsuario = $idUsuario;
+      return $this->fecha;
+  }
+  public function getComentario()
+  {
+      return $this->comentario;
   }
 
+  public function getTabla()
+  {
+      return $this->idTabla;
+  }
+  public function changeSession($fecha=NULL, $idUsuario=NULL, $comentario=NULL, $idTabla=NULL){
+    $this->fecha = $fecha;
+    $this->idUsuario = $idUsuario;
+    $this->comentario = $comentario;
+    $this->idTabla = $idTabla;
+  }
 
  }
  ?>

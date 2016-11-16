@@ -49,7 +49,7 @@ class TablesController extends BaseController {
           $this->view->render("tables", "details");
     }
     public function detailsPublic() {
-          $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
+          $tables = $this->tableMapper->fechTable($_POST["tableId"]);
           $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
           $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
           $this->view->setVariable("tables", $tables);

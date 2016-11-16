@@ -28,7 +28,7 @@ $newTable = $view->getVariable("newTable");
               <th><?= $exercise["nombre"] ?></th>
               <th><?= $exercise["descripcion"] ?></th>
               <th><?= $exercise["grupo_muscular"] ?></th>
-                            <th><?= $exercise["maquina"] ?></th>
+              <th><?= $exercise["maquina"] ?></th>
             </tr>
             <?php endforeach;
         }?>
@@ -36,4 +36,5 @@ $newTable = $view->getVariable("newTable");
 <form action="?controller=session&amp;action=newSession" method="POST">
     <textarea name="anotacion"></textarea></br>
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
-    <button><?= i18n("Register Session")?></button></form>
+    <button type="submit"><?= i18n("Register Session")?></button>
+  </form>
