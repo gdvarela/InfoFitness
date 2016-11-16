@@ -53,7 +53,7 @@ class ActivityMapper {
 
     public function listReservedActivities($user) {
         $depor = $this->getDeporId($user);
-        $stmt = $this->db->query("SELECT * FROM Actividad LEFT JOIN Reserva ON Actividad.id_actividad=Reserva.id_actividad 
+        $stmt = $this->db->query("SELECT * FROM Actividad LEFT JOIN Reserva ON Actividad.id_actividad=Reserva.id_actividad
               WHERE Reserva.id_deportista=$depor GROUP BY Actividad.id_actividad");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -94,6 +94,18 @@ class ActivityMapper {
         $depor = $this->getDeporId($user);
         $stmt = $this->db->prepare("DELETE FROM Reserva WHERE id_actividad=? AND id_deportista=?");
         $stmt->execute(array($activityID, $depor));
+    }
+
+    public function getMaxAssistants($activityId) {
+      $stmt = $this->db->query("SELECT max_asistentes FROM Actividad WHERE id_actividad=$activityId");
+      $max_assistans = $stmt->fetchColumn();
+      return $max_assistans;
+    }
+
+    public function getAssistants($activityId) {
+      $stmt = $this->db->query("SELECT count(*) FROM Reserva WHERE id_actividad=$activityId");
+      $assistans = $stmt->fetchColumn();
+      return $assistans;
     }
 
     public function getDeporId($user) {
