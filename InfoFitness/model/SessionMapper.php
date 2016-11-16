@@ -16,7 +16,7 @@ public function listSessions() {
   $sessions = array();
 
   foreach ($list_db as $session) {
-      array_push($sessions, new Sesion($session["id_sesion"],$session["fecha"], $session["id_usuario"],
+      array_push($sessions, new Session($session["id_sesion"],$session["fecha"], $session["id_usuario"],
               $session["comentario"],$session["id_tabla"]));
   }
 
