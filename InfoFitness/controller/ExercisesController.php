@@ -29,8 +29,11 @@ class ExercisesController extends BaseController {
       $this->view->setVariable("exercises", $exercises);
 
       $this->view->setVariable("newExercise", $this->newExercise);
-
-      $this->view->render("exercises", "list");
+      if($_SESSION["type"] == 1) {
+          $this->view->render("exercises", "list");
+      }else if($_SESSION["type"] == 0){
+          $this->view->render("exercises", "listPublic");
+      }
   }
 
   public function modify() {
