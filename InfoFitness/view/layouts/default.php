@@ -17,7 +17,7 @@
   <body>
     <!-- header -->
     <header>
-      <h1><a class="indexlink" href="index.php">InfoFitness</a></h1>
+      <h1><a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a></h1>
       <nav id="menu" style="background-color:grey">
 	<ul>
 
