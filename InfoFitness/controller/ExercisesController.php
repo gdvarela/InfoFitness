@@ -96,7 +96,7 @@ if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 200000))
    || ($_FILES["imagen"]["type"] == "image/jpg")
    || ($_FILES["imagen"]["type"] == "image/png"))
    {
-      $directorio = __DIR__."/../../img/";
+      $directorio = "http://localhost/InfoFitness/InfoFitness/img";
       move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);
     }
     else
