@@ -15,10 +15,11 @@ $newTable = $view->getVariable("newTable");
 
 <table>
     <tr class="topTable">
-        <th><?= i18n("Name")?></th>
+        <th><?= i18n("Table name")?></th>
         <th><?= i18n("Description")?></th>
+
     </tr>
-        <tr clas="mainTable">
+        <tr class="mainTable">
             <form action="?controller=tables&amp;action=modify" method="POST">
                 <th> <input name="tableName" value="<?= $tables->getTableName() ?>"> </th>
                 <th> <textarea name="tableDes" ><?= $tables->getTableDes() ?> </textarea></th>
@@ -29,7 +30,15 @@ $newTable = $view->getVariable("newTable");
             </form>
         </tr>
         <tr class="topTable">
-            <th><?= i18n("Ejercicios Tabla")?></th>
+            <th><?= i18n("Table Exercises")?></th>
+        </tr>
+        <tr class="topTable">
+          <th><?= i18n("Name")?></th>
+          <th><?= i18n("Description")?></th>
+          <th><?= i18n("Dificulty")?></th>
+          <th><?= i18n("Muscle group")?></th>
+          <th><?= i18n("Media")?></th>
+          <th><?= i18n("Machine")?></th>
         </tr>
         <?php
           if($exercisesTable != null){
@@ -38,6 +47,11 @@ $newTable = $view->getVariable("newTable");
         <tr>
             <form action="?controller=tables&amp;action=detailsDelete" method="POST">
               <th> <input name="deleteExercise" value="<?= $exercise["nombre"]?>"> </th>
+              <th> <input name="deleteExercise" value="<?= $exercise["descripcion"]?>"></th>
+              <th> <input name="deleteExercise" value="<?= $exercise["dificultad"]?>"></th>
+              <th> <input name="deleteExercise" value="<?= $exercise["grupo_muscular"]?>"></th>
+              <th> <input name="deleteExercise" value="<?= $exercise["multimedia"]?>"></th>
+              <th> <input name="deleteExercise" value="<?= $exercise["maquina"]?>"></th>
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
               <th>
