@@ -24,7 +24,7 @@ $exercises = $view->getVariable("exercises");
                  <th><?= $exercise->getDescription() ?></th>
                  <th><?= $exercise->getDificulty() ?></th>
                  <th><?= $exercise->getMuscleGroup() ?></th>
-                 <th><?= $exercise->getMedia() ?></th>
+                 <th><img src="img/<?=$exercise->getMedia()?>"/></th>
                  <th><?= $exercise->getMachine() ?></th>
          </tr>
      <?php endforeach; ?>
