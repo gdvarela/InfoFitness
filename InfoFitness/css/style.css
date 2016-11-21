@@ -174,4 +174,6 @@ ul, ol {
 
 .loginbutton{
   border-radius: 5px;
+  background-color: #1484c8;
+  border-color: rgb(83, 140, 230);
 }
