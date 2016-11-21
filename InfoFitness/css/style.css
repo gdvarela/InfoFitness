@@ -101,7 +101,7 @@ ul, ol {
 }
 
 .nav li.menu a {
-    background-color: #292d39;
+    background-color: #94cdf2;
     color: white;
     text-decoration: none;
     padding: 10px 12px;
@@ -109,12 +109,13 @@ ul, ol {
 }
 
 .nav li.menu a:hover {
-    background-color: #434343;
+    color: black;
 }
 
 .nav li.menu ul {
     display: none;
     position: absolute;
+    font-size: 15px;
 }
 
 .nav li.menu:hover>ul {
