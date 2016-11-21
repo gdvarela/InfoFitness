@@ -56,7 +56,7 @@
 
 .headercontent #languagechooser{
   float: right;
-  margin-top: 40px;
+  margin-top: 55px;
 }
 
 .languagelink:visited, .languagelink:link {
@@ -89,9 +89,15 @@
 ul, ol {
     list-style: none;
 }
+.nav{
+  float: right;
+  margin-top: 50px;
+  font-size: 25px;
+}
 
 .nav>li.menu {
     float: left;
+    margin-right: 30px;
 }
 
 .nav li.menu a {

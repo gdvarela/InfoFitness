@@ -30,7 +30,7 @@
       <div class="headercontent">
   	      <ul class="nav">
   	         <?php if (isset($_SESSION["currentuser"])): ?>
-  	        <li class="menu"><?= $_SESSION["currentuser"] ?>
+  	        <li class="menu"><?= $_SESSION["currentuser"]?></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼
               <ul>
                 <?php if ($_SESSION["type"]==0): ?>
                 <li class="menu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
