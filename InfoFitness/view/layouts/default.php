@@ -16,31 +16,33 @@
   </head>
   <body>
     <!-- header -->
-    <header>
-      <h1><a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a></h1>
-      <nav id="menu" style="background-color:grey">
-  <ul>
-    <?php
-    include(__DIR__."/language_select_element.php");
-    ?>
-  </ul>
-	<ul>
-
-	<?php if (isset($currentuser)): ?>
-	  <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
-	  <a 	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a>
-	  </li>
-
-	<?php else: ?>
-	  <li><a href="index.php?controller=users&amp;action=login"><?= i18n("Login") ?></a></li>
-	  <?php endif ?>
-	</ul>
-      </nav>
+    <header class = "header">
+      <div>
+        <a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a>
+      </div>
+      <div>
+          <?php
+          include(__DIR__."/language_select_element.php");
+          ?>
+      </div>
+      <div>
+        <nav id="menu">
+  	      <ul class="headercontent">
+  	         <?php if (isset($currentuser)): ?>
+  	        <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
+  	            <a class="indexlink"	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a>
+  	        </li>
+  	        <?php else: ?>
+  	        <li><a href="index.php?controller=users&amp;action=login"><?= i18n("Login") ?></a></li>
+  	        <?php endif ?>
+  	      </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
       <div id="flash">
-	<?= $view->popFlash() ?>
+	       <?= $view->popFlash() ?>
       </div>
         <?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
     </main>

@@ -13,10 +13,6 @@
     animation: backgroundflash 5s forwards;
 }
 
-.indexlink {
-    text-decoration: none;
-}
-
 .topTable {
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -30,13 +26,51 @@
     border: solid 1px black;
 }
 
+.header {
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #292d39;
+    column-count: 5;
+    color: white;
+}
+
+.indexlink {
+    text-decoration: none;
+    color: white;
+}
+
+#languagechooser{
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+#menu{
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+
+.headerimg {
+    float: left;
+    margin-top: 3px;
+    margin-right: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+.headercontent{
+
+      color: white;
+      list-style: none;
+      padding-left: 10px;
+      padding-right: 10px;
+}
+
 .footer {
     margin-top: 50px;
     border-radius: 8px;
     background: #292d39;
-    display: flex;
-    flex-flow: col wrap;
-    justify-content: space-between;
     column-count: 5;
 }
 
@@ -45,7 +79,7 @@
 }
 
 .footercontent {
-  color: white;
+    color: white;
     list-style: none;
     padding-left: 10px;
     padding-right: 10px;
