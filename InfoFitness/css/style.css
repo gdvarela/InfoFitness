@@ -39,28 +39,22 @@
     color: white;
 }
 
-.indexlink:hover{
-  color: black;
+.indexlink:hover {
+    color: black;
 }
 
-#languagechooser{
-  list-style: none;
-  color: white;
+#languagechooser {
+    list-style: none;
+    color: white;
 }
 
-.languagelink:visited, .languagelink:link{
-  text-decoration: none;
-  color: white;
+.languagelink:visited, .languagelink:link {
+    text-decoration: none;
+    color: white;
 }
 
-.languagelink:hover{
-  color: black;
-}
-
-#menu{
-  text-decoration: none;
-  color: white;
-  list-style: none;
+.languagelink:hover {
+    color: black;
 }
 
 .headerimg {
@@ -71,12 +65,40 @@
     height: 15px;
 }
 
-.headercontent{
+.headercontent {
+    color: white;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
-      color: white;
-      list-style: none;
-      padding-left: 10px;
-      padding-right: 10px;
+ul, ol {
+    list-style: none;
+}
+
+.nav>li {
+    float: left;
+}
+
+.nav li a {
+    background-color: #292d39;
+    color: white;
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+}
+
+.nav li a:hover {
+    background-color: #434343;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+}
+
+.nav li:hover>ul {
+    display: block;
 }
 
 #footer {

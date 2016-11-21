@@ -1,7 +1,6 @@
 <?php
 // file: view/layouts/language_select_element.php
 ?>
-<div>
 <ul id="languagechooser">
 	<li><a class ="languagelink" href="index.php?controller=language&amp;action=change&amp;lang=es">
 	<img class="headerimg" src="./img/spain.png">
@@ -12,4 +11,3 @@
 	<?= i18n("English") ?>
 	</a></li>
 </ul>
-</div>

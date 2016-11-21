@@ -47,6 +47,12 @@ class UsersController extends BaseController
         $this->view->render("users", "login");
     }
 
+    public function logout(){
+      session_destroy();
+
+      $this->view->render("users", "login");
+    }
+
     public function listUsuario()
     {
         $users = $this->userMapper->listarDeportista();

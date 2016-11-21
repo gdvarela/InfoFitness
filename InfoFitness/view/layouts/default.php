@@ -3,7 +3,6 @@
 
  require_once(__DIR__."/../../core/ViewManager.php");
  $view = ViewManager::getInstance();
- $currentuser = $view->getVariable("currentusername");
 
 ?><!DOCTYPE html>
 <html>
@@ -20,16 +19,18 @@
       <div>
         <a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a>
       </div>
-      <div>
+      <div class="headercontent">
           <?php
           include(__DIR__."/language_select_element.php");
           ?>
       </div>
-      <div>
-  	      <ul class="headercontent">
-  	         <?php if (isset($currentuser)): ?>
-  	        <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
-  	            <a class="indexlink"	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a>
+      <div class="headercontent">
+  	      <ul class="nav">
+  	         <?php if (isset($_SESSION["currentuser"])): ?>
+  	        <li><?= $_SESSION["currentuser"] ?>
+              <ul>
+  	            <li><a class="indexlink"	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
+              </ul>
   	        </li>
   	        <?php else: ?>
   	        <li><a href="index.php?controller=users&amp;action=login"><?= i18n("Login") ?></a></li>
