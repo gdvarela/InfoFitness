@@ -50,7 +50,7 @@ class UsersController extends BaseController
     public function logout(){
       session_destroy();
 
-      $this->view->render("users", "login");
+      header('Location: index.php');
     }
 
     public function listUsuario()
