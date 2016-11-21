@@ -29,3 +29,32 @@
     font-size: 14px;
     border: solid 1px black;
 }
+
+.footer {
+    margin-top: 50px;
+    border-radius: 8px;
+    background: #292d39;
+    display: flex;
+    flex-flow: col wrap;
+    justify-content: space-between;
+    column-count: 5;
+}
+
+.footertitle {
+    color: #b3b3b3;
+}
+
+.footercontent {
+  color: white;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footerimg {
+    float: left;
+    margin-top: 3px;
+    margin-right: 3px;
+    width: 15px;
+    height: 15px;
+}

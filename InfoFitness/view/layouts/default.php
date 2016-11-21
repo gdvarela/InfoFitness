@@ -19,11 +19,16 @@
     <header>
       <h1><a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a></h1>
       <nav id="menu" style="background-color:grey">
+  <ul>
+    <?php
+    include(__DIR__."/language_select_element.php");
+    ?>
+  </ul>
 	<ul>
 
 	<?php if (isset($currentuser)): ?>
 	  <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
-	  <a 	href="index.php?controller=users&amp;action=logout">(Logout)</a>
+	  <a 	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a>
 	  </li>
 
 	<?php else: ?>
@@ -40,10 +45,94 @@
         <?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
     </main>
 
-    <footer>
-      <?php
-      include(__DIR__."/language_select_element.php");
-      ?>
+    <footer class="footer">
+        <div>
+                <ul class="footercontent">
+                    <li class="footertitle">
+                        © InfoFitness 2016
+                    </li>
+                    <li>
+                        Empresa
+                    </li>
+                    <li>
+                        Contacto
+                    </li>
+                    <li>
+                        Colaboradores
+                    </li>
+                    <li>
+                        Expansión
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footercontent">
+                    <li class="footertitle">
+                        Sobre Infofitness
+                    </li>
+                    <li>
+                        Condiciones Generales
+                    </li>
+                    <li>
+                        Protección de datos
+                    </li>
+                    <li>
+                        Información legal
+                    </li>
+                    <li>
+                        Plotica de cookies
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footercontent">
+                    <li class="footertitle">
+                        Staff
+                    </li>
+                    <li>
+                        Miembros
+                    </li>
+                    <li>
+                        Secciones
+                    </li>
+                    <li>
+                       Instalaciones
+                    </li>
+                    <li>
+                        Horario
+                    </li>
+                </ul>
+            </div>
+        <div>
+                <ul class="footercontent">
+                    <li class="footertitle">
+                        <?= i18n("Social networks") ?>
+                    </li>
+                    <li>
+                        <img class="footerimg" src="./img/facebook_icon.svg"> Facebook
+                    </li>
+                    <li>
+                        <img class="footerimg" src="./img/twitter_icon.svg"> Twitter
+                    </li>
+                    <li>
+                        <img class="footerimg" src="./img/youtube_icon.svg"> Youtube
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footercontent">
+                    <li class="footertitle">
+                        <?= i18n("Users") ?>
+                    </li>
+                    <li>
+                        <img class="footerimg" src="./img/users_blue_icon.svg">198539 <?= i18n("members") ?>
+                    </li>
+                    <li>
+                        <img class="footerimg" src="./img/users_green_icon.svg">11984 <?= i18n("online") ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
   </body>
