@@ -8,6 +8,10 @@
     }
 }
 
+body,html{ height:100%; margin:0;}
+
+#container{min-height: 50%;}
+
 
 #flash {
     background-color: green;
@@ -32,6 +36,9 @@
     background: #94cdf2;
     color: white;
     height: 120px;
+    margin-bottom: 50px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .indexlink{
@@ -94,6 +101,7 @@ ul, ol {
   float: right;
   margin-top: 50px;
   font-size: 25px;
+  text-align: center;
 }
 
 .nav>li.menu {
@@ -128,6 +136,7 @@ ul, ol {
     border-radius: 8px;
     background: #292d39;
     column-count: 5;
+    padding: 5px;
 }
 
 .footertitle {
@@ -148,4 +157,21 @@ ul, ol {
     margin-right: 3px;
     width: 15px;
     height: 15px;
+}
+
+#login{
+  position: relative;
+  margin-left: 35%;
+  width: 25%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #94cdf2;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: #94cdf2;
+  border-radius: 5px;
+}
+
+.loginbutton{
+  border-radius: 5px;
 }

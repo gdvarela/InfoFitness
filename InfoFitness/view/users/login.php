@@ -6,16 +6,16 @@
  $view->setVariable("title", "Login");
  $errors = $view->getVariable("errors");
 ?>
+<div id=login>
+  <h1><?= i18n("Login") ?></h1>
+  <?= isset($errors["general"])?$errors["general"]:"" ?>
 
-<h1><?= i18n("Login") ?></h1>
-<?= isset($errors["general"])?$errors["general"]:"" ?>
-
-<form action="index.php?controller=users&amp;action=login" method="POST">
-<?= i18n("Username")?>: <input type="text" name="username"></br></br>
-<?= i18n("Password")?>: <input type="password" name="passwd"></br></br>
-<input type="submit" value="<?= i18n("Login") ?>">
-</form>
-
+  <form action="index.php?controller=users&amp;action=login" method="POST">
+  <?= i18n("Username")?>: </br><input type="text" name="username"></br></br>
+  <?= i18n("Password")?>: </br><input type="password" name="passwd"></br></br>
+  <input class="loginbutton" type="submit" value="<?= i18n("Login") ?>">
+  </form>
+</div>
 
 <?php $view->moveToFragment("css");?>
     <link rel="stylesheet" type="text/css" src="css/style2.css">

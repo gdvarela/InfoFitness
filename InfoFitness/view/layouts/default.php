@@ -30,7 +30,7 @@
       <div class="headercontent">
   	      <ul class="nav">
   	         <?php if (isset($_SESSION["currentuser"])): ?>
-  	        <li class="menu"><?= $_SESSION["currentuser"]?></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼
+  	        <li class="menu"><?= $_SESSION["currentuser"]?></br>▼
               <ul>
                 <?php if ($_SESSION["type"]==0): ?>
                 <li class="menu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
@@ -48,14 +48,14 @@
   	      </ul>
       </div>
     </header>
-
+<div id="container">
     <main>
       <div id="flash">
 	       <?= $view->popFlash() ?>
       </div>
         <?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
     </main>
-
+</div>
     <footer id="footer">
         <div>
                 <ul class="footercontent">
