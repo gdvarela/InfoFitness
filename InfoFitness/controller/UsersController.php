@@ -68,8 +68,6 @@ class UsersController extends BaseController
         $this->view->render("users", "alta");
     }
 
-
-
     public function alta()
     {
 

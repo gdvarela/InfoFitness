@@ -29,7 +29,16 @@
   	         <?php if (isset($_SESSION["currentuser"])): ?>
   	        <li><?= $_SESSION["currentuser"] ?>
               <ul>
-  	            <li><a class="indexlink"	href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
+                <?php if ($_SESSION["type"]==0): ?>
+                <li><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
+                <?php endif ?>
+                <?php if ($_SESSION["type"]==0): ?>
+                <li><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></li>
+                <?php endif ?>
+                <?php if ($_SESSION["type"]==0): ?>
+                <li><a href="index.php?controller=session&amp;action=listSessions"><?=i18n("History")?></a></li>
+                <?php endif ?>
+  	            <li><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
               </ul>
   	        </li>
   	        <?php else: ?>
