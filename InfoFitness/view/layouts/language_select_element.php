@@ -3,11 +3,11 @@
 ?>
 <div>
 <ul id="languagechooser">
-	<li><a href="index.php?controller=language&amp;action=change&amp;lang=es">
+	<li><a class ="languagelink" href="index.php?controller=language&amp;action=change&amp;lang=es">
 	<img class="headerimg" src="./img/spain.png">
 	<?= i18n("Spanish") ?>
 	</a></li>
-	<li><a href="index.php?controller=language&amp;action=change&amp;lang=en">
+	<li><a class="languagelink" href="index.php?controller=language&amp;action=change&amp;lang=en">
 	<img class="headerimg" src="./img/england.png">
 	<?= i18n("English") ?>
 	</a></li>

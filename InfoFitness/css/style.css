@@ -26,7 +26,7 @@
     border: solid 1px black;
 }
 
-.header {
+#header {
     margin-top: 20px;
     border-radius: 8px;
     background: #292d39;
@@ -34,15 +34,27 @@
     color: white;
 }
 
-.indexlink {
+.indexlink:visited, .indexlink:link {
     text-decoration: none;
     color: white;
 }
 
+.indexlink:hover{
+  color: black;
+}
+
 #languagechooser{
-  text-decoration: none;
   list-style: none;
   color: white;
+}
+
+.languagelink:visited, .languagelink:link{
+  text-decoration: none;
+  color: white;
+}
+
+.languagelink:hover{
+  color: black;
 }
 
 #menu{
@@ -67,7 +79,7 @@
       padding-right: 10px;
 }
 
-.footer {
+#footer {
     margin-top: 50px;
     border-radius: 8px;
     background: #292d39;
@@ -79,6 +91,7 @@
 }
 
 .footercontent {
+    margin-top: auto;
     color: white;
     list-style: none;
     padding-left: 10px;

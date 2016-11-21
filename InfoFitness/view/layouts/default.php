@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- header -->
-    <header class = "header">
+    <header id="header">
       <div>
         <a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a>
       </div>
@@ -26,7 +26,6 @@
           ?>
       </div>
       <div>
-        <nav id="menu">
   	      <ul class="headercontent">
   	         <?php if (isset($currentuser)): ?>
   	        <li><?= sprintf(i18n("Hello %s"), $currentuser) ?>
@@ -36,7 +35,6 @@
   	        <li><a href="index.php?controller=users&amp;action=login"><?= i18n("Login") ?></a></li>
   	        <?php endif ?>
   	      </ul>
-        </nav>
       </div>
     </header>
 
@@ -47,7 +45,7 @@
         <?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
     </main>
 
-    <footer class="footer">
+    <footer id="footer">
         <div>
                 <ul class="footercontent">
                     <li class="footertitle">
@@ -105,7 +103,7 @@
                     </li>
                 </ul>
             </div>
-        <div>
+            <div>
                 <ul class="footercontent">
                     <li class="footertitle">
                         <?= i18n("Social networks") ?>
@@ -134,7 +132,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
     </footer>
 
   </body>
