@@ -27,11 +27,17 @@
 }
 
 #header {
-    margin-top: 20px;
     border-radius: 8px;
-    background: #292d39;
-    column-count: 5;
+    background: #94cdf2;
     color: white;
+    height: 120px;
+}
+
+.indexlink{
+  color: #1484C8;
+  font-size: 50px;
+  position:absolute;
+  top: 50px;
 }
 
 .indexlink:visited, .indexlink:link {
@@ -48,6 +54,11 @@
     color: white;
 }
 
+.headercontent #languagechooser{
+  float: right;
+  margin-top: 40px;
+}
+
 .languagelink:visited, .languagelink:link {
     text-decoration: none;
     color: white;
@@ -58,9 +69,6 @@
 }
 
 .headerimg {
-    float: left;
-    margin-top: 3px;
-    margin-right: 3px;
     width: 15px;
     height: 15px;
 }
@@ -72,15 +80,21 @@
     padding-right: 10px;
 }
 
+.logo{
+  float: left;
+  width: 120px;
+  height: 120px;
+}
+
 ul, ol {
     list-style: none;
 }
 
-.nav>li {
+.nav>li.menu {
     float: left;
 }
 
-.nav li a {
+.nav li.menu a {
     background-color: #292d39;
     color: white;
     text-decoration: none;
@@ -88,16 +102,16 @@ ul, ol {
     display: block;
 }
 
-.nav li a:hover {
+.nav li.menu a:hover {
     background-color: #434343;
 }
 
-.nav li ul {
+.nav li.menu ul {
     display: none;
     position: absolute;
 }
 
-.nav li:hover>ul {
+.nav li.menu:hover>ul {
     display: block;
 }
 

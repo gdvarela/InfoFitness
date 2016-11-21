@@ -16,8 +16,11 @@
   <body>
     <!-- header -->
     <header id="header">
-      <div>
-        <a class="indexlink" href="?controller=index&action=welcome">InfoFitness</a>
+      <div class="headercontent">
+        <a  href="?controller=index&action=welcome"><img class="logo" src="./img/logo.svg"></a>
+      </div>
+      <div class="headercontent">
+        <a class="indexlink" href="?controller=index&action=welcome">infoFitness</a>
       </div>
       <div class="headercontent">
           <?php
@@ -27,22 +30,20 @@
       <div class="headercontent">
   	      <ul class="nav">
   	         <?php if (isset($_SESSION["currentuser"])): ?>
-  	        <li><?= $_SESSION["currentuser"] ?>
+  	        <li class="menu"><?= $_SESSION["currentuser"] ?>
               <ul>
                 <?php if ($_SESSION["type"]==0): ?>
-                <li><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
+                <li class="menu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
                 <?php endif ?>
                 <?php if ($_SESSION["type"]==0): ?>
-                <li><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></li>
+                <li class="menu"><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></li>
                 <?php endif ?>
                 <?php if ($_SESSION["type"]==0): ?>
-                <li><a href="index.php?controller=session&amp;action=listSessions"><?=i18n("History")?></a></li>
+                <li class="menu"><a href="index.php?controller=session&amp;action=listSessions"><?=i18n("History")?></a></li>
                 <?php endif ?>
-  	            <li><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
+  	            <li class="menu"><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
               </ul>
   	        </li>
-  	        <?php else: ?>
-  	        <li><a href="index.php?controller=users&amp;action=login"><?= i18n("Login") ?></a></li>
   	        <?php endif ?>
   	      </ul>
       </div>
