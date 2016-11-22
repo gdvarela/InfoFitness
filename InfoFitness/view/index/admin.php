@@ -4,5 +4,15 @@ $view = ViewManager::getInstance();
 
 ?>
 
-<a href="?controller=users&action=alta"><?=i18n("Users Management")?> </a> </br>
-<a href="?controller=activities&action=listActivities"><?=i18n("Activities Management")?> </a></br>
+<div id=admin>
+  <a href="?controller=users&action=alta">
+    <div class=mainusers>
+      </br></br><?=i18n("Users Management")?>
+    </div>
+  </a>
+  <a href="?controller=activities&action=listActivities">
+    <div class=mainactivities>
+    </br></br><?=i18n("Activities Management")?>
+    </div>
+  </a>
+</div>
