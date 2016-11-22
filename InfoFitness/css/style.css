@@ -8,10 +8,15 @@
     }
 }
 
-body,html{ height:100%; margin:0;}
+body, html {
+    height: 100%;
+    margin: 0;
+    font: sans-serif;
+}
 
-#container{min-height: 50%;}
-
+#container {
+    min-height: 50%;
+}
 
 #flash {
     background-color: green;
@@ -41,11 +46,11 @@ body,html{ height:100%; margin:0;}
     padding-left: 5px;
 }
 
-.indexlink{
-  color: #1484C8;
-  font-size: 50px;
-  position:absolute;
-  top: 50px;
+.indexlink {
+    color: #1484C8;
+    font-size: 50px;
+    position: absolute;
+    top: 50px;
 }
 
 .indexlink:visited, .indexlink:link {
@@ -62,9 +67,9 @@ body,html{ height:100%; margin:0;}
     color: white;
 }
 
-.headercontent #languagechooser{
-  float: right;
-  margin-top: 55px;
+.headercontent #languagechooser {
+    float: right;
+    margin-top: 55px;
 }
 
 .languagelink:visited, .languagelink:link {
@@ -88,20 +93,21 @@ body,html{ height:100%; margin:0;}
     padding-right: 10px;
 }
 
-.logo{
-  float: left;
-  width: 120px;
-  height: 120px;
+.logo {
+    float: left;
+    width: 120px;
+    height: 120px;
 }
 
 ul, ol {
     list-style: none;
 }
-.nav{
-  float: right;
-  margin-top: 50px;
-  font-size: 25px;
-  text-align: center;
+
+.nav {
+    float: right;
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
 }
 
 .nav>li.menu {
@@ -159,7 +165,32 @@ ul, ol {
     height: 15px;
 }
 
-#login{
+#login {
+    position: relative;
+    margin-left: 35%;
+    width: 25%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #94cdf2;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: #94cdf2;
+    border-radius: 5px;
+}
+
+.loginbutton {
+    border-radius: 5px;
+    background-color: #1484c8;
+    border-color: rgb(83, 140, 230);
+}
+
+.registerbutton {
+    border-radius: 5px;
+    background-color: #1484c8;
+    border-color: rgb(83, 140, 230);
+}
+
+#register{
   position: relative;
   margin-left: 35%;
   width: 25%;
@@ -170,10 +201,4 @@ ul, ol {
   padding-bottom: 10px;
   background-color: #94cdf2;
   border-radius: 5px;
-}
-
-.loginbutton{
-  border-radius: 5px;
-  background-color: #1484c8;
-  border-color: rgb(83, 140, 230);
 }

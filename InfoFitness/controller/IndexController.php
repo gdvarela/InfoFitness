@@ -8,6 +8,7 @@ class IndexController extends BaseController
 
     public function welcome()
     {
+      if(isset($SESSION["type"])){
         switch ($_SESSION["type"]) {
             case 0:
                 $this->view->render("index", "user");
@@ -22,6 +23,9 @@ class IndexController extends BaseController
                 $this->view->render("index", "error");
                 break;
         }
+      }else{
+        $this->view->render("users", "login");
+      }
     }
 
     public function unauthorized() {
