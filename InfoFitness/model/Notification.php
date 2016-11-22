@@ -8,12 +8,12 @@ class Notification {
 
   private $destino;
   private $subject;
-  private $mensaje;
+  private $message;
 
-  public function __construct($destino=NULL, $subject=NULL, $mensaje=NULL){
+  public function __construct($destino=NULL, $subject=NULL, $message=NULL){
     $this->destino=$destino;
     $this->subject=$subject;
-    $this->mensaje=$mensaje;
+    $this->message=$message;
   }
 
   public function getDestino(){
@@ -32,12 +32,12 @@ class Notification {
     $this->subject=$subject;
   }
 
-  public function getMensaje(){
-    return $this->mensaje;
+  public function getMessage(){
+    return $this->message;
   }
 
-  public function setMensaje($mensaje){
-    $this->mensaje=$mensaje;
+  public function setMessage($message){
+    $this->message=$message;
   }
 }
 
