@@ -37,7 +37,7 @@ CREATE TABLE `Actividad` (
   `dia` varchar(10) COLLATE latin1_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_actividad`),
   KEY `monitor` (`monitor`),
-  CONSTRAINT `monitor` FOREIGN KEY (`monitor`) REFERENCES `Monitor` (`id_entrenador`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `monitor` FOREIGN KEY (`monitor`) REFERENCES `Monitor` (`id_entrenador`) ON DELETE SET NULL ON UPDATE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -68,7 +68,7 @@ CREATE TABLE `Asistencia` (
   KEY `id_asistencia_usuario_idx` (`id_usuario`),
   CONSTRAINT `id_asistencia_actividad` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_asistencia_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `Asistencia` (
 
 LOCK TABLES `Asistencia` WRITE;
 /*!40000 ALTER TABLE `Asistencia` DISABLE KEYS */;
-INSERT INTO `Asistencia` VALUES (5,13,'2016-11-22',1),(6,13,'2016-11-22',11);
+INSERT INTO `Asistencia` VALUES (5,13,'2016-11-22',1),(6,13,'2016-11-22',11),(7,14,'2016-11-22',6),(8,14,'2016-11-22',2);
 /*!40000 ALTER TABLE `Asistencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +276,7 @@ CREATE TABLE `Tabla_Ejercicios_Deportista` (
 
 LOCK TABLES `Tabla_Ejercicios_Deportista` WRITE;
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Deportista` DISABLE KEYS */;
-INSERT INTO `Tabla_Ejercicios_Deportista` VALUES (1,1),(2,2),(1,3),(2,4);
+INSERT INTO `Tabla_Ejercicios_Deportista` VALUES (1,1),(2,2),(1,3),(2,4),(1,5),(2,5);
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Deportista` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -351,4 +351,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-22 17:26:18
+-- Dump completed on 2016-11-22 18:02:49
