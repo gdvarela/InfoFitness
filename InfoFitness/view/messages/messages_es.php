@@ -64,7 +64,10 @@
     "Type" => "Tipo",
     "Comment" => "Comentario",
     "Working hours" => "Jornada laboral",
-    "Slot complete" => "Espacio completo"
+    "Slot complete" => "Espacio completo",
+    "To" => "Para",
+    "Subject" => "Asunto",
+    "Message" => "Mensaje"
 
   )
 ?>
