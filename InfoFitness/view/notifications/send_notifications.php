@@ -11,5 +11,5 @@ $view = ViewManager::getInstance();
   <?= i18n("Subject")?>: <input type="text" name="subject">
   <?= i18n("Message")?>: <input type="textarea" name="mensaje">
 
-  <input type="submit" value="<?= i18n("Send") ?>">
+  <input type="submit" value=<?= i18n("Send") ?>>
 </form>
