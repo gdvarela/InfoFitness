@@ -21,7 +21,7 @@ $view = ViewManager::getInstance();
   </div>
  </a>
  <a class="linkgeneral" href="?controller=exercises&action=listExercises">
-  <div class="exercise">
+  <div class="exercisepublic">
     </br></br><?= i18n("Exercises List") ?>
   </div>
  </a>
