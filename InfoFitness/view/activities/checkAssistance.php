@@ -10,6 +10,7 @@ $users = $view->getVariable("users");
 $activityId = $view->getVariable("activityId");
 $activityName = $view->getVariable("activityName");
 $activityPlace = $view->getVariable("activityPlace");
+$date = $view->getVariable("date");
 ?>
 <table>
     <tr>
@@ -39,6 +40,7 @@ $activityPlace = $view->getVariable("activityPlace");
             </tr>
         <?php endforeach; ?>
         <input name="activityId" value="<?= $activityId ?>" hidden="true">
+        <input name="date" value="<?= $date ?>" hidden="true">
         <button type="submit"><?= i18n("Save") ?></button>
     </form>
 </table>

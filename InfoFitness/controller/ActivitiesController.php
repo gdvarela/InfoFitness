@@ -7,6 +7,7 @@ require_once(__DIR__ . "/../model/Activity.php");
 require_once(__DIR__ . "/../model/ActivityMapper.php");
 require_once(__DIR__ . "/../model/User.php");
 require_once(__DIR__ . "/../model/UserMapper.php");
+require_once(__DIR__ . "/../model/AssistanceMapper.php");
 
 require_once(__DIR__ . "/../controller/BaseController.php");
 
@@ -24,6 +25,7 @@ class ActivitiesController extends BaseController
 
         $this->activityMapper = new ActivityMapper();
         $this->userMapper = new UserMapper();
+        $this->assistanceMapper = new AssistanceMapper();
         $this->newActivity = new Activity();
         // Users controller operates in a "welcome" layout
         // different to the "default" layout where the internal
@@ -108,6 +110,7 @@ class ActivitiesController extends BaseController
             $this->view->setVariable("users", $users);
             $this->view->setVariable("activityId", $_POST["activityId"]);
             $this->view->setVariable("activityName", $_POST["activityName"]);
+            $this->view->setVariable("date", $_POST["date"]);
             $this->view->setVariable("activityPlace", $_POST["place"]);
 
             $this->view->render("activities", "checkAssistance");
@@ -124,8 +127,9 @@ class ActivitiesController extends BaseController
     public function checkAssistance()
     {
         if(isset($_POST["activityId"])) {
-            
-            var_dump($_POST);
+            $this->assistanceMapper->checkAssistance($_POST["activityId"], $_POST["users"], $_POST["date"]);
+
+            $this->view->redirect("activities", "assistanceControl");
         } else {
             $users = $this->userMapper->listarDeportista();
 
