@@ -8,7 +8,7 @@ class IndexController extends BaseController
 
     public function welcome()
     {
-      if(isset($SESSION["type"])){
+      if(isset($_SESSION["userId"])){
         switch ($_SESSION["type"]) {
             case 0:
                 $this->view->render("index", "user");
