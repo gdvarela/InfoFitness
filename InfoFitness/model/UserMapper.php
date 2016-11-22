@@ -194,6 +194,18 @@ class UserMapper
     //eliminar usuario de la BD
     public function delete($id_usuario)
     {
+        $stmt = $this->db->prepare("SELECT * FROM Usuario WHERE id_usuario=?");
+        $stmt->execute(array($id_usuario));
+        $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($user_db[0]["permisos"] == 1) {
+            $stmt = $this->db->prepare("DELETE FROM Monitor WHERE id_usuario=?");
+            $stmt->execute(array($id_usuario));
+        } else if ($user_db[0]["permisos"] == 0){
+            $stmt = $this->db->prepare("DELETE FROM Deportista WHERE id_usuario=?");
+            $stmt->execute(array($id_usuario));
+        }
+
         $stmt = $this->db->prepare("DELETE FROM Usuario WHERE id_usuario=?");
         $stmt->execute(array($id_usuario));
     }
