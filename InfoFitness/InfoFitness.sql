@@ -90,13 +90,13 @@ DROP TABLE IF EXISTS `Deportista`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Deportista` (
   `id_deportista` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) DEFAULT NULL,
   `comentario` text COLLATE latin1_spanish_ci,
-  `tipo_tarjeta` bit(1) DEFAULT NULL,
+  `tipo_tarjeta` tinyint(1) DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_deportista`),
-  UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`),
-  CONSTRAINT `id_usuario_deportista` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  KEY `fk_usuario_idx` (`id_usuario`),
+  CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `Deportista` (
 
 LOCK TABLES `Deportista` WRITE;
 /*!40000 ALTER TABLE `Deportista` DISABLE KEYS */;
-INSERT INTO `Deportista` VALUES (1,1,'flojillo',''),(2,2,'to tocho','\0'),(3,6,'vago','\0'),(4,7,'Grande',''),(5,11,'Usuario','');
+INSERT INTO `Deportista` VALUES (1,'flojillo',1,1),(2,'to tocho',0,2),(3,'vago',0,6),(4,'Grande',1,7),(5,'Usuario',1,11);
 /*!40000 ALTER TABLE `Deportista` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,7 +338,7 @@ CREATE TABLE `Usuario` (
 
 LOCK TABLES `Usuario` WRITE;
 /*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','dshfbfb',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356',NULL),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1973-02-11'),(9,'admin','12345678A','Admin','Admin','admin@admin.admin','admin',2,NULL,NULL),(10,'monitor','11111111A','Moni','Moni','moni@moni.moni','monitor',1,NULL,NULL),(11,'user','22222222A','User','User','user@user.user','user',0,NULL,NULL),(12,'newuser','52469845E','newuser','newuser','newuser@newuser.com','(+34) ',0,'+34685214523','1995-05-10');
+INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','dshfbfb',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356','1995-10-26'),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1992-10-10'),(9,'admin','12345678A','Admin','Admin','admin@admin.admin','admin',2,'','2016-11-17'),(10,'monitor','11111111A','Moni','Moni','moni@moni.moni','monitor',1,NULL,NULL),(11,'user','22222222A','User','User','user@user.user','user',0,NULL,NULL),(12,'newuser','52469845E','newuser','newuser','newuser@newuser.com','(+34) ',0,'+34685214523','1995-05-10');
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -351,4 +351,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-22 16:17:37
+-- Dump completed on 2016-11-22 17:26:18

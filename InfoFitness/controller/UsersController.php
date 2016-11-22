@@ -136,18 +136,17 @@ class UsersController extends BaseController
     {
 
         if (isset($_POST["id_usuario"])) {
-            $user = new User($_POST["id_usuario"], $_POST["username"], NULL,$_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
+            $user = new User($_POST["id_usuario"], $_POST["username"], NULL, $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
                 $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], NULL, NULL, NULL);
 
             try {
                 //$this->user->checkIsValidForRegister();
-                $this->userMapper->update($user);
+                $this->userMapper->updateAdmin($user);
             } catch (ValidationException $ex) {
                 // Obtener los errores de la validacion
                 $errors = $ex->getErrors();
                 $this->view->setVariable("errors", $errors);
             }
-
 
             $this->view->redirect("users", "listUsuario");
         } else {

@@ -74,19 +74,18 @@ class UserMapper
             $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac()));
 
 
-            //************************************PREGUNTAR ***********
-            /*if($user->getPermiso()==0){
-              $stmt = $this->db->prepare("INSERT INTO Deportista (tipo_tarjeta, comentario) VALUES (?,?)");
-              $stmt->execute(array($user->getTipoDeportista(), $user->getComentario()));
-            }
+        //************************************PREGUNTAR ***********
+        /*if($user->getPermiso()==0){
+          $stmt = $this->db->prepare("INSERT INTO Deportista (tipo_tarjeta, comentario) VALUES (?,?)");
+          $stmt->execute(array($user->getTipoDeportista(), $user->getComentario()));
+        }
 
-            if($user->getPermiso()==1){
-              $stmt = $this->db->prepare("INSERT INTO Monitor (jornada) VALUES (?)");
-              $stmt->execute(array($user->getJornada()));
-            }*/
+        if($user->getPermiso()==1){
+          $stmt = $this->db->prepare("INSERT INTO Monitor (jornada) VALUES (?)");
+          $stmt->execute(array($user->getJornada()));
+        }*/
     }
 
-    //Usuario existente??
     public function usernameExists($username)
     {
         $stmt = $this->db->prepare("SELECT count(login) FROM Usuario WHERE login=?");
@@ -99,17 +98,16 @@ class UserMapper
         }
     }
 
-    //usuario y contraseña valido????
     public function validUser($username, $passwd)
     {
 
         $stmt = $this->db->query("SELECT * FROM Usuario WHERE login= '$username' AND contraseña= '$passwd'");
         $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if(sizeof($user_db) == 1) {
+        if (sizeof($user_db) == 1) {
             $user_db = $user_db[0];
             $user = new User($user_db["id_usuario"], $user_db["login"], $user_db["contraseña"], $user_db["nombre"], $user_db["apellidos"], $user_db["dni"],
-                $user_db["fecha_nacimiento"], $user_db["permisos"], $user_db["mail"], $user_db["telefono"],NULL,NULL,NULL);
+                $user_db["fecha_nacimiento"], $user_db["permisos"], $user_db["mail"], $user_db["telefono"], NULL, NULL, NULL);
 
             return $user;
         } else {
@@ -132,16 +130,64 @@ class UserMapper
 
     public function updatemonitor($user)
     {
+        $stmt = $this->db->prepare("SELECT * FROM Usuario WHERE id_usuario=?");
+        $stmt->execute(array($user->getIdUsr()));
+        $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         $this->update($user);
-        $stmt = $this->db->prepare("UPDATE Monitor SET jornada=? WHERE id_usuario=?");
-        $stmt->execute(array($user->getJornada(), $user->getIdUsr()));
+
+        if ($user_db[0]["permisos"] != $user->getPermiso()) {
+            $stmt = $this->db->prepare("DELETE FROM Monitor WHERE id_usuario=?");
+            $stmt->execute(array($user->getIdUsr()));
+
+            if ($user->getPermiso() == 0) {
+                $stmt = $this->db->prepare("INSERT INTO Deportista (id_usuario) values (?)");
+                $stmt->execute(array($user->getIdUsr()));
+            }
+        } else {
+            $stmt = $this->db->prepare("UPDATE Monitor SET jornada=? WHERE id_usuario=?");
+            $stmt->execute(array($user->getJornada(), $user->getIdUsr()));
+        }
     }
 
     public function updatedepor($user)
     {
+        $stmt = $this->db->prepare("SELECT * FROM Usuario WHERE id_usuario=?");
+        $stmt->execute(array($user->getIdUsr()));
+        $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         $this->update($user);
-        $stmt = $this->db->prepare("UPDATE Deportista SET tipo_tarjeta=?, comentario=? WHERE id_usuario=?");
-        $stmt->execute(array($user->getTipoDeportista(), $user->getComentario(), $user->getIdUsr()));
+
+        if ($user_db[0]["permisos"] != $user->getPermiso()) {
+            $stmt = $this->db->prepare("DELETE FROM Deportista WHERE id_usuario=?");
+            $stmt->execute(array($user->getIdUsr()));
+
+            if ($user->getPermiso() == 1) {
+                $stmt = $this->db->prepare("INSERT INTO Monitor (id_usuario) values (?)");
+                $stmt->execute(array($user->getIdUsr()));
+            }
+        } else {
+            $stmt = $this->db->prepare("UPDATE Deportista SET tipo_tarjeta=?, comentario=? WHERE id_usuario=?");
+            $stmt->execute(array($user->getTipoDeportista(), $user->getComentario(), $user->getIdUsr()));
+        }
+    }
+
+    public function updateAdmin($user) {
+        $stmt = $this->db->prepare("SELECT * FROM Usuario WHERE id_usuario=?");
+        $stmt->execute(array($user->getIdUsr()));
+        $user_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->update($user);
+
+        if ($user_db[0]["permisos"] != $user->getPermiso()) {
+            if ($user->getPermiso() == 1) {
+                $stmt = $this->db->prepare("INSERT INTO Monitor (id_usuario) values (?)");
+                $stmt->execute(array($user->getIdUsr()));
+            } else {
+                $stmt = $this->db->prepare("INSERT INTO Deportista (id_usuario) values (?)");
+                $stmt->execute(array($user->getIdUsr()));
+            }
+        }
     }
 
 
