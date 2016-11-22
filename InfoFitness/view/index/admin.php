@@ -15,4 +15,10 @@ $view = ViewManager::getInstance();
     </br></br><?=i18n("Activities Management")?>
     </div>
   </a>
+  <a href="?controller=notifications&action=send">
+    <div class=mainactivities>
+    </br></br><?=i18n("Notifications")?>
+    </div>
+  </a>
+
 </div>
