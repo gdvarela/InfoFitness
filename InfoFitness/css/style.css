@@ -220,7 +220,7 @@ ul, ol {
     font-size: 30px;
 }
 
-.assistance {
+.mainreserve {
     border: solid;
     width: 49.55%;
     float: left;
@@ -245,7 +245,7 @@ ul, ol {
     /* Opera */
 }
 
-.assistance:hover {
+.mainreserve:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */
@@ -257,7 +257,7 @@ ul, ol {
     /* IE9 */
 }
 
-.workout {
+.mainworkout {
     border: solid;
     width: 49.55%;
     float: right;
@@ -282,7 +282,7 @@ ul, ol {
     /* Opera */
 }
 
-.workout:hover {
+.mainworkout:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */
@@ -294,7 +294,7 @@ ul, ol {
     /* IE9 */
 }
 
-.session {
+.mainsession {
     border: solid;
     width: 49.55%;
     float: left;
@@ -318,7 +318,7 @@ ul, ol {
     /* Opera */
 }
 
-.session:hover {
+.mainsession:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */
@@ -330,7 +330,7 @@ ul, ol {
     /* IE9 */
 }
 
-.exercisepublic {
+.mainexercisepublic {
     border: solid;
     width: 49.55%;
     float: right;
@@ -354,7 +354,7 @@ ul, ol {
     /* Opera */
 }
 
-.exercisepublic:hover {
+.mainexercisepublic:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */
@@ -372,7 +372,7 @@ ul, ol {
     top: 75px;
 }
 
-.users {
+.mainusers {
     border: solid;
     width: 49.55%;
     float: left;
@@ -396,7 +396,7 @@ ul, ol {
     /* Opera */
 }
 
-.users:hover {
+.mainusers:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */
@@ -408,7 +408,7 @@ ul, ol {
     /* IE9 */
 }
 
-.activities {
+.mainactivities {
     border: solid;
     width: 49.55%;
     float: right;
@@ -432,7 +432,7 @@ ul, ol {
     /* Opera */
 }
 
-.activities:hover {
+.mainactivities:hover {
     transform: scale(1.2);
     -moz-transform: scale(1.2);
     /* Firefox */

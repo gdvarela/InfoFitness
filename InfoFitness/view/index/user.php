@@ -6,22 +6,22 @@ $view = ViewManager::getInstance();
 
 <div id="user">
   <a class="linkgeneral" href="?controller=activities&action=slotsControl">
-    <div class="assistance">
+    <div class="mainreserve">
     </br></br><?= i18n("Slots Control") ?>
   </div>
  </a>
  <a class="linkgeneral" href="?controller=tables&action=listWorkouts">
-  <div class="workout">
+  <div class="mainworkout">
     </br></br><?= i18n("Workout Monitoring") ?>
   </div>
  </a>
  <a class="linkgeneral" href="?controller=session&action=listSessions">
-    <div class="session">
+    <div class="mainsession">
     </br></br><?= i18n("Session History") ?>
   </div>
  </a>
  <a class="linkgeneral" href="?controller=exercises&action=listExercises">
-  <div class="exercisepublic">
+  <div class="mainexercisepublic">
     </br></br><?= i18n("Exercises List") ?>
   </div>
  </a>
