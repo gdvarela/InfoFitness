@@ -67,7 +67,8 @@
     "Slot complete" => "Espacio completo",
     "To" => "Para",
     "Subject" => "Asunto",
-    "Message" => "Mensaje"
+    "Message" => "Mensaje",
+    "Notifications" => "Notificaciones"
 
   )
 ?>
