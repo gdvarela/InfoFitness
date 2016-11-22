@@ -119,8 +119,8 @@ class User {
     return $this->tipo_deportista;
   }
 
-  public function setTipoDeportista() {
-   $this->tipo_deportista=$tipo_deportista;
+  public function setTipoDeportista($tipo_deportista) {
+   $this->tipo_deportista = $tipo_deportista;
   }
 
   public function getComentario() {
@@ -142,10 +142,10 @@ class User {
   public function checkIsValidForRegister() {
 
       $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+$/";
-      $patron_login = "/^([a-zA-Z]+_?[a-zA-Z0-9]+){5,}/"; //letras, numeros y _
-      $patron_telef = "/^\+?[0-9]{1,3}?[0-9]{9}$/"; //(+34 999999999)
+//      $patron_login = "/^([a-zA-Z]+_?[a-zA-Z0-9]+){5,}/"; //letras, numeros y _
+//      $patron_telef = "/^\+?[0-9]{1,3}?[0-9]{9}$/"; //(+34 999999999)
       $patron_email = "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/";
-      $patron_passwd = "/^[a-zA-Z0-9\.\/\*_]{6,}$/";
+//      $patron_passwd = "/^[a-zA-Z0-9\.\/\*_]{6,}$/";
       $patron_dnie = "/^[a-zA-Z]?[0-9]{8}[a-zA-Z]/"; //dni o nie
       $patron_num = "/^[0-9]*/";
 
@@ -153,26 +153,22 @@ class User {
 
       //login
       if(strlen($this->username) < 5) {
-	       $errors["username_lenght"] = "Username must be at least 5 characters length";
-      }elseif(preg_match($patron_login, $this->username) == 0 ){
-         $errors["username"] = "Login debe contener letras, numeros y/o _";
+	       $errors["username"] = "Username must be at least 5 characters length";
       }
 
       //passwd
       if(strlen($this->passwd) < 6) {
-	        $errors["passwd_lenght"] = "Password must be at least 6 characters length";
-      }elseif(preg_match($patron_passwd, $this->passwd) == 0 ){
-          $errors["passwd"] = "Contraseña debe contener letras, numeros y/o ./_*";
+	        $errors["passwd"] = "Password must be at least 6 characters length";
       }
 
       //nombre
       if (preg_match($patron_texto, $this->nombre) == 0) {
-          $errors["nombre"] = "Nombre solo debe contener letras";
+          $errors["name"] = "Nombre solo debe contener letras";
       }
 
       //apellidos
       if (preg_match($patron_texto, $this->apellidos) == 0) {
-          $errors["apellidos"] = "Apellidos solo debe contener letras";
+          $errors["lastname"] = "Apellidos solo debe contener letras";
       }
 
       //dnie
@@ -188,9 +184,9 @@ class User {
       }
 
       //telef
-      if (preg_match($patron_telef, $this->telef) == 0) {
-          $errors["telef"] = "Telefono must be like (+34) 999999999";
-      }
+//      if (preg_match($patron_telef, $this->telef) == 0) {
+//          $errors["phone"] = "Telefono must be like (+34) 999999999";
+//      }
 
 
       if (sizeof($errors)>0){

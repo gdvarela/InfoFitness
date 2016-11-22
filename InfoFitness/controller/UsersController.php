@@ -213,6 +213,49 @@ class UsersController extends BaseController
         }
     }
 
+    public function register() {
+
+        $user = new User();
+
+        if (isset($_POST["username"])){
+
+            $user->setUsername($_POST["username"]);
+            $user->setPassword($_POST["passwd"]);
+            $user->setNombre($_POST["name"]);
+            $user->setApellidos($_POST["lastname"]);
+            $user->setDni($_POST["dni"]);
+            $user->setFechanac($_POST["date"]);
+            $user->setEmail($_POST["email"]);
+            $user->setTelefono($_POST["phone"]);
+            $user->setPermiso(0);
+
+            try{
+                $user->checkIsValidForRegister();
+
+                if (!$this->userMapper->usernameExists($_POST["username"])){
+
+                    $this->userMapper->save($user);
+
+                    $this->view->setFlash("Username ".$user->getUsername()." successfully added. Please login now");
+                    $this->view->redirect("users", "login");
+                } else {
+                    $errors = array();
+                    $errors["username"] = "Username already exists";
+                    $this->view->setVariable("errors", $errors);
+                }
+            }catch(ValidationException $ex) {
+                $errors = $ex->getErrors();
+                $this->view->setVariable("errors", $errors);
+            }
+        }
+
+        // Put the User object visible to the view
+        $this->view->setVariable("user", $user);
+
+        // render the view (/view/users/register.php)
+        $this->view->render("users", "register");
+
+    }
 
 
 }
