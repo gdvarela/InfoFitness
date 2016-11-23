@@ -1,0 +1,30 @@
+<form action="install.php" method="POST">
+    <p>Mysql Root User: <input type="text" name="user" /></p>
+    <p>Mysql Root Password:  <input type="password" name="passwd" /></p>
+    <p><input type="submit" name="submit" value="submit" /></p>
+</form>
+
+<?php
+if (isset($_POST["submit"])){
+
+    $mysqlUserName = $_POST["user"];
+    $mysqlPasswd = $_POST["passwd"];
+    $dbFile = "InfoFitness.sql";
+    $command='mysql -u' .$mysqlUserName .' -p' .$mysqlPasswd . ' < ' .$dbFile;
+    exec($command,$output=array(),$worked);
+    switch($worked){
+	case 0:
+            echo 'Import file <b>' .$dbFile .'</b> successfully imported to database<br />';
+            echo 'Database user created: infoFitness with password infoFitness<br />';
+            echo 'Test user created: admin with password admin<br />';
+            echo '<a href="index.php">Proceed to Website</a><br />';
+            break;
+	case 1:
+            echo 'There was an error during import: User already Exists or You insert bad credentials<br /><br />';
+            echo 'Database user created: infoFitness with password infoFitness<br /><br />';
+            echo 'Website user admin created: admin with password admin<br /><br />';
+            echo '<a href="index.php">Check if credentials are ok and Proceed to Website</a>';
+            break;
+    }
+}
+?>
