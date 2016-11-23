@@ -28,6 +28,7 @@ class TablesController extends BaseController {
         $workouts = $this->tableMapper->listWorkouts();
         $this->view->setVariable("workouts", $workouts);
         $this->view->setVariable("newWorkout", $this->newTable);
+        $this->view->setVariable("title", "Workout");
         $this->view->render("workouts", "list");
     }
 
@@ -35,6 +36,7 @@ class TablesController extends BaseController {
         $tables = $this->tableMapper->listTables();
         $this->view->setVariable("tables", $tables);
         $this->view->setVariable("newTable", $this->newTable);
+        $this->view->setVariable("title", "Tables Management");
         $this->view->render("tables", "list");
     }
 

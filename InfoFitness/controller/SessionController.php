@@ -27,6 +27,7 @@
    public function listSessions(){
      $sessions = $this->sessionMapper->listSessions();
      $this->view->setVariable("sessions", $sessions);
+       $this->view->setVariable("title", "Sessions");
      $this->view->render("session", "list");
    }
 

@@ -43,7 +43,7 @@ class UsersController extends BaseController
             }
         }
 
-        // render the view (/view/users/login.php)
+        $this->view->setVariable("title", "login");
         $this->view->render("users", "login");
     }
 
@@ -65,6 +65,7 @@ class UsersController extends BaseController
 
         $admins= $this->userMapper->listarAdmin();
         $this->view->setVariable("admins", $admins);
+        $this->view->setVariable("title", "Users Management");
         $this->view->render("users", "alta");
     }
 

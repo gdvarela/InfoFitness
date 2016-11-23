@@ -48,7 +48,7 @@ class ActivitiesController extends BaseController
 
         $monitors = $this->activityMapper->listMonitors();
         $this->view->setVariable("monitors", $monitors);
-
+        $this->view->setVariable("title", "Activities Management");
         $this->view->render("activities", "list");
     }
 
@@ -112,7 +112,7 @@ class ActivitiesController extends BaseController
             $this->view->setVariable("activityName", $_POST["activityName"]);
             $this->view->setVariable("date", $_POST["date"]);
             $this->view->setVariable("activityPlace", $_POST["place"]);
-
+            $this->view->setVariable("title", "Assistance Control");
             $this->view->render("activities", "checkAssistance");
         } else {
             $activities = $this->activityMapper->listActivities();
@@ -120,6 +120,7 @@ class ActivitiesController extends BaseController
 
             $this->view->setVariable("monitors", $monitors);
             $this->view->setVariable("activities", $activities);
+            $this->view->setVariable("title", "Assistance Control");
             $this->view->render("activities", "assistanceControl");
         }
     }
@@ -146,6 +147,7 @@ class ActivitiesController extends BaseController
         $this->view->setVariable("unreservedActivities", $unreservedActivities);
         $this->view->setVariable("reservedActivities", $reservedActivities);
 
+        $this->view->setVariable("title", "Reserve Activities");
         $this->view->render("activities", "slots");
 
     }
