@@ -128,7 +128,7 @@ class ActivitiesController extends BaseController
     public function checkAssistance()
     {
         if(isset($_POST["activityId"])) {
-            $this->assistanceMapper->checkAssistance($_POST["activityId"], $_POST["users"], $_POST["date"]);
+            $this->assistanceMapper->checkAssistance($_POST["activityId"], $_POST["users"], $_POST["date"], $_POST["activityName"]);
 
             $this->view->redirect("activities", "assistanceControl");
         } else {

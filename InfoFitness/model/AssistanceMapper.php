@@ -10,12 +10,12 @@ class AssistanceMapper {
         $this->db = PDOConnection::getInstance();
     }
 
-    public function checkAssistance($idActividad, $users, $date) {
+    public function checkAssistance($idActividad, $users, $date, $activityName) {
 
-        $stmt = $this->db->prepare("INSERT INTO Asistencia (id_actividad, fecha, id_usuario) VALUES (?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO Sesion (id_actividad, fecha, id_usuario, comentario) VALUES (?,?,?,?)");
 
         foreach ($users as $user):
-            $stmt->execute(array($idActividad, $date, $user));
+            $stmt->execute(array($idActividad, $date, $user, $activityName));
         endforeach;
     }
 }

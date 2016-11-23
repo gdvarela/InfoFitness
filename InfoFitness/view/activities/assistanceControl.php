@@ -9,7 +9,7 @@ if ($_SESSION["type"] != 1) {
 $activities = $view->getVariable("activities");
 $monitors = $view->getVariable("monitors");
 date_default_timezone_set('Europe/Madrid');
-$date = date('Y-m-d', time());
+$date = date('Y-m-d H:m', time());
 ?>
 <span><?= $date ?></span>
 <div class="datagrid">
