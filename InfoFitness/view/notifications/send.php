@@ -12,7 +12,7 @@ $view = ViewManager::getInstance();
   <!--<input type="radio" name="Departamento" value="informacion@empresa.com" id="Departamento_0"  /> Informacion-->
   <!--<input type="radio" name="Departamento" value="compras@empresa.com" id="Departamento_1" /> Compras-->
   <?= i18n("Subject")?>: <input type="text" name="subject"></br>
-  <?= i18n("Message")?>: <input type="textarea" name="message" cols="32" rows="32"></br>
+  <?= i18n("Message")?>: <textarea type="textarea" name="message" cols="32" rows="32"></textarea></br>
 
   <input type="submit" value=<?= i18n("Send") ?>>
 </form>
