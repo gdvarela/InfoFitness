@@ -52,36 +52,6 @@ INSERT INTO `Actividad` VALUES (1,'Spinning',40,'Pedalear a tope',0,'Sala de spi
 UNLOCK TABLES;
 
 --
--- Table structure for table `Asistencia`
---
-
-DROP TABLE IF EXISTS `Asistencia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Asistencia` (
-  `idAsistencia` int(11) NOT NULL AUTO_INCREMENT,
-  `id_actividad` int(11) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idAsistencia`),
-  KEY `is_asistencia_actividad_idx` (`id_actividad`),
-  KEY `id_asistencia_usuario_idx` (`id_usuario`),
-  CONSTRAINT `id_asistencia_actividad` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_asistencia_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Asistencia`
---
-
-LOCK TABLES `Asistencia` WRITE;
-/*!40000 ALTER TABLE `Asistencia` DISABLE KEYS */;
-INSERT INTO `Asistencia` VALUES (5,13,'2016-11-22',1),(6,13,'2016-11-22',11),(7,14,'2016-11-22',6),(8,14,'2016-11-22',2);
-/*!40000 ALTER TABLE `Asistencia` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Deportista`
 --
 
@@ -215,7 +185,7 @@ CREATE TABLE `Sesion` (
   CONSTRAINT `id_actividad_sesion` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `id_tabla_sesion` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `id_usuario_sesion` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +194,7 @@ CREATE TABLE `Sesion` (
 
 LOCK TABLES `Sesion` WRITE;
 /*!40000 ALTER TABLE `Sesion` DISABLE KEYS */;
-INSERT INTO `Sesion` VALUES (7,'2016-12-25 00:00:00',1,'Muy duro',1,NULL),(8,'2016-12-31 00:00:00',6,'Muy suave',2,NULL),(9,'2016-11-21 00:00:00',2,'Normalita',NULL,1);
+INSERT INTO `Sesion` VALUES (7,'2016-12-25 00:00:00',1,'Muy duro',1,NULL),(8,'2016-12-31 00:00:00',6,'Muy suave',2,NULL),(9,'2016-11-21 00:00:00',2,'Normalita',NULL,1),(10,'2016-11-23 00:00:00',1,'Aerodance',NULL,13),(11,'2016-11-23 17:11:00',1,'Aerodance',NULL,13);
 /*!40000 ALTER TABLE `Sesion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,7 +308,7 @@ CREATE TABLE `Usuario` (
 
 LOCK TABLES `Usuario` WRITE;
 /*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','dshfbfb',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356','1995-10-26'),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1992-10-10'),(9,'admin','12345678A','Admin','Admin','admin@admin.admin','admin',2,'','2016-11-17'),(10,'monitor','11111111A','Moni','Moni','moni@moni.moni','monitor',1,NULL,NULL),(11,'user','22222222A','User','User','user@user.user','user',0,NULL,NULL),(12,'newuser','52469845E','newuser','newuser','newuser@newuser.com','(+34) ',0,'+34685214523','1995-05-10');
+INSERT INTO `Usuario` VALUES (1,'robertoGz','25648375C','Roberto','Gonzalez','rober@gmail.com','1111',0,'643875438','1987-09-17'),(2,'lrcortizo','44490236V','Luis','Raña','luisraco95@gmail.com','1234',0,'627642372','1995-08-22'),(3,'manuelRa','52689487R','Manuel','Ramos','manuelramos@gmail.com','pass',1,'685365985',NULL),(4,'gdavila','53193712W','Guillermo','Davila Varela','guillermo.davilavarela@gmail.com','admin',2,'638233356','1995-10-26'),(5,'mariaG','6985478T','Maria','Graña','maria@gmail.com','pass',1,'698523654',NULL),(6,'pepitoAl','87538459X','Pepe','Alvarez','pepito@hotmail.com','bdsfbsi',0,'642837238','1990-04-26'),(7,'carlosMz','98569383F','Carlos','Martinez','carlitos@gmail.com','ijnfibidv',0,'623923733','1992-10-10'),(9,'admin','12345678A','Admin','Admin','admin@admin.admin','admin',2,'','2016-11-17'),(10,'monitor','11111111A','Moni','Moni','moni@moni.moni','monitor',1,NULL,NULL),(11,'user','22222222A','User','User','user@user.user','user',0,NULL,NULL),(12,'newuser','52469845E','newuser','newuser','newuser@newuser.com','(+34) ',0,'+34685214523','1995-05-10');
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -351,11 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
---
--- BD User
---
-
-CREATE USER 'infoFitness'@'localhost' IDENTIFIED BY 'infoFitness';
-GRANT ALL PRIVILEGES ON * . * TO 'infoFitness'@'localhost';	
-
--- Dump completed on 2016-11-22 18:02:49
+-- Dump completed on 2016-11-23 17:19:54
