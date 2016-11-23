@@ -12,6 +12,7 @@ $sessions = $view->getVariable("sessions");
 $long = count($sessions);
 
 ?>
+<div class="datagrid">
 <table>
     <tr class="topTable">
         <th><?= i18n("Fecha")?></th>
@@ -24,3 +25,4 @@ $long = count($sessions);
       </tr>
       <?php } ?>
 </table>
+</div>

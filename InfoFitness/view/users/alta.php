@@ -16,6 +16,7 @@ $admins = $view->getVariable("admins");
 ?>
     <!-- DEPORTISTAS -->
     <h2><?=i18n("Athlete") ?></h2>
+    <div class="datagrid">
     <table>
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
@@ -47,7 +48,7 @@ $admins = $view->getVariable("admins");
                           <option <?php if($user->getPermiso()==2){echo "selected";} ?> value="2"><?=i18n("Administrator") ?></option>
                         </select>
                     </td>
-                    <td> <select name="tipo_deportista"> 
+                    <td> <select name="tipo_deportista">
                         <option <?php if($user->getTipoDeportista()==0){echo "selected";} ?> value="0"><?=i18n("PEF") ?></option>
                         <option <?php if($user->getTipoDeportista()==1){echo "selected";} ?> value="1"><?=i18n("TDU") ?></option>
                     </td>
@@ -68,7 +69,6 @@ $admins = $view->getVariable("admins");
             </tr>
         <?php endforeach; ?>
     </table>
-
     <!--ENTRENADOR-->
     <h2><?=i18n("Coach") ?></h2>
     <table>
@@ -162,3 +162,4 @@ $admins = $view->getVariable("admins");
         <?php endforeach; ?>
 
     </table>
+      </div>

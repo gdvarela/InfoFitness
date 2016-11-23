@@ -12,6 +12,7 @@ $activityName = $view->getVariable("activityName");
 $activityPlace = $view->getVariable("activityPlace");
 $date = $view->getVariable("date");
 ?>
+<div class="datagrid">
 <table>
     <tr>
         <th><?= i18n("Activity") ?>:</th>
@@ -44,3 +45,4 @@ $date = $view->getVariable("date");
         <button type="submit"><?= i18n("Save") ?></button>
     </form>
 </table>
+</div>

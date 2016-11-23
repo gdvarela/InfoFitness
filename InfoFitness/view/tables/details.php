@@ -13,6 +13,7 @@ $exercisesNotAsigned = $view->getVariable("exercisesNotAsigned");
 $newTable = $view->getVariable("newTable");
 ?>
 
+<div class="datagrid">
 <table>
     <tr class="topTable">
         <th><?= i18n("Table name")?></th>
@@ -81,3 +82,4 @@ $newTable = $view->getVariable("newTable");
   <?php endforeach;
   }?>
 </table>
+</div>

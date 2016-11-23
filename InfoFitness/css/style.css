@@ -12,6 +12,7 @@ body, html {
     height: 100%;
     margin: 0;
     font: sans-serif;
+
 }
 
 a:link {
@@ -27,6 +28,55 @@ a:link {
     animation: backgroundflash 5s forwards;
 }
 
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.datagrid table td, .datagrid table th {
+    padding: 0px 0px;
+}
+
+.datagrid table .topTable th {
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1484C8), color-stop(1, #6CB2DD));
+    background: -moz-linear-gradient( center top, #1484C8 5%, #6CB2DD 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1484C8', endColorstr='#6CB2DD');
+    background-color: #1484C8;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #1484C8;
+    padding-left: 2px;
+}
+
+.datagrid table .topTable th:first-child {
+    border: none;
+}
+
+.datagrid table .mainTable th {
+    color: #0D537D;
+    border-left: 1px solid #1484C8;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 2px;
+}
+
+.datagrid table .mainTable th:first-child {
+    border-left: none;
+}
+
+.datagrid table .mainTable tr:last-child th {
+    border-bottom: none;
+}
+
 .topTable {
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -38,6 +88,7 @@ a:link {
     font-family: Arial, sans-serif;
     font-size: 14px;
     border: solid 1px black;
+    border-color: black;
 }
 
 #header {
@@ -443,30 +494,30 @@ ul, ol {
     /* IE9 */
 }
 
-.mainnotifications{
-  border: solid;
-  width: 49.55%;
-  float: right;
-  margin-right: 25%;
-  height: 150px;
-  text-align: center;
-  color: white;
-  z-index: 1;
-  background: rgba(20, 131, 200, 1);
-  background: -moz-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(20, 131, 200, 1)), color-stop(14%, rgba(49, 146, 207, 1)), color-stop(28%, rgba(79, 162, 214, 1)), color-stop(43%, rgba(108, 178, 221, 1)), color-stop(57%, rgba(138, 193, 228, 1)), color-stop(71%, rgba(167, 209, 234, 1)), color-stop(85%, rgba(196, 224, 241, 1)), color-stop(100%, rgba(226, 240, 248, 1)));
-  background: -webkit-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-  background: -o-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-  background: -ms-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-  background: linear-gradient(to bottom, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1483c8', endColorstr='#e2f0f8', GradientType=0);
-  transition: 0.2s ease;
-  -moz-transition: 0.2s ease;
-  /* Firefox */
-  -webkit-transition: 0.2s ease;
-  /* Chrome - Safari */
-  -o-transition: 0.2s ease;
-  /* Opera */
+.mainnotifications {
+    border: solid;
+    width: 49.55%;
+    float: right;
+    margin-right: 25%;
+    height: 150px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    background: rgba(20, 131, 200, 1);
+    background: -moz-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(20, 131, 200, 1)), color-stop(14%, rgba(49, 146, 207, 1)), color-stop(28%, rgba(79, 162, 214, 1)), color-stop(43%, rgba(108, 178, 221, 1)), color-stop(57%, rgba(138, 193, 228, 1)), color-stop(71%, rgba(167, 209, 234, 1)), color-stop(85%, rgba(196, 224, 241, 1)), color-stop(100%, rgba(226, 240, 248, 1)));
+    background: -webkit-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
+    background: -o-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
+    background: linear-gradient(to bottom, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1483c8', endColorstr='#e2f0f8', GradientType=0);
+    transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    /* Firefox */
+    -webkit-transition: 0.2s ease;
+    /* Chrome - Safari */
+    -o-transition: 0.2s ease;
+    /* Opera */
 }
 
 .mainnotifications:hover {

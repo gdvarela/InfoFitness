@@ -12,7 +12,7 @@ $exercises = $view->getVariable("exercises");
 $exercisesNotAsigned = $view->getVariable("exercisesNotAsigned");
 $newTable = $view->getVariable("newTable");
 ?>
-
+<div class="datagrid">
 <table>
         <tr class="topTable">
             <th><?= i18n("Ejercicios Tabla")?></th>
@@ -38,3 +38,4 @@ $newTable = $view->getVariable("newTable");
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
     <button type="submit"><?= i18n("Register Session")?></button>
   </form>
+</div>

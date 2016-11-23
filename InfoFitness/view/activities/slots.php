@@ -10,7 +10,7 @@ $unreservedActivities = $view->getVariable("unreservedActivities");
 $reservedActivity = $view->getVariable("reservedActivities");
 $errors = $view->getVariable("errors");
 ?>
-
+<div class="datagrid">
 <table>
     <tr>
       <?= $view->popFlash() ?>
@@ -56,3 +56,4 @@ $errors = $view->getVariable("errors");
     </tr>
     <?php endforeach; ?>
 </table>
+</div>
