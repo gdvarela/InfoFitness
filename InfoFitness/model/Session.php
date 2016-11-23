@@ -9,12 +9,12 @@
   private $comentario;
   private $idTabla;
 
-  public function __construct($id=NULL, $fecha=NULL, $idUsuario=NULL, $comentario=NULL, $idTabla=NULL){
+  public function __construct($id=NULL, $fecha=NULL, $idUsuario=NULL, $comentario=NULL, $descripcion=NULL){
     $this->id = $id;
     $this->fecha = $fecha;
     $this->idUsuario = $idUsuario;
     $this->comentario = $comentario;
-    $this->idTabla = $idTabla;
+    $this->descripcion = $descripcion;
   }
 
   public function getId()
@@ -35,16 +35,9 @@
       return $this->comentario;
   }
 
-  public function getTabla()
+  public function getDescripcion()
   {
-      return $this->idTabla;
+      return $this->descripcion;
   }
-  public function changeSession($fecha=NULL, $idUsuario=NULL, $comentario=NULL, $idTabla=NULL){
-    $this->fecha = $fecha;
-    $this->idUsuario = $idUsuario;
-    $this->comentario = $comentario;
-    $this->idTabla = $idTabla;
-  }
-
  }
  ?>

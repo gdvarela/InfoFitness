@@ -30,18 +30,6 @@
        $this->view->setVariable("title", "Sessions");
      $this->view->render("session", "list");
    }
-
-   public function newSession(){
-     if(isset($_POST["tableId"])){
-       $date=date("Y-m-d H:m", time());
-       $idUser=$_SESSION["userId"];
-       $this->newSession->changeSession($date, $idUser, $_POST["anotacion"], $_POST["tableId"]);
-       $this->sessionMapper->save($this->newSession);
-       $this->view->redirect("session", "listSessions");
-     }
-   }
-
-
  }
 
 
