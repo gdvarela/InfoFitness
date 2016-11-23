@@ -26,7 +26,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Day") ?></th>
     </tr>
     <?php foreach ($activities as $activity): ?>
-        <tr clas="mainTable">
+        <tr class="mainTable">
             <form action="?controller=activities&action=modify" method="POST">
                 <th><input name="activityName" value="<?= $activity->getActivityName() ?>"></th>
                 <th><input type="number" min="1" name="activityMaxAssis" value="<?= $activity->getMaxAssistants() ?>">

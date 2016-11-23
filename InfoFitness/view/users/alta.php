@@ -35,37 +35,37 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificardeportista" method="POST">
 
-                    <td> <input name="username" value="<?= $user->getUsername() ?>"> </td>
-                    <td> <input name="nombre" value="<?= $user->getNombre() ?>"> </td>
-                    <td> <input name="apellidos" value="<?= $user->getApellidos() ?>"> </td>
-                    <td> <input name="dni" value="<?= $user->getDni() ?>"> </td>
-                    <td> <input type="date" name="fechanac" value="<?= $user->getFechanac() ?>"> </td>
-                    <td> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </td>
-                    <td> <input name="telef" value="<?= $user->getTelefono() ?>"> </td>
-                    <td> <select name="permiso">
+                    <th> <input name="username" value="<?= $user->getUsername() ?>"> </th>
+                    <th> <input name="nombre" value="<?= $user->getNombre() ?>"> </th>
+                    <th> <input name="apellidos" value="<?= $user->getApellidos() ?>"> </th>
+                    <th> <input name="dni" value="<?= $user->getDni() ?>"> </th>
+                    <th> <input type="date" name="fechanac" value="<?= $user->getFechanac() ?>"> </th>
+                    <th> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </th>
+                    <th> <input name="telef" value="<?= $user->getTelefono() ?>"> </th>
+                    <th> <select name="permiso">
                           <option <?php if($user->getPermiso()==0){echo "selected";} ?> value="0"><?=i18n("Athlete") ?></option>
                           <option <?php if($user->getPermiso()==1){echo "selected";} ?> value="1"><?=i18n("Coach") ?></option>
                           <option <?php if($user->getPermiso()==2){echo "selected";} ?> value="2"><?=i18n("Administrator") ?></option>
                         </select>
-                    </td>
-                    <td> <select name="tipo_deportista">
+                    </th>
+                    <th> <select name="tipo_deportista">
                         <option <?php if($user->getTipoDeportista()==0){echo "selected";} ?> value="0"><?=i18n("PEF") ?></option>
                         <option <?php if($user->getTipoDeportista()==1){echo "selected";} ?> value="1"><?=i18n("TDU") ?></option>
-                    </td>
-                    <td> <input name="comentario" value="<?= $user->getComentario() ?>"> </td>
+                    </th>
+                    <th> <input name="comentario" value="<?= $user->getComentario() ?>"> </th>
 
-                    <td>
+                    <th>
                         <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
                         <button type="submit"><?= i18n("Modify")?></button>
-                    </td>
+                    </th>
                 </form>
 
-                <td>
+                <th>
                     <form action="?controller=users&amp;action=baja" method="POST">
                         <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
                         <button><?= i18n("Delete")?></button>
                     </form>
-                </td>
+                </th>
             </tr>
         <?php endforeach; ?>
     </table>

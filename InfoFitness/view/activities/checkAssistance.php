@@ -32,12 +32,12 @@ $date = $view->getVariable("date");
     </tr>
     <form action="?controller=activities&action=checkAssistance" method="POST">
         <?php foreach ($users as $user): ?>
-            <tr clas="mainTable">
-                <td><?= $user->getUsername() ?></td>
-                <td><?= $user->getNombre() ?></td>
-                <td><?= $user->getApellidos() ?></td>
-                <td><?= $user->getDni() ?></td>
-                <td><input type="checkbox" name="users[]" value="<?= $user->getIdUsr() ?>"></td>
+            <tr class="mainTable">
+                <th><?= $user->getUsername() ?></th>
+                <th><?= $user->getNombre() ?></th>
+                <th><?= $user->getApellidos() ?></th>
+                <th><?= $user->getDni() ?></th>
+                <th><input type="checkbox" name="users[]" value="<?= $user->getIdUsr() ?>"></th>
             </tr>
         <?php endforeach; ?>
         <input name="activityId" value="<?= $activityId ?>" hidden="true">

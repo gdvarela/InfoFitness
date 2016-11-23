@@ -23,7 +23,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Day")?></th>
     </tr>
     <?php foreach($unreservedActivities as $activity): ?>
-    <tr clas="mainTable">
+    <tr class="mainTable">
         <th><?= $activity->getActivityName() ?></th>
         <th><?= $activity->getPlace() ?></th>
         <th><?= $activity->getStartTime() ?></th>
@@ -41,7 +41,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Reserved") ?></th>
     </tr>
     <?php foreach($reservedActivity as $activity): ?>
-    <tr clas="mainTable">
+    <tr class="mainTable">
         <th><?= $activity->getActivityName() ?></th>
         <th><?= $activity->getPlace() ?></th>
         <th><?= $activity->getStartTime() ?></th>

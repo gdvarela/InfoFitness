@@ -20,7 +20,7 @@ $date = date('Y-m-d', time());
         <th><?= i18n("Monitor") ?></th>
     </tr>
     <?php foreach($activities as $activity): ?>
-    <tr clas="mainTable">
+    <tr class="mainTable">
         <th><?= $activity->getActivityName() ?></th>
         <th><?= $activity->getPlace() ?></th>
         <th><?= $monitors[0]["nombre"] ?></th>
