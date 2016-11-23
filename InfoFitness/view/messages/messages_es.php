@@ -69,7 +69,9 @@
     "Subject" => "Asunto",
     "Message" => "Mensaje",
     "Notifications" => "Notificaciones",
-    "Reserves" => "Reservas"
+    "Reserves" => "Reservas",
+    "All" => "Todos",
+    "Send" => "Enviar"
 
   )
 ?>
