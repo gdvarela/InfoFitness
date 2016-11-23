@@ -29,6 +29,9 @@
       </div>
       <div class="headercontent">
   	      <ul class="nav">
+            <?php if (isset($_SESSION["currentuser"])): ?>
+            <img class="userimg" src="./img/profile_img.svg"></a>
+            <?php endif ?>
   	         <?php if (isset($_SESSION["currentuser"])): ?>
   	        <li class="menu"><?= $_SESSION["currentuser"]?></br>▼
               <ul>

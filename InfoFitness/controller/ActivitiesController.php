@@ -27,7 +27,7 @@ class ActivitiesController extends BaseController
 
         $this->activityMapper = new ActivityMapper();
         $this->userMapper = new UserMapper();
-        $this->sessionMapper = new AssistanceMapper();
+        $this->sessionMapper = new SessionMapper();
         $this->newActivity = new Activity();
         // Users controller operates in a "welcome" layout
         // different to the "default" layout where the internal
