@@ -12,6 +12,7 @@ date_default_timezone_set('Europe/Madrid');
 $date = date('Y-m-d', time());
 ?>
 <span><?= $date ?></span>
+<div class="datagrid">
 <table>
     <tr class="topTable">
         <th><?= i18n("Activity") ?></th>
@@ -34,3 +35,4 @@ $date = date('Y-m-d', time());
     </tr>
     <?php endforeach; ?>
 </table>
+</div>

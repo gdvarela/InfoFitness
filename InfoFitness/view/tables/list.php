@@ -9,7 +9,7 @@ if($_SESSION["type"] != 1) {
 $tables = $view->getVariable("tables");
 $newTable = $view->getVariable("newTable");
 ?>
-
+<div class="datagrid">
 <table>
     <tr class="topTable">
         <th><?= i18n("Name")?></th>
@@ -51,3 +51,4 @@ $newTable = $view->getVariable("newTable");
         </form>
     </tr>
 </table>
+</div>

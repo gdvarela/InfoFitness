@@ -9,6 +9,8 @@ if($_SESSION["type"] != 1) {
 $exercises = $view->getVariable("exercises");
 $newExercise = $view->getVariable("newExercise");
  ?>
+
+ <div class="datagrid">
  <table>
      <tr class="topTable">
          <th><?= i18n("Name")?></th>
@@ -54,3 +56,4 @@ $newExercise = $view->getVariable("newExercise");
          </form>
      </tr>
  </table>
+</div>

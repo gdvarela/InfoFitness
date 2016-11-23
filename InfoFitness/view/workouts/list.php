@@ -9,6 +9,8 @@ if($_SESSION["type"] != 0) {
 
 $workouts = $view->getVariable("workouts");
 ?>
+
+<div class="datagrid">
 <table>
     <tr class="topTable">
         <th><?= i18n("Name")?></th>
@@ -26,3 +28,4 @@ $workouts = $view->getVariable("workouts");
       </tr>
       <?php endforeach; ?>
 </table>
+</div>
