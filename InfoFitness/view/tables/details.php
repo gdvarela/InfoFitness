@@ -56,7 +56,7 @@ $newTable = $view->getVariable("newTable");
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
               <th>
-                  <button type="submit"><?= i18n("Delete")?></button>
+                  <button type="button"><?= i18n("Delete")?></button>
               </th>
             </form>
       </tr>

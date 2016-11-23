@@ -15,7 +15,6 @@ $exercises = $view->getVariable("exercises");
          <th><?= i18n("Description")?></th>
          <th><?= i18n("Dificulty")?></th>
          <th><?= i18n("Muscle group")?></th>
-          <th><?= i18n("Media")?></th>
          <th><?= i18n("Machine")?></th>
      </tr>
      <?php foreach($exercises as $exercise): ?>
@@ -24,7 +23,6 @@ $exercises = $view->getVariable("exercises");
                  <th><?= $exercise->getDescription() ?></th>
                  <th><?= $exercise->getDificulty() ?></th>
                  <th><?= $exercise->getMuscleGroup() ?></th>
-                 <th><img src="img/<?=$exercise->getMedia()?>"/></th>
                  <th><?= $exercise->getMachine() ?></th>
          </tr>
      <?php endforeach; ?>

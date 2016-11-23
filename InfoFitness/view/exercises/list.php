@@ -17,7 +17,6 @@ $newExercise = $view->getVariable("newExercise");
          <th><?= i18n("Description")?></th>
          <th><?= i18n("Dificulty")?></th>
          <th><?= i18n("Muscle group")?></th>
-          <th><?= i18n("Media")?></th>
          <th><?= i18n("Machine")?></th>
      </tr>
      <?php foreach($exercises as $exercise): ?>
@@ -27,7 +26,6 @@ $newExercise = $view->getVariable("newExercise");
                  <th> <input name="exerciseDes" value="<?= $exercise->getDescription() ?>"> </th>
                  <th> <input name="exerciseDificulty" value="<?= $exercise->getDificulty() ?>"> </th>
                  <th> <input name="exerciseMuscleGroup" value="<?= $exercise->getMuscleGroup() ?>"> </th>
-                 <th> <input type="file" name="exerciseMedia" value="<?= $exercise->getMedia() ?>"> </th>
                  <th> <input name="exerciseMachine" value="<?= $exercise->getMachine() ?>"> </th>
                  <th>
                      <input name="exerciseId" value="<?= $exercise->getId() ?>" hidden="true">
@@ -48,7 +46,6 @@ $newExercise = $view->getVariable("newExercise");
            <th> <input name="exerciseDes" value="<?= $newExercise->getDescription() ?>"> </th>
            <th> <input name="exerciseDificulty" value="<?= $newExercise->getDificulty() ?>"> </th>
            <th> <input name="exerciseMuscleGroup" value="<?= $newExercise->getMuscleGroup() ?>"> </th>
-           <th> <input type="file" name="exerciseMedia" value="<?= $newExercise->getMedia() ?>"> </th>
            <th> <input name="exerciseMachine" value="<?= $newExercise->getMachine() ?>"> </th>
            <th>
                <button type="submit"><?= i18n("Add")?></button>

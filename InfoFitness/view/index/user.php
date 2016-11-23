@@ -7,7 +7,7 @@ $view = ViewManager::getInstance();
 <div id="user">
   <a class="linkgeneral" href="?controller=activities&action=slotsControl">
     <div class="mainreserves">
-    </br></br><?= i18n("Slots Control") ?>
+    </br></br><?= i18n("Reserves") ?>
   </div>
  </a>
  <a class="linkgeneral" href="?controller=tables&action=listWorkouts">

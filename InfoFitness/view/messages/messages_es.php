@@ -68,7 +68,8 @@
     "To" => "Para",
     "Subject" => "Asunto",
     "Message" => "Mensaje",
-    "Notifications" => "Notificaciones"
+    "Notifications" => "Notificaciones",
+    "Reserves" => "Reservas"
 
   )
 ?>
