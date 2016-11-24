@@ -11,13 +11,37 @@ class NotificationsController extends BaseController{
 
   public function send(){
 
-    if(isset($_POST["email"]) && !empty($_POST["email"])
+    /*if(isset($_POST["email"]) && !empty($_POST["email"])
+    && isset($_POST["subject"]) && !empty($_POST["subject"])
+    && isset($_POST["message"]) && !empty($_POST["message"])){*/
+
+    $notificationMapper = new NotificationMapper();
+    $arrayemails = array();
+
+    if(isset($_POST["grupoemail"]) 
     && isset($_POST["subject"]) && !empty($_POST["subject"])
     && isset($_POST["message"]) && !empty($_POST["message"])){
 
-      $email = $_POST["email"];
+      //$email = $_POST["email"];
+      $grupoemail = $_POST["grupoemail"];
       $subject = $_POST["subject"];
       $message = $_POST["message"];
+
+      switch ($grupoemail) {
+        case 'all':
+          $arrayemails = $this->notificationMapper->selectEmails();
+          break;
+        case 'deportistas':
+          $arrayemails = $this->notificationMapper->selectEmailsDep();
+          break;
+        case 'monitores':
+            $arrayemails = $this->notificationMapper->selectEmailsMonit();
+            break;
+        default:
+          echo "Seleccione un grupo de usuarios";
+          break;
+      }
+
 
       $mail = new PHPMailer;
       //Tell PHPMailer to use SMTP
@@ -45,12 +69,30 @@ class NotificationsController extends BaseController{
       //Password to use for SMTP authentication
       $mail->Password = "infofitnessmail";
       //Set who the message is to be sent from
-      $mail->setFrom("infofitnessapp@gmail.com", 'Infofitness Admin');
+    /*  $mail->setFrom("infofitnessapp@gmail.com", 'Infofitness Admin');
       //Set an alternative reply-to address
-      $mail->addReplyTo("infofitnessapp@gmail.com", 'Infofitness Admin');
+      $mail->addReplyTo("infofitnessapp@gmail.com", 'Infofitness Admin');*/
       //Set who the message is to be sent to
-      $mail->addAddress($email, $email);
-      //Set the subject line
+      //$mail->addAddress($email, $email);
+
+      foreach ($arrayemails as $email => $name) {
+        $mail->setFrom("infofitnessapp@gmail.com", 'Infofitness Admin');
+        $mail->addReplyTo("infofitnessapp@gmail.com", 'Infofitness Admin');
+        $mail->addAddress($email,$name);
+        //Set the subject line
+        $mail->Subject = $subject;
+        //convert HTML into a basic plain-text alternative body
+        $mail->Body = $message;
+        //Replace the plain text body with one created manually
+        $mail->AltBody = $message;
+        //send the message, check for errors
+        if (!$mail->send()) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            echo "Message sent!";
+        }
+      }
+    /*  //Set the subject line
       $mail->Subject = $subject;
       //convert HTML into a basic plain-text alternative body
       $mail->Body = $message;
@@ -61,7 +103,7 @@ class NotificationsController extends BaseController{
           echo "Mailer Error: " . $mail->ErrorInfo;
       } else {
           echo "Message sent!";
-      }
+      }*/
     }
   //$this->view->setVariable("Notificaciones");
   $this->view->render("notifications","send");
