@@ -24,7 +24,7 @@ $newTable = $view->getVariable("newTable");
           if($exercises != null){
             foreach($exercisesTable as $exercise):
            ?>
-            <tr>
+            <tr class="mainTable">
               <th><?= $exercise["nombre"] ?></th>
               <th><?= $exercise["descripcion"] ?></th>
               <th><?= $exercise["grupo_muscular"] ?></th>
@@ -33,9 +33,10 @@ $newTable = $view->getVariable("newTable");
             <?php endforeach;
         }?>
 </table>
+</br>
 <form action="?controller=session&amp;action=newSession" method="POST">
-    <textarea name="anotacion"></textarea></br>
+    <textarea name="anotacion" placeholder="Añadir comentario" cols="40" rows="10"></textarea></br>
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
-    <button type="submit"><?= i18n("Register Session")?></button>
+    <button class="button" type="submit"><?= i18n("Register Session")?></button>
   </form>
 </div>

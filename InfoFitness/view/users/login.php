@@ -13,8 +13,8 @@
   <form action="index.php?controller=users&amp;action=login" method="POST">
   <?= i18n("Username")?>: </br><input type="text" name="username"></br></br>
   <?= i18n("Password")?>: </br><input type="password" name="passwd"></br></br>
-  <input class="loginbutton" type="submit" value="<?= i18n("Login") ?>">
-  <a href="index.php?controller=users&amp;action=register"><input class="registerbutton" type="button" value="<?= i18n("Register") ?>"></a>
+  <input class="button" type="submit" value="<?= i18n("Login") ?>">
+  <a href="index.php?controller=users&amp;action=register"><input class="button" type="button" value="<?= i18n("Register") ?>"></a>
   </form>
 </div>
 

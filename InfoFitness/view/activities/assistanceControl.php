@@ -29,7 +29,7 @@ $date = date('Y-m-d H:m', time());
                 <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
                 <input name="place" value="<?= $activity->getPlace() ?>" hidden="true">
                 <input name="date" value="<?= $date ?>" hidden="true">
-                <button type="submit"><?= i18n("Check Assistance")?></button>
+                <button class="button" type="submit"><?= i18n("Check Assistance")?></button>
             </form>
         </th>
     </tr>

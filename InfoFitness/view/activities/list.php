@@ -55,13 +55,13 @@ $errors = $view->getVariable("errors");
                 </th>
                 <th>
                     <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
-                    <button type="submit"><?= i18n("Modify") ?></button>
+                    <button class="button" type="submit"><?= i18n("Modify") ?></button>
                 </th>
             </form>
             <th>
                 <form action="?controller=activities&action=delete" method="POST">
                     <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
-                    <button><?= i18n("Delete") ?></button>
+                    <button class="button"><?= i18n("Delete") ?></button>
                 </form>
             </th>
         </tr>
@@ -90,7 +90,7 @@ $errors = $view->getVariable("errors");
                     <option <?php if ($newActivity->getDay() == "Viernes") {echo "selected";} ?> value="Viernes"><?= i18n("Friday") ?></option>
             </th>
             <th>
-                <button type="submit"><?= i18n("Add") ?></button>
+                <button class="button" type="submit"><?= i18n("Add") ?></button>
             </th>
         </form>
     </tr>

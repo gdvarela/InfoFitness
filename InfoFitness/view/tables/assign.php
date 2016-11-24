@@ -37,8 +37,8 @@ $usersNotOnTable = $view->getVariable("usersNotOnTable");
         </form>
     </table>
     <div>
-        <button form="formTableAddUser" type="submit"><?= i18n("Assign") ?></button>
-        <button form="formTableDeleteUser" type="submit"><?= i18n("Unassign") ?></button>
+        <button class="button" form="formTableAddUser" type="submit"><?= i18n("Assign") ?></button>
+        <button class="button" form="formTableDeleteUser" type="submit"><?= i18n("Unassign") ?></button>
     </div>
     <table>
         <form id="formTableDeleteUser" action="?controller=tables&action=deleteUser" method="POST">

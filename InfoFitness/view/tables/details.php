@@ -26,7 +26,7 @@ $newTable = $view->getVariable("newTable");
                 <th> <textarea name="tableDes" ><?= $tables->getTableDes() ?> </textarea></th>
                 <th>
                     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
-                    <button type="submit"><?= i18n("Modify")?></button>
+                    <button class="button" type="submit"><?= i18n("Modify")?></button>
                 </th>
             </form>
         </tr>
@@ -56,7 +56,7 @@ $newTable = $view->getVariable("newTable");
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
               <th>
-                  <button type="submit"><?= i18n("Delete")?></button>
+                  <button class="button" type="submit"><?= i18n("Delete")?></button>
               </th>
             </form>
       </tr>
@@ -75,7 +75,7 @@ $newTable = $view->getVariable("newTable");
             <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
             <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
             <th>
-                <button type="submit"><?= i18n("Add")?></button>
+                <button class="button" type="submit"><?= i18n("Add")?></button>
             </th>
           </form>
     </tr>

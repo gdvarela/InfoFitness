@@ -32,7 +32,7 @@ $errors = $view->getVariable("errors");
         <th><form action="?controller=activities&amp;action=reserve" method="POST">
                 <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
                 <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
-                <button type="submit"><?= i18n("Reserve")?></button>
+                <button class="button" type="submit"><?= i18n("Reserve")?></button>
             </form>
         </th>
     </tr>
@@ -50,7 +50,7 @@ $errors = $view->getVariable("errors");
         <th><form action="?controller=activities&amp;action=unreserve" method="POST">
             <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
             <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
-            <button type="submit"><?= i18n("Unreserve")?></button>
+            <button class="button" type="submit"><?= i18n("Unreserve")?></button>
         </form>
         </th>
     </tr>

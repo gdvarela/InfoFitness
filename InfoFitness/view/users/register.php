@@ -34,6 +34,6 @@
     <?= i18n("Phone")?>:</br> <input type="text" name="phone" value="<?= $user->getTelefono() ?>">
     <?= isset($errors["phone"])?$errors["phone"]:"" ?></br></br>
 
-    <input class="registerbutton" type="submit" value="<?= i18n("Register")?>">
+    <input class="button" type="submit" value="<?= i18n("Register")?>">
 </form>
 </div>

@@ -43,7 +43,7 @@ $date = $view->getVariable("date");
         <input name="activityId" value="<?= $activityId ?>" hidden="true">
         <input name="activityName" value="<?= $activityName ?>" hidden="true">
         <input name="date" value="<?= $date ?>" hidden="true">
-        <button type="submit"><?= i18n("Save") ?></button>
+        <button class="button" type="submit"><?= i18n("Save") ?></button>
     </form>
 </table>
 </div>

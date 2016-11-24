@@ -29,13 +29,13 @@ $newExercise = $view->getVariable("newExercise");
                  <th> <input name="exerciseMachine" value="<?= $exercise->getMachine() ?>"> </th>
                  <th>
                      <input name="exerciseId" value="<?= $exercise->getId() ?>" hidden="true">
-                     <button type="submit"><?= i18n("Modify")?></button>
+                     <button class="button" type="submit"><?= i18n("Modify")?></button>
                  </th>
              </form>
              <th>
                  <form action="?controller=exercises&action=delete" method="POST">
                      <input name="exerciseId" value="<?= $exercise->getId() ?>" hidden="true">
-                     <button><?= i18n("Delete")?></button>
+                     <button class="button"><?= i18n("Delete")?></button>
                  </form>
              </th>
          </tr>
@@ -48,7 +48,7 @@ $newExercise = $view->getVariable("newExercise");
            <th> <input name="exerciseMuscleGroup" value="<?= $newExercise->getMuscleGroup() ?>"> </th>
            <th> <input name="exerciseMachine" value="<?= $newExercise->getMachine() ?>"> </th>
            <th>
-               <button type="submit"><?= i18n("Add")?></button>
+               <button class="button" type="submit"><?= i18n("Add")?></button>
            </th>
          </form>
      </tr>

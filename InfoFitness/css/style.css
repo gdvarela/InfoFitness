@@ -34,6 +34,7 @@ a:hover {
 .datagrid table {
     border-collapse: collapse;
     text-align: center;
+    width: 100%;
 }
 
 .datagrid {
@@ -54,10 +55,21 @@ a:hover {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1484C8', endColorstr='#6CB2DD');
     background-color: #1484C8;
     color: #FFFFFF;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     border-left: 1px solid #1484C8;
     padding-left: 2px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.datagrid table .topTable th:last-child{
+  border-top-right-radius: 5px;
+}
+
+.datagrid table .topTable th:first-child{
+  border-top-left-radius: 5px;
 }
 
 .datagrid table .topTable th:first-child {
@@ -73,19 +85,13 @@ a:hover {
 }
 
 .datagrid table .mainTable th {
-    color: #0D537D;
+    color:#08324B;
     border-left: 1px solid #1484C8;
-    font-size: 12px;
-    font-weight: normal;
+    font-size: 15px;
+    font-weight: bold;
     padding-left: 2px;
-}
-
-.datagrid table .mainTable th {
-    color: #0D537D;
-    border-left: 1px solid #1484C8;
-    font-size: 12px;
-    font-weight: normal;
-    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .datagrid table .mainTable th:first-child {
@@ -96,7 +102,12 @@ a:hover {
     border-bottom: none;
 }
 
-
+textarea{
+  border-radius: 5px;
+  border-color: #1484C8;
+  border-style: inset;
+  border-width: 2px;
+}
 
 #login input{
   border-radius: 5px;
@@ -325,11 +336,21 @@ ul, ol {
     box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
 }
 
-.loginbutton {
+.button {
     border-radius: 5px;
-    background-color: #1484c8;
+    background-color: #3193CF;
     border-color: rgb(83, 140, 230);
     cursor: pointer;
+    font-weight: bold;
+    color:white;
+}
+
+#login .button{
+  color: black;
+}
+
+#register .button{
+  color: black;
 }
 
 #register {

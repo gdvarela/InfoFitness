@@ -23,25 +23,25 @@ $newTable = $view->getVariable("newTable");
                 <th> <textarea name="tableDes" ><?= $table->getTableDes() ?> </textarea></th>
                 <th>
                     <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button type="submit"><?= i18n("Modify")?></button>
+                    <button class="button" type="submit"><?= i18n("Modify")?></button>
                 </th>
             </form>
             <th>
                 <form action="?controller=tables&amp;action=delete" method="POST">
                     <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button><?= i18n("Delete")?></button>
+                    <button class="button"><?= i18n("Delete")?></button>
                 </form>
             </th>
             <th>
                 <form action="?controller=tables&amp;action=details" method="POST">
                     <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button><?= i18n("Details")?></button>
+                    <button class="button"><?= i18n("Details")?></button>
                 </form>
             </th>
             <th>
                 <form action="?controller=tables&amp;action=assign" method="POST">
                     <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button><?= i18n("Assign")?></button>
+                    <button class="button"><?= i18n("Assign")?></button>
                 </form>
             </th>
         </tr>
@@ -52,7 +52,7 @@ $newTable = $view->getVariable("newTable");
             <th> <textarea name="tableDes" ><?= $newTable->getTableDes() ?></textarea> </th>
             <th>
               <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-              <button type="submit"><?= i18n("Add")?></button>
+              <button class="button" type="submit"><?= i18n("Add")?></button>
             </th>
         </form>
     </tr>

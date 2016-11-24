@@ -23,7 +23,7 @@ $workouts = $view->getVariable("workouts");
           <th><?= $workout->getTableDes() ?></th>
           <th><form action="?controller=tables&amp;action=detailsPublic" method="POST">
               <input name="tableId" value="<?= $workout->getId() ?>" hidden="true">
-              <button><?= i18n("Details")?></button></form>
+              <button class="button"><?= i18n("Details")?></button></form>
           </th>
       </tr>
       <?php endforeach; ?>

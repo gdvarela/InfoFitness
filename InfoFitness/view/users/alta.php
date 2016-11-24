@@ -56,14 +56,14 @@ $admins = $view->getVariable("admins");
 
                     <th>
                         <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
-                        <button type="submit"><?= i18n("Modify")?></button>
+                        <button class="button" type="submit"><?= i18n("Modify")?></button>
                     </th>
                 </form>
 
                 <th>
                     <form action="?controller=users&amp;action=baja" method="POST">
                         <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
-                        <button><?= i18n("Delete")?></button>
+                        <button class="button"><?= i18n("Delete")?></button>
                     </form>
                 </th>
             </tr>
@@ -103,13 +103,13 @@ $admins = $view->getVariable("admins");
                       <th> <input name="jornada_laboral" value="<?= $monitor->getJornada() ?>"> </th>
                     <th>
                         <input name="id_usuario" value="<?= $monitor->getIdUsr() ?>" hidden="true">
-                        <button type="submit"><?= i18n("Modify")?></button>
+                        <button class="button" type="submit"><?= i18n("Modify")?></button>
                     </th>
                 </form>
                 <th>
                     <form action="?controller=users&amp;action=baja" method="POST">
                         <input name="id_usuario" value="<?= $monitor->getIdUsr() ?>" hidden="true">
-                        <button><?= i18n("Delete")?></button>
+                        <button class="button"><?= i18n("Delete")?></button>
                     </form>
                 </th>
             </tr>
@@ -149,13 +149,13 @@ $admins = $view->getVariable("admins");
                     </th>
                     <th>
                         <input name="id_usuario" value="<?= $admin->getIdUsr() ?>" hidden="true">
-                        <button type="submit"><?= i18n("Modify")?></button>
+                        <button class="button" type="submit"><?= i18n("Modify")?></button>
                     </th>
                 </form>
                 <th>
                     <form action="?controller=users&amp;action=baja" method="POST">
                         <input name="id_usuario" value="<?= $admin->getIdUsr() ?>" hidden="true">
-                        <button><?= i18n("Delete")?></button>
+                        <button class="button"><?= i18n("Delete")?></button>
                     </form>
                 </th>
             </tr>
