@@ -14,12 +14,16 @@ body, html {
     font: sans-serif;
 }
 
-a:link {
+a:link, a:visited {
     text-decoration: none;
 }
 
+a:hover{
+  cursor: pointer;
+}
+
 #container {
-    min-height: 50%;
+    min-height: 50.7%;
 }
 
 #flash {
@@ -233,8 +237,18 @@ ul, ol {
     margin-top: 50px;
     border-radius: 8px;
     background: #292d39;
-    column-count: 5;
+    column-count: 4;
     padding: 5px;
+}
+
+.footerlink:visited, .footerlink:link {
+    text-decoration: none;
+    color: white;
+}
+
+.footerlink:hover {
+    color: black;
+    cursor: pointer;
 }
 
 .footertitle {
