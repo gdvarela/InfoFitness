@@ -28,27 +28,23 @@
           ?>
       </div>
       <div class="headercontent">
+        <?php if (isset($_SESSION["currentuser"])): ?>
+        <div class="profile">
+          <img class="userimg" src="./img/profile_img.svg"></a>
   	      <ul class="nav">
-            <?php if (isset($_SESSION["currentuser"])): ?>
-            <img class="userimg" src="./img/profile_img.svg"></a>
-            <?php endif ?>
-  	         <?php if (isset($_SESSION["currentuser"])): ?>
-  	        <li class="menu"><?= $_SESSION["currentuser"]?></br>▼
+  	        <div class="menu"><?= $_SESSION["currentuser"]?></br>▼
               <ul>
                 <?php if ($_SESSION["type"]==0): ?>
-                <li class="menu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></li>
+                <div class="submenu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></div>
+                <div class="submenu"><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></div>
+                <div class="submenu"><a href="index.php?controller=session&amp;action=listSessions"><?=i18n("History")?></a></div>
                 <?php endif ?>
-                <?php if ($_SESSION["type"]==0): ?>
-                <li class="menu"><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></li>
-                <?php endif ?>
-                <?php if ($_SESSION["type"]==0): ?>
-                <li class="menu"><a href="index.php?controller=session&amp;action=listSessions"><?=i18n("History")?></a></li>
-                <?php endif ?>
-  	            <li class="menu"><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></li>
+  	            <div class="submenu"><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></div>
               </ul>
-  	        </li>
-  	        <?php endif ?>
+  	        </div>
   	      </ul>
+        </div>
+          <?php endif ?>
       </div>
     </header>
 <div id="container">
