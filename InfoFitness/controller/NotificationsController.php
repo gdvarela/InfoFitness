@@ -9,13 +9,15 @@ require_once(__DIR__ . "/../controller/BaseController.php");
 
 class NotificationsController extends BaseController{
 
+  public function __construct()
+  {
+    parent::__construct();
+
+    $this->notificationMapper = new NotificationMapper();
+  }
+
   public function send(){
 
-    /*if(isset($_POST["email"]) && !empty($_POST["email"])
-    && isset($_POST["subject"]) && !empty($_POST["subject"])
-    && isset($_POST["message"]) && !empty($_POST["message"])){*/
-
-    $notificationMapper = new NotificationMapper();
     $arrayemails = array();
 
     if(isset($_POST["grupoemail"]) 
@@ -75,10 +77,10 @@ class NotificationsController extends BaseController{
       //Set who the message is to be sent to
       //$mail->addAddress($email, $email);
 
-      foreach ($arrayemails as $email => $name) {
+      foreach ($arrayemails as $email) {
         $mail->setFrom("infofitnessapp@gmail.com", 'Infofitness Admin');
         $mail->addReplyTo("infofitnessapp@gmail.com", 'Infofitness Admin');
-        $mail->addAddress($email,$name);
+        $mail->addAddress($email["mail"],$email["nombre"]);
         //Set the subject line
         $mail->Subject = $subject;
         //convert HTML into a basic plain-text alternative body
@@ -87,25 +89,12 @@ class NotificationsController extends BaseController{
         $mail->AltBody = $message;
         //send the message, check for errors
         if (!$mail->send()) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
-        } else {
-            echo "Message sent!";
+            $this->view->setFlash("Impossible to send messages");
         }
       }
-    /*  //Set the subject line
-      $mail->Subject = $subject;
-      //convert HTML into a basic plain-text alternative body
-      $mail->Body = $message;
-      //Replace the plain text body with one created manually
-      $mail->AltBody = $message;
-      //send the message, check for errors
-      if (!$mail->send()) {
-          echo "Mailer Error: " . $mail->ErrorInfo;
-      } else {
-          echo "Message sent!";
-      }*/
     }
-  //$this->view->setVariable("Notificaciones");
+
+  $this->view->setVariable("title", "Notificaciones");
   $this->view->render("notifications","send");
   }
 }

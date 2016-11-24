@@ -5,10 +5,8 @@ $view = ViewManager::getInstance();
 
 
 ?>
-
+<?= $view->popFlash()?>
 <form action="index.php?controller=notifications&amp;action=send" method="POST">
-  <?= i18n("To")?>: <!--<input type="email" name="email">--></br>
-
   <?= i18n("All")?><input type="radio" name="grupoemail" value="all" />
   <?= i18n("Athlete")?><input type="radio" name="grupoemail" value="deportistas" />
   <?= i18n("Coach")?><input type="radio" name="grupoemail" value="monitores" /></br></br>
