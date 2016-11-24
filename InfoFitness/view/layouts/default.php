@@ -66,35 +66,18 @@
                         © InfoFitness 2016
                     </li>
                     <li>
-                        Empresa
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/inicio/">Empresa</a>
                     </li>
                     <li>
-                        Contacto
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/">Contacto</a>
                     </li>
                     <li>
-                        Colaboradores
+                        <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_AVISO_LEGAL">
+                          Aviso legal</a>
                     </li>
                     <li>
-                        Expansión
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul class="footercontent">
-                    <li class="footertitle">
-                        Sobre Infofitness
-                    </li>
-                    <li>
-                        Condiciones Generales
-                    </li>
-                    <li>
-                        Protección de datos
-                    </li>
-                    <li>
-                        Información legal
-                    </li>
-                    <li>
-                        Plotica de cookies
+                        <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_CONDICIONES_USO">
+                          Política de privacidad</a>
                     </li>
                 </ul>
             </div>
@@ -104,16 +87,16 @@
                         Staff
                     </li>
                     <li>
-                        Miembros
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/A-area-de-deportes/quen-somos/">Miembros</a>
                     </li>
                     <li>
-                        Secciones
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/">Instalaciones</a>
                     </li>
                     <li>
-                       Instalaciones
+                       <a class="footerlink" href="http://www.deportes.uvigo.es/seccions-deportivas/">Secciones deportivas</a>
                     </li>
                     <li>
-                        Horario
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/">Horario</a>
                     </li>
                 </ul>
             </div>
@@ -123,26 +106,32 @@
                         <?= i18n("Social networks") ?>
                     </li>
                     <li>
-                        <img class="footerimg" src="./img/facebook_icon.svg"> Facebook
+                        <a class="footerlink" href="https://www.facebook.com/uvigo/">
+                        <img class="footerimg" src="./img/facebook_icon.svg"> Facebook</a>
                     </li>
                     <li>
-                        <img class="footerimg" src="./img/twitter_icon.svg"> Twitter
+                        <a class="footerlink" href="https://twitter.com/uvigo/">
+                          <img class="footerimg" src="./img/twitter_icon.svg"> Twitter</a>
                     </li>
                     <li>
-                        <img class="footerimg" src="./img/youtube_icon.svg"> Youtube
+                        <a class="footerlink" href="https://www.youtube.com/user/uvigo">
+                          <img class="footerimg" src="./img/youtube_icon.svg"> Youtube</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="footercontent">
                     <li class="footertitle">
-                        <?= i18n("Users") ?>
+                      Area de Deporte de la Universidade de Vigo
                     </li>
                     <li>
-                        <img class="footerimg" src="./img/users_blue_icon.svg">198539 <?= i18n("members") ?>
+                      <a class="footerlink" href="https://goo.gl/maps/bsMcAGFnbyQ2">Campus As Lagoas(Ourense)</a>
                     </li>
                     <li>
-                        <img class="footerimg" src="./img/users_green_icon.svg">11984 <?= i18n("online") ?>
+                      988 387 198
+                    </li>
+                    <li>
+                      depor-ou@uvigo.es
                     </li>
                 </ul>
             </div>
