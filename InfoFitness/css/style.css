@@ -118,6 +118,7 @@ textarea{
 }
 .datagrid table tr:nth-last-child(n+2) input{
   border: none;
+  font-weight: bold;
 }
 .datagrid table tr:last-child input{
   border-radius: 5px;
