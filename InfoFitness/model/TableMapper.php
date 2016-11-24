@@ -29,8 +29,9 @@ class TableMapper
     public function listWorkouts()
     {
         $id = $_SESSION["userId"];
-        $stmt = $this->db->query("SELECT * FROM Tabla_Ejercicios_Deportista as ted, Tabla_Ejercicios as te
-          WHERE id_deportista=$id and ted.id_tabla=te.id_tabla");
+        $stmt = $this->db->query("select te.id_tabla, nombre, descripcion from Tabla_Ejercicios_Deportista as ted, Tabla_Ejercicios as te, Deportista as de
+            where de.id_usuario = $id and de.id_deportista = ted.id_deportista and ted.id_tabla=te.id_tabla
+            group by de.id_deportista");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $workouts = array();
 
