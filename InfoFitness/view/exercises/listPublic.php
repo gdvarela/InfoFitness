@@ -9,7 +9,7 @@ if($_SESSION["type"] != 0) {
 $exercises = $view->getVariable("exercises");
  ?>
 <div class="datagrid">
- <table>
+ <table class="table">
      <tr class="topTable">
          <th><?= i18n("Name")?></th>
          <th><?= i18n("Description")?></th>

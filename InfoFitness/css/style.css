@@ -18,8 +18,8 @@ a:link, a:visited {
     text-decoration: none;
 }
 
-a:hover{
-  cursor: pointer;
+a:hover {
+    cursor: pointer;
 }
 
 #container {
@@ -92,6 +92,10 @@ a:hover{
     font-size: 14px;
     border: solid 1px black;
     border-color: black;
+}
+
+input{
+  border-radius: 5px;
 }
 
 #header {
@@ -171,12 +175,12 @@ ul, ol {
     list-style: none;
 }
 
-.profile{
-  float: right;
-  border: solid;
-  border-color: white;
-  display: block;
-  width: 150px;
+.profile {
+    float: right;
+    border: solid;
+    border-color: white;
+    display: block;
+    width: 150px;
 }
 
 .nav {
@@ -186,10 +190,10 @@ ul, ol {
     z-index: 3;
 }
 
-.menu{
-  position: relative;
-  width: 150px;
-  right: 40px;
+.menu {
+    position: relative;
+    width: 150px;
+    right: 40px;
 }
 
 .nav>div.menu {
@@ -207,29 +211,29 @@ ul, ol {
     width: 100px;
 }
 
-.nav div.menu ul .submenu:first-child{
-  border-top: solid;
-  border-left: solid;
-  border-right: solid;
+.nav div.menu ul .submenu:first-child {
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
-.nav div.menu ul .submenu:nth-child(2){
-  border-left: solid;
-  border-right: solid;
-  border-top: solid;
+.nav div.menu ul .submenu:nth-child(2) {
+    border-left: solid;
+    border-right: solid;
+    border-top: solid;
 }
 
-.nav div.menu ul .submenu:nth-child(3){
-  border-left: solid;
-  border-right: solid;
-  border-top: solid;
+.nav div.menu ul .submenu:nth-child(3) {
+    border-left: solid;
+    border-right: solid;
+    border-top: solid;
 }
 
-.nav div.menu ul div.submenu:last-child{
-  border-left: solid;
-  border-right: solid;
-  border-bottom: solid;
-  border-top: solid;
+.nav div.menu ul div.submenu:last-child {
+    border-left: solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-top: solid;
 }
 
 .nav div.submenu a:hover {
@@ -296,6 +300,9 @@ ul, ol {
     padding-bottom: 10px;
     background-color: #94cdf2;
     border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
+    -moz-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
+    box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
 }
 
 .loginbutton {
@@ -305,6 +312,8 @@ ul, ol {
     cursor: pointer;
 }
 
+
+}
 #register {
     position: relative;
     margin-left: 35%;
@@ -316,21 +325,21 @@ ul, ol {
     padding-bottom: 10px;
     background-color: #94cdf2;
     border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
+    -moz-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
+    box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
 }
-
 .registerbutton {
     border-radius: 5px;
     background-color: #1484c8;
     border-color: rgb(83, 140, 230);
     cursor: pointer;
 }
-
 #user {
     position: relative;
     font-size: 30px;
     overflow: hidden;
 }
-
 .mainreserves {
     border: solid;
     width: 49.55%;
@@ -350,24 +359,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainreserves:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainworkouts {
     border: solid;
     width: 49.55%;
@@ -387,24 +399,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainworkouts:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainsessions {
     border: solid;
     width: 49.55%;
@@ -423,24 +438,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainsessions:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainexercisespublic {
     border: solid;
     width: 49.55%;
@@ -459,30 +477,32 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainexercisespublic:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 #admin {
     position: relative;
     font-size: 30px;
     overflow: hidden;
 }
-
 .mainusers {
     border: solid;
     width: 49.55%;
@@ -501,24 +521,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainusers:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainactivities {
     border: solid;
     width: 49.55%;
@@ -537,24 +560,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainactivities:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainnotifications {
     border: solid;
     width: 49.55%;
@@ -575,30 +601,32 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainnotifications:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 #monitor {
     position: relative;
     font-size: 30px;
     overflow: hidden;
 }
-
 .mainexercises {
     border: solid;
     width: 49.55%;
@@ -618,24 +646,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainexercises:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .maintables {
     border: solid;
     width: 49.55%;
@@ -655,24 +686,27 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .maintables:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .mainassistance {
     border: solid;
     width: 49.55%;
@@ -693,28 +727,30 @@ ul, ol {
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
+
     -webkit-transition: 0.2s ease;
     /* Chrome - Safari */
+
     -o-transition: 0.2s ease;
     /* Opera */
 }
-
 .mainassistance:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
+
     -webkit-transform: scale(1.1);
     /* Chrome - Safari */
+
     -o-transform: scale(1.1);
     /* Opera */
+
     -ms-transform: scale(1.1);
     /* IE9 */
 }
-
 .linkgeneral:visited, .linkgeneral:link {
     text-decoration: none;
 }
-
 .linkgeneral:hover {
     cursor: pointer;
 }
