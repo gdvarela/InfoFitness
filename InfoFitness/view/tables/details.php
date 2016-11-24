@@ -47,16 +47,16 @@ $newTable = $view->getVariable("newTable");
            ?>
         <tr>
             <form action="?controller=tables&amp;action=detailsDelete" method="POST">
-              <th> <input name="deleteExercise" value="<?= $exercise["nombre"]?>"> </th>
-              <th> <input name="deleteExercise" value="<?= $exercise["descripcion"]?>"></th>
-              <th> <input name="deleteExercise" value="<?= $exercise["dificultad"]?>"></th>
-              <th> <input name="deleteExercise" value="<?= $exercise["grupo_muscular"]?>"></th>
-              <th> <input name="deleteExercise" value="<?= $exercise["multimedia"]?>"></th>
-              <th> <input name="deleteExercise" value="<?= $exercise["maquina"]?>"></th>
+              <th> <?= $exercise["nombre"]?> </th>
+              <th> <?= $exercise["descripcion"]?></th>
+              <th> <?= $exercise["dificultad"]?></th>
+              <th> <?= $exercise["grupo_muscular"]?></th>
+              <th> <?= $exercise["multimedia"]?></th>
+              <th> <?= $exercise["maquina"]?></th>
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
               <th>
-                  <button type="button"><?= i18n("Delete")?></button>
+                  <button type="submit"><?= i18n("Delete")?></button>
               </th>
             </form>
       </tr>
@@ -71,7 +71,7 @@ $newTable = $view->getVariable("newTable");
          ?>
       <tr>
           <form action="?controller=tables&amp;action=detailsAdd" method="POST">
-            <th> <input name="addExercise" value="<?= $exercise["nombre"]?>"> </th>
+            <th><?= $exercise["nombre"]?></th>
             <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
             <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
             <th>
