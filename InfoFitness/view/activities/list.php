@@ -12,6 +12,7 @@ $monitors = $view->getVariable("monitors");
 $errors = $view->getVariable("errors");
 ?>
 <?= isset($errors["activityName"]) ? $errors["activityName"] : "" ?><br>
+<div id="activitiesview"
 <div class=datagrid>
 <table>
     <tr class="topTable">
@@ -94,4 +95,5 @@ $errors = $view->getVariable("errors");
         </form>
     </tr>
 </table>
+</div>
 </div>

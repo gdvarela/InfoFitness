@@ -33,7 +33,7 @@ a:hover {
 
 .datagrid table {
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
 }
 
 .datagrid {
@@ -64,6 +64,22 @@ a:hover {
     border: none;
 }
 
+.datagrid table tr:nth-child(even){
+  background-color: white;
+}
+
+.datagrid table tr:nth-child(odd){
+  background-color: #C4E0F1;
+}
+
+.datagrid table .mainTable th {
+    color: #0D537D;
+    border-left: 1px solid #1484C8;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 2px;
+}
+
 .datagrid table .mainTable th {
     color: #0D537D;
     border-left: 1px solid #1484C8;
@@ -80,22 +96,26 @@ a:hover {
     border-bottom: none;
 }
 
-.topTable {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    border: solid 1px black;
-}
 
-.mainTable {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    border: solid 1px black;
-    border-color: black;
-}
 
-input{
+#login input{
   border-radius: 5px;
+}
+
+#register input{
+  border-radius: 5px;
+}
+.datagrid table tr:nth-last-child(n+2) input{
+  border: none;
+}
+.datagrid table tr:last-child input{
+  border-radius: 5px;
+}
+.datagrid table tr:nth-child(even) input{
+  background-color: white;
+}
+.datagrid table tr:nth-child(odd) input{
+  background-color: #C4E0F1;
 }
 
 #header {
@@ -312,8 +332,6 @@ ul, ol {
     cursor: pointer;
 }
 
-
-}
 #register {
     position: relative;
     margin-left: 35%;

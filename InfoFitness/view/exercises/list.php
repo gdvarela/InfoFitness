@@ -9,7 +9,7 @@ if($_SESSION["type"] != 1) {
 $exercises = $view->getVariable("exercises");
 $newExercise = $view->getVariable("newExercise");
  ?>
-
+<div id="exercisesview">
  <div class="datagrid">
  <table>
      <tr class="topTable">
@@ -53,4 +53,5 @@ $newExercise = $view->getVariable("newExercise");
          </form>
      </tr>
  </table>
+</div>
 </div>
