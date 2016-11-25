@@ -15,14 +15,14 @@ $admins = $view->getVariable("admins");
 //***************************************VISTA ADMIN*******************************************
 ?>
     <!-- DEPORTISTAS -->
-    <h2><?=i18n("Athlete") ?></h2>
+    <p class="tittletext"><?=i18n("Athletes") ?></p>
     <div class="datagrid">
     <table>
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>
             <th><?= i18n("Surnames")?></th>
-            <th><?= i18n("ID")?></th>
+            <th>DNI</th>
             <th><?= i18n("Birthdate")?></th>
             <th><?= i18n("Email")?></th>
             <th><?= i18n("Phone number")?></th>
@@ -35,13 +35,13 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificardeportista" method="POST">
 
-                    <th> <input name="username" value="<?= $user->getUsername() ?>"> </th>
-                    <th> <input name="nombre" value="<?= $user->getNombre() ?>"> </th>
-                    <th> <input name="apellidos" value="<?= $user->getApellidos() ?>"> </th>
-                    <th> <input name="dni" value="<?= $user->getDni() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $user->getUsername() ?>"> </th>
+                    <th> <input size=10 name="nombre" value="<?= $user->getNombre() ?>"> </th>
+                    <th> <input size=10 name="apellidos" value="<?= $user->getApellidos() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $user->getDni() ?>"> </th>
                     <th> <input type="date" name="fechanac" value="<?= $user->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </th>
-                    <th> <input name="telef" value="<?= $user->getTelefono() ?>"> </th>
+                    <th> <input size=8 name="telef" value="<?= $user->getTelefono() ?>"> </th>
                     <th> <select name="permiso">
                           <option <?php if($user->getPermiso()==0){echo "selected";} ?> value="0"><?=i18n("Athlete") ?></option>
                           <option <?php if($user->getPermiso()==1){echo "selected";} ?> value="1"><?=i18n("Coach") ?></option>
@@ -70,13 +70,13 @@ $admins = $view->getVariable("admins");
         <?php endforeach; ?>
     </table>
     <!--ENTRENADOR-->
-    <h2><?=i18n("Coach") ?></h2>
+      <p class="tittletext"><?=i18n("Monitors") ?></p>
     <table>
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>
             <th><?= i18n("Surnames")?></th>
-            <th><?= i18n("ID")?></th>
+            <th>DNI</th>
             <th><?= i18n("Birthdate")?></th>
             <th><?= i18n("Email")?></th>
             <th><?= i18n("Phone number")?></th>
@@ -87,13 +87,13 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificarmonitor" method="POST">
 
-                    <th> <input name="username" value="<?= $monitor->getUsername() ?>"> </th>
-                    <th> <input name="nombre" value="<?= $monitor->getNombre() ?>"> </th>
-                    <th> <input name="apellidos" value="<?= $monitor->getApellidos() ?>"> </th>
-                    <th> <input name="dni" value="<?= $monitor->getDni() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $monitor->getUsername() ?>"> </th>
+                    <th> <input size=10 name="nombre" value="<?= $monitor->getNombre() ?>"> </th>
+                    <th> <input size=10 name="apellidos" value="<?= $monitor->getApellidos() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $monitor->getDni() ?>"> </th>
                     <th> <input type="date" name="fechanac" value="<?= $monitor->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $monitor->getEmail() ?>"> </th>
-                    <th> <input name="telef" value="<?= $monitor->getTelefono() ?>"> </th>
+                    <th> <input size=8 name="telef" value="<?= $monitor->getTelefono() ?>"> </th>
                     <th> <select name="permiso">
                           <option <?php if($monitor->getPermiso()==0){echo "selected";} ?> value="0"><?=i18n("Athlete") ?></option>
                           <option <?php if($monitor->getPermiso()==1){echo "selected";} ?> value="1"><?=i18n("Coach") ?></option>
@@ -118,13 +118,13 @@ $admins = $view->getVariable("admins");
     </table>
 
     <!--ADMINISTRADORES-->
-    <h2><?=i18n("Administrator") ?></h2>
+      <p class="tittletext"><?=i18n("Administrators") ?><p>
     <table>
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>
             <th><?= i18n("Surnames")?></th>
-            <th><?= i18n("ID")?></th>
+            <th>DNI</th>
             <th><?= i18n("Birthdate")?></th>
             <th><?= i18n("Email")?></th>
             <th><?= i18n("Phone number")?></th>
@@ -134,13 +134,13 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificaradmin" method="POST">
 
-                    <th> <input name="username" value="<?= $admin->getUsername() ?>"> </th>
-                    <th> <input name="nombre" value="<?= $admin->getNombre() ?>"> </th>
-                    <th> <input name="apellidos" value="<?= $admin->getApellidos() ?>"> </th>
-                    <th> <input name="dni" value="<?= $admin->getDni() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $admin->getUsername() ?>"> </th>
+                    <th> <input size=10 name="nombre" value="<?= $admin->getNombre() ?>"> </th>
+                    <th> <input size=10 name="apellidos" value="<?= $admin->getApellidos() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $admin->getDni() ?>"> </th>
                     <th> <input type="date" name="fechanac" value="<?= $admin->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $admin->getEmail() ?>"> </th>
-                    <th> <input name="telef" value="<?= $admin->getTelefono() ?>"> </th>
+                    <th> <input size=8 name="telef" value="<?= $admin->getTelefono() ?>"> </th>
                     <th> <select name="permiso">
                           <option <?php if($admin->getPermiso()==0){echo "selected";} ?> value="0"><?=i18n("Athlete") ?></option>
                           <option <?php if($admin->getPermiso()==1){echo "selected";} ?> value="1"><?=i18n("Coach") ?></option>

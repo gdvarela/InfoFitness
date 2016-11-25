@@ -13,6 +13,7 @@ $errors = $view->getVariable("errors");
 ?>
 <?= isset($errors["activityName"]) ? $errors["activityName"] : "" ?><br>
 <div class=datagrid>
+  <p class="tittletext"><?= i18n("Activities") ?></p>
 <table>
     <tr class="topTable">
         <th><?= i18n("Name") ?></th>
