@@ -375,6 +375,13 @@ ul, ol {
     border-color: rgb(83, 140, 230);
     cursor: pointer;
 }
+
+.tittletext{
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 #user {
     position: relative;
     font-size: 30px;

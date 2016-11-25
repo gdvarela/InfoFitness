@@ -10,6 +10,7 @@ $exercises = $view->getVariable("exercises");
 $newExercise = $view->getVariable("newExercise");
  ?>
  <div class="datagrid">
+   <p class="tittletext"><?= i18n("Exercises List") ?></p>
  <table>
      <tr class="topTable">
          <th><?= i18n("Name")?></th>

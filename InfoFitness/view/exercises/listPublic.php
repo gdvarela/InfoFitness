@@ -8,6 +8,7 @@ if($_SESSION["type"] != 0) {
 
 $exercises = $view->getVariable("exercises");
  ?>
+ <p class="tittletext"><?= i18n("Exercises List") ?></p>
 <div class="datagrid">
  <table class="table">
      <tr class="topTable">

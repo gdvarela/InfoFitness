@@ -14,11 +14,11 @@ $newTable = $view->getVariable("newTable");
 ?>
 
 <div class="datagrid">
+  <p class="tittletext"><?= i18n("Name and Description")?></p>
 <table>
     <tr class="topTable">
-        <th><?= i18n("Table name")?></th>
+        <th><?= i18n("Name")?></th>
         <th><?= i18n("Description")?></th>
-
     </tr>
         <tr class="mainTable">
             <form action="?controller=tables&amp;action=modify" method="POST">
@@ -30,15 +30,14 @@ $newTable = $view->getVariable("newTable");
                 </th>
             </form>
         </tr>
-        <tr class="topTable">
-            <th><?= i18n("Table Exercises")?></th>
-        </tr>
+      </table>
+      <p class="tittletext"><?= i18n("Table Exercises")?></p>
+      <table>
         <tr class="topTable">
           <th><?= i18n("Name")?></th>
           <th><?= i18n("Description")?></th>
           <th><?= i18n("Dificulty")?></th>
           <th><?= i18n("Muscle group")?></th>
-          <th><?= i18n("Media")?></th>
           <th><?= i18n("Machine")?></th>
         </tr>
         <?php
@@ -51,7 +50,6 @@ $newTable = $view->getVariable("newTable");
               <th> <?= $exercise["descripcion"]?></th>
               <th> <?= $exercise["dificultad"]?></th>
               <th> <?= $exercise["grupo_muscular"]?></th>
-              <th> <?= $exercise["multimedia"]?></th>
               <th> <?= $exercise["maquina"]?></th>
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
@@ -62,8 +60,11 @@ $newTable = $view->getVariable("newTable");
       </tr>
     <?php endforeach;
     }?>
+  </table>
+  <p class="tittletext"><?= i18n("Añadir Ejercicios")?></p>
+  <table>
       <tr class="topTable">
-          <th><?= i18n("Añadir Ejercicios")?></th>
+        <th><?= i18n("Name")?></th>
       </tr>
       <?php
         if($exercises != null){

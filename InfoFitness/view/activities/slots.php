@@ -11,6 +11,8 @@ $reservedActivity = $view->getVariable("reservedActivities");
 $errors = $view->getVariable("errors");
 ?>
 <div class="datagrid">
+  <p class="tittletext"><?= i18n("Activities") ?></p>
+
 <table>
     <tr>
       <?= $view->popFlash() ?>
@@ -37,8 +39,16 @@ $errors = $view->getVariable("errors");
         </th>
     </tr>
     <?php endforeach; ?>
+  </table>
+  </br></br>
+  <p class="tittletext"><?= i18n("Reserved activities") ?></p>
+  <table>
     <tr class="topTable">
-        <th><?= i18n("Reserved") ?></th>
+        <th><?= i18n("Activities")?></th>
+        <th><?= i18n("Place")?></th>
+        <th><?= i18n("Start Time")?></th>
+        <th><?= i18n("End Time")?></th>
+        <th><?= i18n("Day")?></th>
     </tr>
     <?php foreach($reservedActivity as $activity): ?>
     <tr class="mainTable">

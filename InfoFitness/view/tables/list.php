@@ -10,6 +10,8 @@ $tables = $view->getVariable("tables");
 $newTable = $view->getVariable("newTable");
 ?>
 <div class="datagrid">
+  <p class="tittletext"><?= i18n("Tables List") ?></p>
+
 <table>
     <tr class="topTable">
         <th><?= i18n("Name")?></th>

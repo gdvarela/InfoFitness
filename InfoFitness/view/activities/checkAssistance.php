@@ -13,16 +13,8 @@ $activityPlace = $view->getVariable("activityPlace");
 $date = $view->getVariable("date");
 ?>
 <div class="datagrid">
-<table>
-    <tr>
-        <th><?= i18n("Activity") ?>:</th>
-        <th><?= $activityName ?></th>
-    </tr>
-    <tr>
-        <th><?= i18n("Place") ?>:</th>
-        <th><?= $activityPlace ?></th>
-    </tr>
-</table>
+<p class="tittletext"><?= $activityName ?></p>
+</br>
 <table>
     <tr class="topTable">
         <th><?= i18n("User") ?></th>
@@ -43,7 +35,7 @@ $date = $view->getVariable("date");
         <input name="activityId" value="<?= $activityId ?>" hidden="true">
         <input name="activityName" value="<?= $activityName ?>" hidden="true">
         <input name="date" value="<?= $date ?>" hidden="true">
-        <button class="button" type="submit"><?= i18n("Save") ?></button>
+        <tr><th></th><th></th><th></th><th></th><th><button class="button" type="submit"><?= i18n("Save") ?></button></th></tr>
     </form>
 </table>
 </div>

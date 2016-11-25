@@ -35,7 +35,7 @@ $newTable = $view->getVariable("newTable");
 </table>
 </br>
 <form action="?controller=session&amp;action=newSession" method="POST">
-    <textarea name="anotacion" placeholder="Añadir comentario" cols="40" rows="10"></textarea></br>
+    <textarea name="anotacion" placeholder="<?=i18n("Add comment")?>" cols="40" rows="10"></textarea></br>
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
     <button class="button" type="submit"><?= i18n("Register Session")?></button>
   </form>
