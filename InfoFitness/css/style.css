@@ -31,6 +31,28 @@ a:hover {
     animation: backgroundflash 5s forwards;
 }
 
+.datagrid .halftable {
+    border-collapse: collapse;
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 42%;
+}
+.datagrid .halftable2 {
+    border-collapse: collapse;
+    text-align: center;
+    position: relative;
+    float: right;
+    width: 42%;
+}
+
+.floatbuttonstables{
+  position: absolute;
+  left: 632px;
+  margin-top: 30px;
+
+}
+
 .datagrid table {
     border-collapse: collapse;
     text-align: center;

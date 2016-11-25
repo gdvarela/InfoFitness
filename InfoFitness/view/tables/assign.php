@@ -13,18 +13,10 @@ $usersNotOnTable = $view->getVariable("usersNotOnTable");
 ?>
 
 <div class="datagrid">
-    <table>
-        <tr>
-            <th><?= i18n("Table name") ?>:&nbsp;</th>
-            <th><?= $table->getTableName() ?></th>
-        </tr>
-        <tr>
-            <th><?= i18n("Description") ?>:&nbsp;</th>
-            <th><?= $table->getTableDes() ?></th>
-        </tr>
-    </table>
+    <p class="tittletext"><?= $table->getTableName() ?></p>
 
-    <table>
+    <table class="halftable">
+      <tr class="topTable"><th colspan="2"><?=i18n("Athletes")?></th><th></th></tr>
         <form id="formTableAddUser" action="?controller=tables&action=addUser" method="POST">
             <?php foreach ($usersNotOnTable as $user): ?>
                 <tr class="mainTable">
@@ -36,11 +28,12 @@ $usersNotOnTable = $view->getVariable("usersNotOnTable");
             <input name="tableId" value="<?= $table->getId()?>" hidden="true">
         </form>
     </table>
-    <div>
-        <button class="button" form="formTableAddUser" type="submit"><?= i18n("Assign") ?></button>
-        <button class="button" form="formTableDeleteUser" type="submit"><?= i18n("Unassign") ?></button>
+    <div class="floatbuttonstables">
+        <button class="button" form="formTableAddUser" type="submit"><?= i18n("Assign") ?>►</button></br></br>
+        <button class="button" form="formTableDeleteUser" type="submit">◄<?= i18n("Unassign") ?></button>
     </div>
-    <table>
+    <table class="halftable2">
+      <tr class="topTable"><th colspan="2"><?=i18n("Assigned")?></th><th></th></tr>
         <form id="formTableDeleteUser" action="?controller=tables&action=deleteUser" method="POST">
             <?php foreach ($usersOnTable as $user): ?>
                 <tr class="mainTable">

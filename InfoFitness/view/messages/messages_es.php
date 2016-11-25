@@ -18,6 +18,8 @@
     "Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
     "Login" => "Entrar",
     "Username" => "Nombre de usuario",
+    "Athletes" => "Deportistas",
+    "Assigned" => "Asignados",
     "Password" => "Contraseña",
     "Not user?" => "Nuevo aquí?",
     "Register here!" => "¡Regístrate aquí!",
