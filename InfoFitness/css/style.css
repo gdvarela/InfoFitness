@@ -24,6 +24,16 @@ a:hover {
 
 #container {
     min-height: 50.7%;
+    animation: aparecer 0.5s ease-out 1;
+  -webkit-animation: aparecer 0.5s ease-out 1;/*Chrome, Safari, Android, iOs*/
+  -moz-animation: aparecer 0.5s ease-out 1; /*Firefox*/
+  -o-animation: aparecer 0.5s ease-out 1; /*Opera*/
+  -ms-animation: aparecer 0.5s ease-out 1; /*Internet Explorer*/
+}
+
+@keyframes aparecer {
+from {margin-left: -5px; opacity: 0;}
+to {margin-left: 0px; opacity: 1;}
 }
 
 #flash {
@@ -269,7 +279,7 @@ ul, ol {
 }
 
 .nav div.submenu a {
-    background-color: #94cdf2;
+  background: #4FA3D6;
     color: white;
     text-decoration: none;
     padding: 10px 12px;
