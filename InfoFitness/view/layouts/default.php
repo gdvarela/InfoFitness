@@ -62,17 +62,17 @@
                         © InfoFitness 2016
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/inicio/"><?=i18n("Bussiness")?></a>
+                        <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/inicio/"><?=i18n("Bussiness")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Contact")?></a>
+                        <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Contact")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_AVISO_LEGAL">
+                        <a target="_blank" class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_AVISO_LEGAL">
                           <?=i18n("Legal Area")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_CONDICIONES_USO">
+                        <a target="_blank" class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_CONDICIONES_USO">
                           <?=i18n("Privacy Policy")?></a>
                     </li>
                 </ul>
@@ -83,16 +83,16 @@
                         <?=i18n("Staff")?>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/A-area-de-deportes/quen-somos/"><?=i18n("Members")?></a>
+                        <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/A-area-de-deportes/quen-somos/"><?=i18n("Members")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/"><?=i18n("Facilities")?></a>
+                        <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/instalacions/"><?=i18n("Facilities")?></a>
                     </li>
                     <li>
-                       <a class="footerlink" href="http://www.deportes.uvigo.es/seccions-deportivas/"><?=i18n("Sports Sections")?></a>
+                       <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/seccions-deportivas/"><?=i18n("Sports Sections")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Schedule")?></a>
+                        <a target="_blank" class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Schedule")?></a>
                     </li>
                 </ul>
             </div>
@@ -102,15 +102,15 @@
                         <?= i18n("Social Networks") ?>
                     </li>
                     <li>
-                        <a class="footerlink" href="https://www.facebook.com/uvigo/">
+                        <a target="_blank" class="footerlink" href="https://www.facebook.com/uvigo/">
                         <img class="footerimg" src="./img/facebook_icon.svg"> Facebook</a>
                     </li>
                     <li>
-                        <a class="footerlink" href="https://twitter.com/uvigo/">
+                        <a target="_blank" class="footerlink" href="https://twitter.com/uvigo/">
                           <img class="footerimg" src="./img/twitter_icon.svg"> Twitter</a>
                     </li>
                     <li>
-                        <a class="footerlink" href="https://www.youtube.com/user/uvigo">
+                        <a target="_blank" class="footerlink" href="https://www.youtube.com/user/uvigo">
                           <img class="footerimg" src="./img/youtube_icon.svg"> Youtube</a>
                     </li>
                 </ul>
@@ -121,7 +121,7 @@
                       <?= i18n("Sport Area of Vigo University") ?>
                     </li>
                     <li>
-                      <a class="footerlink" href="https://goo.gl/maps/bsMcAGFnbyQ2">Campus As Lagoas(Ourense)</a>
+                      <a target="_blank" class="footerlink" href="https://goo.gl/maps/bsMcAGFnbyQ2">Campus As Lagoas(Ourense)</a>
                     </li>
                     <li>
                       988 387 198
