@@ -61,7 +61,7 @@ $newTable = $view->getVariable("newTable");
     <?php endforeach;
     }?>
   </table>
-  <p class="tittletext"><?= i18n("Añadir Ejercicios")?></p>
+  <p class="tittletext"><?= i18n("Add Exercises")?></p>
   <table>
       <tr class="topTable">
         <th><?= i18n("Name")?></th>

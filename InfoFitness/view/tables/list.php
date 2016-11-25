@@ -38,7 +38,7 @@ $newTable = $view->getVariable("newTable");
                 <a href="?controller=tables&amp;action=details&amp;tableId=<?= $table->getId() ?>"><button class="button"><?= i18n("Details")?></button></a>
             </th>
             <th>
-                <a href="?controller=tables&amp;action=assign&amp;tableId=<?= $table->getId() ?>"><button class="button"><?= i18n("Details")?></button></a>
+                <a href="?controller=tables&amp;action=assign&amp;tableId=<?= $table->getId() ?>"><button class="button"><?= i18n("Assign")?></button></a>
             </th>
         </tr>
     <?php endforeach; ?>

@@ -20,6 +20,7 @@
     "Username" => "Usuario",
     "Athletes" => "Deportistas",
     "Administrators" => "Administradores",
+    "Add exercises" => "Añadir ejercicios",
     "Monitors" => "Monitores",
     "Assigned" => "Asignados",
     "Password" => "Contraseña",
