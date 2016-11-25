@@ -12,11 +12,12 @@ $sessions = $view->getVariable("sessions");
 $long = count($sessions);
 
 ?>
+<p class="tittletext"><?= i18n("Session History") ?></p>
 <div class="datagrid">
 <table>
     <tr class="topTable">
-        <th><?= i18n("Fecha")?></th>
-        <th><?= i18n("Comentario")?></th>
+        <th><?= i18n("Date")?></th>
+        <th><?= i18n("Comment")?></th>
         <th><?= i18n("Description")?></th>
     </tr>
     <?php for($i=0; $i<$long; $i++){ ?>

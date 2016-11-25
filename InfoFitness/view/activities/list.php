@@ -12,8 +12,8 @@ $monitors = $view->getVariable("monitors");
 $errors = $view->getVariable("errors");
 ?>
 <?= isset($errors["activityName"]) ? $errors["activityName"] : "" ?><br>
-<div id="activitiesview"
 <div class=datagrid>
+  <p class="tittletext"><?= i18n("Activities") ?></p>
 <table>
     <tr class="topTable">
         <th><?= i18n("Name") ?></th>
@@ -25,7 +25,6 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Start") ?></th>
         <th><?= i18n("End") ?></th>
         <th><?= i18n("Day") ?></th>
-    </tr>
     <?php foreach ($activities as $activity): ?>
         <tr class="mainTable">
             <form action="?controller=activities&action=modify" method="POST">
@@ -95,5 +94,4 @@ $errors = $view->getVariable("errors");
         </form>
     </tr>
 </table>
-</div>
 </div>

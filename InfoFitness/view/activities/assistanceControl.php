@@ -11,8 +11,9 @@ $monitors = $view->getVariable("monitors");
 date_default_timezone_set('Europe/Madrid');
 $date = date('Y-m-d H:m', time());
 ?>
-<span><?= $date ?></span>
+
 <div class="datagrid">
+  <p class="tittletext"><?=i18n("Activities")?></p>
 <table>
     <tr class="topTable">
         <th><?= i18n("Activity") ?></th>

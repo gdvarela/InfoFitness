@@ -11,6 +11,7 @@ $workouts = $view->getVariable("workouts");
 ?>
 
 <div class="datagrid">
+  <p class="tittletext"><?= i18n("Workouts")?></p>
 <table>
     <tr class="topTable">
         <th><?= i18n("Name")?></th>
