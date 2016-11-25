@@ -62,44 +62,44 @@
                         © InfoFitness 2016
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/inicio/">Empresa</a>
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/inicio/"><?=i18n("Bussiness")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/">Contacto</a>
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Contact")?></a>
                     </li>
                     <li>
                         <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_AVISO_LEGAL">
-                          Aviso legal</a>
+                          <?=i18n("Legal Area")?></a>
                     </li>
                     <li>
                         <a class="footerlink" href="https://deporxest.uvigo.es/WebDeportesUVigo/informacion/index.jsp?tipo=CONF.INFO_CONDICIONES_USO">
-                          Política de privacidad</a>
+                          <?=i18n("Privacy Policy")?></a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="footercontent">
                     <li class="footertitle">
-                        Staff
+                        <?=i18n("Staff")?>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/A-area-de-deportes/quen-somos/">Miembros</a>
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/A-area-de-deportes/quen-somos/"><?=i18n("Members")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/">Instalaciones</a>
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/"><?=i18n("Facilities")?></a>
                     </li>
                     <li>
-                       <a class="footerlink" href="http://www.deportes.uvigo.es/seccions-deportivas/">Secciones deportivas</a>
+                       <a class="footerlink" href="http://www.deportes.uvigo.es/seccions-deportivas/"><?=i18n("Sports Sections")?></a>
                     </li>
                     <li>
-                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/">Horario</a>
+                        <a class="footerlink" href="http://www.deportes.uvigo.es/instalacions/campus-de-ourense/"><?=i18n("Schedule")?></a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="footercontent">
                     <li class="footertitle">
-                        <?= i18n("Social networks") ?>
+                        <?= i18n("Social Networks") ?>
                     </li>
                     <li>
                         <a class="footerlink" href="https://www.facebook.com/uvigo/">
@@ -118,7 +118,7 @@
             <div>
                 <ul class="footercontent">
                     <li class="footertitle">
-                      Area de Deporte de la Universidade de Vigo
+                      <?= i18n("Sport Area of Vigo University") ?>
                     </li>
                     <li>
                       <a class="footerlink" href="https://goo.gl/maps/bsMcAGFnbyQ2">Campus As Lagoas(Ourense)</a>

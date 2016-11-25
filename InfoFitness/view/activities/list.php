@@ -49,7 +49,7 @@ $errors = $view->getVariable("errors");
                 <th><select name="day">
                         <option <?php if ($activity->getDay() == "Lunes") {echo "selected";} ?> value="Lunes"><?= i18n("Monday") ?></option>
                         <option <?php if ($activity->getDay() == "Martes") {echo "selected";} ?> value="Martes"><?= i18n("Tuesday") ?></option>
-                        <option <?php if ($activity->getDay() == "Miercoles") {echo "selected";} ?> value="Miercoles"><?= i18n("Wenesday") ?></option>
+                        <option <?php if ($activity->getDay() == "Miercoles") {echo "selected";} ?> value="Miercoles"><?= i18n("Wednesday") ?></option>
                         <option <?php if ($activity->getDay() == "Jueves") {echo "selected";} ?> value="Jueves"><?= i18n("Thursday") ?></option>
                         <option <?php if ($activity->getDay() == "Viernes") {echo "selected";} ?> value="Viernes"><?= i18n("Friday") ?></option>
                 </th>

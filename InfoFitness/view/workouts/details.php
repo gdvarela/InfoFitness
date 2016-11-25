@@ -15,10 +15,10 @@ $newTable = $view->getVariable("newTable");
 <div class="datagrid">
 <table>
         <tr class="topTable">
-            <th><?= i18n("Ejercicios Tabla")?></th>
-            <th><?= i18n("Descripcion")?></th>
-            <th><?= i18n("Grupo_muscular")?></th>
-            <th><?= i18n("Maquina")?></th>
+            <th><?= i18n("Table Exercises")?></th>
+            <th><?= i18n("Description")?></th>
+            <th><?= i18n("Muscular Group")?></th>
+            <th><?= i18n("Machine")?></th>
         </tr>
         <?php
           if($exercises != null){
