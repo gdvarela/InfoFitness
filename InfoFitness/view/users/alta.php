@@ -17,7 +17,7 @@ $admins = $view->getVariable("admins");
     <!-- DEPORTISTAS -->
     <p class="tittletext"><?=i18n("Athletes") ?></p>
     <div class="datagrid">
-    <table>
+    <table class="usertable">
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>
@@ -71,7 +71,7 @@ $admins = $view->getVariable("admins");
     </table>
     <!--ENTRENADOR-->
       <p class="tittletext"><?=i18n("Monitors") ?></p>
-    <table>
+    <table class="usertable">
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>
@@ -119,7 +119,7 @@ $admins = $view->getVariable("admins");
 
     <!--ADMINISTRADORES-->
       <p class="tittletext"><?=i18n("Administrators") ?><p>
-    <table>
+    <table class="usertable">
         <tr class="topTable">
             <th><?= i18n("Username")?></th>
             <th><?= i18n("Name")?></th>

@@ -157,6 +157,12 @@ textarea{
   border: none;
   font-weight: bold;
 }
+
+.datagrid .usertable tr:last-child input{
+  border: none;
+  font-weight: bold;
+}
+
 .datagrid table tr:last-child input{
   border-radius: 5px;
 }
