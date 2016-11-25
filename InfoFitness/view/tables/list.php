@@ -33,16 +33,10 @@ $newTable = $view->getVariable("newTable");
                 </form>
             </th>
             <th>
-                <form action="?controller=tables&amp;action=details" method="POST">
-                    <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button class="button"><?= i18n("Details")?></button>
-                </form>
+                <a href="?controller=tables&amp;action=details&amp;tableId=<?= $table->getId() ?>"><button class="button"><?= i18n("Details")?></button></a>
             </th>
             <th>
-                <form action="?controller=tables&amp;action=assign" method="POST">
-                    <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
-                    <button class="button"><?= i18n("Assign")?></button>
-                </form>
+                <a href="?controller=tables&amp;action=assign&amp;tableId=<?= $table->getId() ?>"><button class="button"><?= i18n("Details")?></button></a>
             </th>
         </tr>
     <?php endforeach; ?>

@@ -21,9 +21,8 @@ $workouts = $view->getVariable("workouts");
       <tr class="mainTable">
           <th><?= $workout->getTableName() ?></th>
           <th><?= $workout->getTableDes() ?></th>
-          <th><form action="?controller=tables&amp;action=detailsPublic" method="POST">
-              <input name="tableId" value="<?= $workout->getId() ?>" hidden="true">
-              <button class="button"><?= i18n("Details")?></button></form>
+          <th>
+              <a href="?controller=tables&amp;action=detailsPublic&amp;tableId=<?= $workout->getId() ?>"><button class="button"><?= i18n("Details")?></button></a>
           </th>
       </tr>
       <?php endforeach; ?>
