@@ -59,7 +59,7 @@ class TablesController extends BaseController
 
     public function detailsPublic()
     {
-        $tables = $this->tableMapper->fechTable($_POST["tableId"]);
+        $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
         $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
         $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
         $this->view->setVariable("tables", $tables);
