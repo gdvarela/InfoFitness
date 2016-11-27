@@ -454,7 +454,7 @@ ALTER TABLE `Actividad`
 -- Filtros para la tabla `actividad_meta`
 --
 ALTER TABLE `actividad_meta`
-  ADD CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `Asistencia`
