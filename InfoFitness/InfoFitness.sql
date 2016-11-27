@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `infofitness`
 --
-
+create database if not exists `infofitness` default character set utf8 collate utf8_spanish_ci;
+use `infofitness`;
 -- --------------------------------------------------------
 
 --
@@ -504,7 +505,7 @@ ALTER TABLE `Tabla_Ejercicios_Detalles`
   ADD CONSTRAINT `id_tabla` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE;
 
   CREATE USER 'infoFitness'@'localhost' IDENTIFIED BY 'infoFitness';
-  GRANT ALL PRIVILEGES ON * . * TO 'infoFitness'@'localhost';	
+  GRANT ALL PRIVILEGES ON * . * TO 'infoFitness'@'localhost';
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
