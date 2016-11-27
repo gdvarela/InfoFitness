@@ -26,7 +26,7 @@ class ActivityMapper {
     }
 
     public function listMonitors() {
-        $stmt = $this->db->query("SELECT nombre, id_entrenador FROM Monitor, usuario WHERE Monitor.id_usuario = usuario.id_usuario");
+        $stmt = $this->db->query("SELECT nombre, id_entrenador FROM Monitor, Usuario WHERE Monitor.id_usuario = usuario.id_usuario");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $list_db;
@@ -109,7 +109,7 @@ class ActivityMapper {
     }
 
     public function listUsersOnActivity($activity) {
-        $stmt = $this->db->query("SELECT * FROM Usuario, Reserva, Deportista where Deportista.id_deportista = Reserva.id_deportista 
+        $stmt = $this->db->query("SELECT * FROM Usuario, Reserva, Deportista where Deportista.id_deportista = Reserva.id_deportista
               AND Usuario.id_usuario = Deportista.id_usuario AND id_actividad=$activity");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
