@@ -17,10 +17,10 @@
     <!-- header -->
     <header id="header">
       <div class="headercontent">
-        <a  href="?controller=index&action=welcome"><img class="logo" src="./img/logo.svg"></a>
+        <a  href="?controller=index&action=welcome"><img id="logo" src="./img/logo.svg"></a>
       </div>
       <div class="headercontent">
-        <a class="indexlink" href="?controller=index&action=welcome">infoFitness</a>
+        <a id="indexlink" href="?controller=index&action=welcome">infoFitness</a>
       </div>
       <div class="headercontent">
           <?php
@@ -30,8 +30,8 @@
       <div class="headercontent">
         <?php if (isset($_SESSION["currentuser"])): ?>
         <div class="profile">
-          <img class="userimg" src="./img/profile_img.svg"></a>
-  	      <ul class="nav">
+          <img id="userimg" src="./img/profile_img.svg"></a>
+  	      <ul id="nav">
   	        <div class="menu"><?= $_SESSION["currentuser"]?></br>▼
               <ul>
                 <?php if ($_SESSION["type"]==0): ?>

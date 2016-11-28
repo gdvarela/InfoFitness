@@ -31,7 +31,7 @@ class TableMapper
         $id = $_SESSION["userId"];
         $stmt = $this->db->query("select te.id_tabla, nombre, descripcion from Tabla_Ejercicios_Deportista as ted, Tabla_Ejercicios as te, Deportista as de
             where de.id_usuario = $id and de.id_deportista = ted.id_deportista and ted.id_tabla=te.id_tabla
-            group by de.id_deportista");
+            ");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $workouts = array();
 
@@ -84,9 +84,9 @@ class TableMapper
     public function fechUsersTable($id_tabla)
     {
         $stmt = $this->db->prepare("select Usuario.id_usuario, Usuario.nombre, Usuario.apellidos from Usuario, Deportista, Tabla_Ejercicios_Deportista
-          where Deportista.id_deportista = Tabla_Ejercicios_Deportista.id_deportista and 
+          where Deportista.id_deportista = Tabla_Ejercicios_Deportista.id_deportista and
           Usuario.id_usuario = Deportista.id_usuario and Tabla_Ejercicios_Deportista.id_tabla = ?
-          group by Usuario.nombre");
+          ");
         $stmt->execute(array($id_tabla));
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -103,11 +103,10 @@ class TableMapper
     public function fechUsers($id_tabla)
     {
         $stmt = $this->db->prepare("select Usuario.id_usuario, Usuario.nombre, Usuario.apellidos from Usuario
-            where Usuario.id_usuario not in 
+            where Usuario.id_usuario not in
             (select Deportista.id_usuario from Deportista, Tabla_Ejercicios_Deportista
             where Deportista.id_deportista = Tabla_Ejercicios_Deportista.id_deportista and
-             Tabla_Ejercicios_Deportista.id_tabla = ?
-            group by Deportista.id_usuario) and Usuario.id_usuario in
+             Tabla_Ejercicios_Deportista.id_tabla = ?) and Usuario.id_usuario in
             (select Deportista.id_usuario from Deportista)");
         $stmt->execute(array($id_tabla));
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);

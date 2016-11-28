@@ -54,7 +54,7 @@ class ActivityMapper {
     public function listReservedActivities($user) {
         $depor = $this->getDeporId($user);
         $stmt = $this->db->query("SELECT * FROM Actividad LEFT JOIN Reserva ON Actividad.id_actividad=Reserva.id_actividad
-              WHERE Reserva.id_deportista=$depor GROUP BY Actividad.id_actividad");
+              WHERE Reserva.id_deportista=$depor");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $activities = array();

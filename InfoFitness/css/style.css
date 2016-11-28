@@ -144,25 +144,6 @@ a:hover {
     border-bottom: none;
 }
 
-textarea {
-    border-radius: 5px;
-    border-color: #1484C8;
-    border-style: inset;
-    border-width: 2px;
-}
-
-#login input {
-    border-radius: 5px;
-}
-
-#register input {
-    border-radius: 5px;
-}
-
-#notifications input {
-    border-radius: 5px;
-}
-
 .datagrid table tr:nth-last-child(n+2) input {
     border: none;
     font-weight: bold;
@@ -185,6 +166,25 @@ textarea {
     background-color: #C4E0F1;
 }
 
+textarea {
+    border-radius: 5px;
+    border-color: #1484C8;
+    border-style: inset;
+    border-width: 2px;
+}
+
+#login input {
+    border-radius: 5px;
+}
+
+#register input {
+    border-radius: 5px;
+}
+
+#notifications input {
+    border-radius: 5px;
+}
+
 #header {
     border-radius: 8px;
     background: rgba(226, 240, 248, 1);
@@ -202,19 +202,19 @@ textarea {
     padding-left: 5px;
 }
 
-.indexlink {
+#indexlink {
     color: #1484C8;
     font-size: 50px;
     position: absolute;
     top: 50px;
 }
 
-.indexlink:visited, .indexlink:link {
+#indexlink:visited, .indexlink:link {
     text-decoration: none;
     color: white;
 }
 
-.indexlink:hover {
+#indexlink:hover {
     color: black;
     cursor: pointer;
 }
@@ -251,13 +251,13 @@ textarea {
     padding-right: 10px;
 }
 
-.logo {
+#logo {
     float: left;
     width: 120px;
     height: 120px;
 }
 
-.userimg {
+#userimg {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -277,7 +277,7 @@ ul, ol {
     width: 150px;
 }
 
-.nav {
+#nav {
     font-size: 25px;
     text-align: center;
     cursor: pointer;
@@ -290,13 +290,13 @@ ul, ol {
     right: 40px;
 }
 
-.nav>div.menu {
+#nav>div.menu {
     float: left;
     z-index: 3;
     margin-top: 40px;
 }
 
-.nav div.submenu a {
+#nav div.submenu a {
     background: #4FA3D6;
     color: white;
     text-decoration: none;
@@ -305,43 +305,43 @@ ul, ol {
     width: 100px;
 }
 
-.nav div.menu ul .submenu:first-child {
+#nav div.menu ul .submenu:first-child {
     border-top: solid;
     border-left: solid;
     border-right: solid;
 }
 
-.nav div.menu ul .submenu:nth-child(2) {
+#nav div.menu ul .submenu:nth-child(2) {
     border-left: solid;
     border-right: solid;
     border-top: solid;
 }
 
-.nav div.menu ul .submenu:nth-child(3) {
+#nav div.menu ul .submenu:nth-child(3) {
     border-left: solid;
     border-right: solid;
     border-top: solid;
 }
 
-.nav div.menu ul div.submenu:last-child {
+#nav div.menu ul div.submenu:last-child {
     border-left: solid;
     border-right: solid;
     border-bottom: solid;
     border-top: solid;
 }
 
-.nav div.submenu a:hover {
+#nav div.submenu a:hover {
     color: black;
 }
 
-.nav div.menu ul {
+#nav div.menu ul {
     display: none;
     position: absolute;
     font-size: 15px;
     z-index: 2;
 }
 
-.nav div.menu:hover>ul {
+#nav div.menu:hover>ul {
     display: block;
 }
 
