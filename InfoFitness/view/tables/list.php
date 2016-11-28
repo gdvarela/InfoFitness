@@ -47,7 +47,6 @@ $newTable = $view->getVariable("newTable");
             <th> <input name="tableName" value="<?= $newTable->getTableName() ?>"> </th>
             <th> <textarea name="tableDes" ><?= $newTable->getTableDes() ?></textarea> </th>
             <th>
-              <input name="tableId" value="<?= $table->getId() ?>" hidden="true">
               <button class="button" type="submit"><?= i18n("Add")?></button>
             </th>
         </form>

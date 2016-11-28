@@ -26,7 +26,7 @@ class ActivityMapper {
     }
 
     public function listMonitors() {
-        $stmt = $this->db->query("SELECT nombre, id_entrenador FROM Monitor, Usuario WHERE Monitor.id_usuario = usuario.id_usuario");
+        $stmt = $this->db->query("SELECT nombre, id_entrenador FROM Monitor, Usuario WHERE Monitor.id_usuario = Usuario.id_usuario");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $list_db;

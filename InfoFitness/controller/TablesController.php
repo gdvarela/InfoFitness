@@ -118,7 +118,7 @@ class TablesController extends BaseController
 
     public function add()
     {
-        if (isset($_POST["tableId"])) {
+        if (isset($_POST["tableName"])) {
             $this->newTable->changeTable($_POST["tableName"], $_POST["tableDes"]);
             $this->tableMapper->save($this->newTable);
             $this->view->redirect("tables", "listTables");
