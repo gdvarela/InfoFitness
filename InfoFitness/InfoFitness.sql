@@ -454,7 +454,7 @@ ALTER TABLE `Actividad`
 -- Filtros para la tabla `actividad_meta`
 --
 ALTER TABLE `actividad_meta`
-  ADD CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `id_actividad_meta` FOREIGN KEY (`id_actividad_meta`) REFERENCES `Actividad` (`id_actividad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Asistencia`
@@ -486,7 +486,7 @@ ALTER TABLE `Reserva`
 -- Filtros para la tabla `Sesion`
 --
 ALTER TABLE `Sesion`
-  ADD CONSTRAINT `id_actividad_sesion` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `id_actividad_sesion` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `id_tabla_sesion` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `id_usuario_sesion` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`) ON DELETE SET NULL ON UPDATE SET NULL;
 
