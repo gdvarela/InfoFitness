@@ -479,7 +479,7 @@ ALTER TABLE `Monitor`
 -- Filtros para la tabla `Reserva`
 --
 ALTER TABLE `Reserva`
-  ADD CONSTRAINT `id_actividad_reserva` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `id_actividad_reserva` FOREIGN KEY (`id_actividad`) REFERENCES `Actividad` (`id_actividad`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `id_deportista` FOREIGN KEY (`id_deportista`) REFERENCES `Deportista` (`id_deportista`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
