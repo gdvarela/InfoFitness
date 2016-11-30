@@ -120,7 +120,9 @@ INSERT INTO `Deportista` (`id_deportista`, `comentario`, `tipo_tarjeta`, `id_usu
 (2, 'Ganar resistencia', 0, 2),
 (3, 'Ganar fuerza', 0, 6),
 (4, 'Ganar masa muscular', 1, 7),
-(5, 'Tonificar musculos', 1, 11);
+(5, 'Tonificar musculos', 1, 11),
+(6, 'Tonificar musculos', 1, 13),
+(7, 'Tonificar musculos', 1, 14);
 
 -- --------------------------------------------------------
 
@@ -417,6 +419,7 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
   `permisos` tinyint(2) NOT NULL DEFAULT '0',
   `telefono` varchar(12) COLLATE latin1_spanish_ci DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
+  `sexo` varchar(50) COLLATE latin1_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `dni_UNIQUE` (`dni`),
   UNIQUE KEY `id_usuario_UNIQUE` (`login`),
@@ -427,18 +430,20 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 -- Volcado de datos para la tabla `Usuario`
 --
 
-INSERT INTO `Usuario` (`id_usuario`, `login`, `dni`, `nombre`, `apellidos`, `mail`, `contraseña`, `permisos`, `telefono`, `fecha_nacimiento`) VALUES
-(1, 'robertoGz', '25648375C', 'Roberto', 'Gonzalez', 'rober@gmail.com', 'dshfbfb', 0, '643875438', '1987-09-17'),
-(2, 'lrcortizo', '44490236V', 'Luis', 'Raña', 'luisraco95@gmail.com', '1234', 0, '627642372', '1995-08-22'),
-(3, 'manuelRa', '52689487R', 'Manuel', 'Ramos', 'manuelramos@gmail.com', 'pass', 1, '685365985', NULL),
-(4, 'gdavila', '53193712W', 'Guillermo', 'Davila Varela', 'guillermo.davilavarela@gmail.com', 'admin', 2, '638233356', '1995-10-26'),
-(5, 'mariaG', '6985478T', 'Maria', 'Graña', 'maria@gmail.com', 'pass', 1, '698523654', NULL),
-(6, 'pepitoAl', '87538459X', 'Pepe', 'Alvarez', 'pepito@hotmail.com', 'bdsfbsi', 0, '642837238', '1990-04-26'),
-(7, 'carlosMz', '98569383F', 'Carlos', 'Martinez', 'carlitos@gmail.com', 'ijnfibidv', 0, '623923733', '1992-10-10'),
-(9, 'admin', '12345678A', 'Admin', 'Admin', 'admin@admin.admin', 'admin', 2, '', '2016-11-17'),
-(10, 'monitor', '11111111A', 'Moni', 'Moni', 'moni@moni.moni', 'monitor', 1, NULL, NULL),
-(11, 'user', '22222222A', 'User', 'User', 'user@user.user', 'user', 0, NULL, NULL),
-(12, 'newuser', '52469845E', 'newuser', 'newuser', 'newuser@newuser.com', '(+34) ', 0, '+34685214523', '1995-05-10');
+INSERT INTO `Usuario` (`id_usuario`, `login`, `dni`, `nombre`, `apellidos`, `mail`, `contraseña`, `permisos`, `telefono`, `fecha_nacimiento`, `sexo`) VALUES
+(1, 'robertoGz', '25648375C', 'Roberto', 'Gonzalez', 'rober@gmail.com', 'dshfbfb', 0, '643875438', '1987-09-17', 'hombre'),
+(2, 'lrcortizo', '44490236V', 'Luis', 'Raña', 'luisraco95@gmail.com', '1234', 0, '627642372', '1995-08-22', 'hombre'),
+(3, 'manuelRa', '52689487R', 'Manuel', 'Ramos', 'manuelramos@gmail.com', 'pass', 1, '685365985', NULL,'hombre'),
+(4, 'gdavila', '53193712W', 'Guillermo', 'Davila Varela', 'guillermo.davilavarela@gmail.com', 'admin', 2, '638233356', '1995-10-26','hombre'),
+(5, 'mariaG', '6985478T', 'Maria', 'Graña', 'maria@gmail.com', 'pass', 1, '698523654', NULL, 'mujer'),
+(6, 'pepitoAl', '87538459X', 'Pepe', 'Alvarez', 'pepito@hotmail.com', 'bdsfbsi', 0, '642837238', '1990-04-26', 'hombre'),
+(7, 'carlosMz', '98569383F', 'Carlos', 'Martinez', 'carlitos@gmail.com', 'ijnfibidv', 0, '623923733', '1992-10-10','hombre'),
+(9, 'admin', '12345678A', 'Admin', 'Admin', 'admin@admin.admin', 'admin', 2, '', '2016-11-17','mujer'),
+(10, 'monitor', '11111111A', 'Moni', 'Moni', 'moni@moni.moni', 'monitor', 1, NULL, null,'hombre'),
+(11, 'user', '22222222A', 'User', 'User', 'user@user.user', 'user', 0, NULL, NULL,'hombre'),
+(12, 'newuser', '52469845E', 'newuser', 'newuser', 'newuser@newuser.com', '(+34) ', 0, '+34685214523', '1995-05-10','hombre'),
+(13, 'albaF', '69654768T', 'Alba', 'Fernández', 'alba@gmail.com', 'pass', 0, '698245574', NULL, 'mujer'),
+(14, 'fernandaM', '55896324T', 'Fernanda', 'Martinez', 'fernanda@gmail.com', 'pass', 0, '632245574', NULL, 'mujer');
 
 --
 -- Restricciones para tablas volcadas
