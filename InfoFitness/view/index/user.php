@@ -1,7 +1,6 @@
 <?php
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
-
 ?>
 
 <div id="user">
@@ -20,14 +19,9 @@ $view = ViewManager::getInstance();
     </br></br><?= i18n("Session History") ?>
   </div>
  </a>
- <a class="linkgeneral" href="?controller=exercises&action=listExercises">
-  <div class="mainexercisespublic">
-    </br></br><?= i18n("Exercises List") ?>
-  </div>
- </a>
- <a class="linkgeneral" href="?controller=profile&action=modify">
-  <div class="mainexercisespublic">
-  </br></br><?= i18n("Profile") ?>
-  </div>
- </a>
+<!-- <a class="linkgeneral" href="?controller=exercises&action=listExercises">-->
+<!--  <div class="mainexercisespublic">-->
+<!--    </br></br>--><?//= i18n("Exercises List") ?>
+<!--  </div>-->
+<!-- </a>-->
 </div>

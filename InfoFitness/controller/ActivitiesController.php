@@ -37,7 +37,6 @@ class ActivitiesController extends BaseController
 
     public function listActivities()
     {
-
         $activities = $this->activityMapper->listActivities();
         $this->view->setVariable("activities", $activities);
 
