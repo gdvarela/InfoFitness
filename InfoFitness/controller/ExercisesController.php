@@ -5,6 +5,8 @@ require_once(__DIR__."/../core/I18n.php");
 
 require_once(__DIR__."/../model/Exercise.php");
 require_once(__DIR__."/../model/ExerciseMapper.php");
+require_once(__DIR__."/../model/Machine.php");
+require_once(__DIR__."/../model/MachineMapper.php");
 
 require_once(__DIR__."/../controller/BaseController.php");
 
@@ -18,6 +20,7 @@ class ExercisesController extends BaseController {
 
       $this->exerciseMapper = new exerciseMapper();
       $this->newExercise = new Exercise();
+      $this->machineMapper = new machineMapper();
       // Users controller operates in a "welcome" layout
       // different to the "default" layout where the internal
       // menu is displayed
@@ -31,6 +34,8 @@ class ExercisesController extends BaseController {
       $this->view->setVariable("newExercise", $this->newExercise);
       if($_SESSION["type"] == 1) {
           $this->view->setVariable("title", "Exercices Management");
+          $machines = $this->machineMapper->listMachines();
+          $this->view->setVariable("machines", $machines);
           $this->view->render("exercises", "list");
       }else if($_SESSION["type"] == 0){
           $this->view->setVariable("title", "Exercices");
