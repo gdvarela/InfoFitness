@@ -84,7 +84,7 @@ $errors = $view->getVariable("errors");
             <th><select name="day">
                     <option <?php if ($newActivity->getDay() == "Lunes") {echo "selected";} ?> value="Lunes"><?= i18n("Monday") ?></option>
                     <option <?php if ($newActivity->getDay() == "Martes") {echo "selected";} ?> value="Martes"><?= i18n("Tuesday") ?></option>
-                    <option <?php if ($newActivity->getDay() == "Miercoles") {echo "selected";} ?> value="Miercoles"><?= i18n("Wenesday") ?></option>
+                    <option <?php if ($newActivity->getDay() == "Miercoles") {echo "selected";} ?> value="Miercoles"><?= i18n("Wednesday") ?></option>
                     <option <?php if ($newActivity->getDay() == "Jueves") {echo "selected";} ?> value="Jueves"><?= i18n("Thursday") ?></option>
                     <option <?php if ($newActivity->getDay() == "Viernes") {echo "selected";} ?> value="Viernes"><?= i18n("Friday") ?></option>
             </th>
