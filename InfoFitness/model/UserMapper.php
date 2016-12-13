@@ -210,5 +210,32 @@ class UserMapper
         $stmt->execute(array($id_usuario));
     }
 
+    //PARA LA GESTION DE PERFILES
+    public function listUser($id_usuario)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM Usuario U WHERE id_usuario = ?");
+        $stmt->execute(array($id_usuario));
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+            //$id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
+            //$dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL, $tipo_deportista=NULL, $comentario=NULL
+        $user = new User($result["id_usuario"], $user["login"], $result["passwd"], $user["nombre"], $user["apellidos"], $user["dni"],
+                $user["fecha_nacimiento"], $user["permisos"], $user["mail"], $user["telefono"], $user["tipo_tarjeta"], $user["comentario"], NULL);
+
+
+        return $user;
+    }
+
+    public function updateUser($user)
+    {
+        $stmt = $this->db->prepare("UPDATE Usuario SET login=?, nombre=?, apellidos=?, mail=?,
+          contraseña=?, telefono=?, fecha_nacimiento=?, dni= ? WHERE id_usuario=?");
+        $stmt->execute(array($user->getUsername(), $user->getNombre(), $user->getApellidos(),
+            $user->getEmail(), $user->getPasswd(), $user->getTelefono(), $user->getFechanac(), $user->getDni(), $user->getIdUsr()));
+
+    }
+
+
 
 }

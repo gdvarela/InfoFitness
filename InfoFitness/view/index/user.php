@@ -25,4 +25,9 @@ $view = ViewManager::getInstance();
     </br></br><?= i18n("Exercises List") ?>
   </div>
  </a>
+ <a class="linkgeneral" href="?controller=profile&action=modify">
+  <div class="mainexercisespublic">
+  </br></br><?= i18n("Profile") ?>
+  </div>
+ </a>
 </div>
