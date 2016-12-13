@@ -215,13 +215,13 @@ class UserMapper
     {
         $stmt = $this->db->prepare("SELECT * FROM Usuario U WHERE id_usuario = ?");
         $stmt->execute(array($id_usuario));
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
             //$id_usuario = NULL, $username=NULL, $passwd=NULL, $nombre=NULL, $apellidos=NULL,
             //$dni= NULL, $fechanac=NULL, $permiso=NULL, $email=NULL, $telef=NULL, $tipo_deportista=NULL, $comentario=NULL
-        $user = new User($result["id_usuario"], $user["login"], $result["passwd"], $user["nombre"], $user["apellidos"], $user["dni"],
-                $user["fecha_nacimiento"], $user["permisos"], $user["mail"], $user["telefono"], $user["tipo_tarjeta"], $user["comentario"], NULL);
+        $user = new User($result["id_usuario"], $result["login"], $result["contraseña"], $result["nombre"], $result["apellidos"], $result["dni"],
+                $result["fecha_nacimiento"], $result["permisos"], $result["mail"], $result["telefono"], NULL, NULL, NULL);
 
 
         return $user;

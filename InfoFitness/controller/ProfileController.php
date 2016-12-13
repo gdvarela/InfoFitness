@@ -24,17 +24,24 @@ class ProfileController extends BaseController
     }
 
     public function showUser(){
-      $user = $this->profileMapper->listUser($_SESSION["userId"]);
-      $this->view->setVariable("users", $user);
-      $this->view->redirect("index", "welcome");
+      if(isset($_SESSION["userId"])){
+        $user = $this->profileMapper->listUser($_SESSION["userId"]);
+        $this->view->setVariable("usuario", $user);
+
+        $this->view->render("profiles", "show");
+      }else{
+        echo "no hay id user";
+      }
+
+
     }
 
     public function modify()
     {
-
+      if(isset($_POST["submit"])){
         if (isset($_POST["id_usuario"])) {
-            $user = new User($_POST["id_usuario"], $_POST["username"], $_POST["passwd"], $_POST["nombre"], $_POST["apellidos"], $_POST["dni"],
-                $_POST["fechanac"], NULL, $_POST["email"], $_POST["telef"], NULL, NULL, NULL);
+            $user = new User($_POST["id_usuario"], $_POST["username"], $_POST["passwd"], $_POST["name"], $_POST["lastname"], $_POST["dni"],
+                $_POST["date"], NULL, $_POST["email"], $_POST["phone"], NULL, NULL, NULL);
 
             try {
                 //$this->user->checkIsValidForRegister();
@@ -46,10 +53,13 @@ class ProfileController extends BaseController
             }
 
 
-            $this->view->redirect("profile", "listUser");
+            $this->view->redirect("profile", "showUser");
         } else {
             throw new Exception("modify only form POST");
         }
+      }else{
+          $this->view->render("profiles", "show");
+      }
     }
 
     public function delete(){
