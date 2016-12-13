@@ -11,7 +11,9 @@ $exercisesTable = $view->getVariable("exercisesTable");
 $exercises = $view->getVariable("exercises");
 $exercisesNotAsigned = $view->getVariable("exercisesNotAsigned");
 $newTable = $view->getVariable("newTable");
+
 ?>
+<script src="./../../js/print.js" type="text/javascript"></script>
 <div class="datagrid">
 <table>
         <tr class="topTable">
@@ -33,10 +35,13 @@ $newTable = $view->getVariable("newTable");
             <?php endforeach;
         }?>
 </table>
+</div>
 </br>
+<div id="noprint">
 <form action="?controller=session&amp;action=newSession" method="POST">
     <textarea name="anotacion" placeholder="<?=i18n("Add comment")?>" cols="40" rows="10"></textarea></br>
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
     <button class="button" type="submit"><?= i18n("Register Session")?></button>
-  </form>
+</form>
+<input class="button" type="button" onclick="window.print()" value="<?= i18n("Print")?> " />
 </div>
