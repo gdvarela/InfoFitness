@@ -20,7 +20,7 @@ $view = ViewManager::getInstance();
       </br></br><?= i18n("Assistance Control") ?>
     </div>
   </a>
-  <a class="linkgeneral" href="?controller=profile&action=modify">
+  <a class="linkgeneral" href="?controller=profile&action=showUser">
    <div class="mainexercisespublic">
    </br></br><?= i18n("Profile") ?>
    </div>

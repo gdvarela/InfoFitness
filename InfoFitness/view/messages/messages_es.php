@@ -126,7 +126,8 @@ $i18n_messages =
         "Members" => "Miembros",
         "Contact" => "Contacto",
         "Sport Area of Vigo University" => "Área de Deporte de la Universidade de Vigo",
-        "Machines" => "Maquinas"
+        "Machines" => "Maquinas",
+        "Profile" => "Perfil"
 
 
     )
