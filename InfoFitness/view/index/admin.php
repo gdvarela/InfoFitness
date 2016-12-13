@@ -20,5 +20,9 @@ $view = ViewManager::getInstance();
     </br></br><?=i18n("Notifications")?>
     </div>
   </a>
-
+  <a href="?controller=machines&action=listMachines">
+    <div class=mainmachines>
+      </br></br><?=i18n("Machines")?>
+    </div>
+  </a>
 </div>
