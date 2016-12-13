@@ -63,7 +63,16 @@ class ProfileController extends BaseController
     }
 
     public function delete(){
+      if(isset($_POST["baja"])){
 
+        if (isset($_POST["id_usuario"])) {
+            $this->profileMapper->delete($_POST["id_usuario"]);
+            $this->view->render("index", "unauthorized");
+
+        } else {
+            throw new Exception("delete only form POST");
+        }
+      }
     }
 
 }//fin class

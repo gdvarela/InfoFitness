@@ -40,7 +40,7 @@
 
 <form action="?controller=profile&amp;action=delete" method="POST">
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
-    <button class="button"><?= i18n("Delete")?></button>
+    <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">
 </form>
 
 </div>
