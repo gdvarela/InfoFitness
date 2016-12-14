@@ -42,12 +42,12 @@
   </form>
   <button id="delete" class="button"><?= i18n("Delete")?></button>
 
-  <div id="deletemodal" >
+  <div id="deletemodal" class="deletemodal">
     <div class="deletecontent">
-      <span <?= i18n("You are going to delete your profile. Are you sure?")?>></span>
-      <button id="canceldelete" class="button"><?= i18n("Cancel")?></button>
+      <span ><?= i18n("You are going to delete your profile. Are you sure?")?></span></br></br>
+      <button id="canceldelete" class="buttonmodal button"><?= i18n("Cancel")?></button>
       <form action="?controller=profile&amp;action=delete" method="POST">
-          <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">
+          <input class="buttonmodal  button" type="submit" name="baja" value="<?= i18n("Delete")?>">
       </form>
     </div>
   </div>
