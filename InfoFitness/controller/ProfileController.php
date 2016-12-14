@@ -30,7 +30,7 @@ class ProfileController extends BaseController
 
         $this->view->render("profiles", "show");
       }else{
-        echo "no hay id user";
+        throw new Exception("There's no user");
       }
 
 
@@ -39,8 +39,8 @@ class ProfileController extends BaseController
     public function modify()
     {
       if(isset($_POST["submit"])){
-        if (isset($_POST["id_usuario"])) {
-            $user = new User($_POST["id_usuario"], $_POST["username"], $_POST["passwd"], $_POST["name"], $_POST["lastname"], $_POST["dni"],
+        if (isset($_SESSION["userId"])) {
+            $user = new User($_SESSION["userId"], $_POST["username"], $_POST["passwd"], $_POST["name"], $_POST["lastname"], $_POST["dni"],
                 $_POST["date"], NULL, $_POST["email"], $_POST["phone"], NULL, NULL, NULL);
 
             try {
@@ -65,12 +65,12 @@ class ProfileController extends BaseController
     public function delete(){
       if(isset($_POST["baja"])){
 
-        if (isset($_POST["id_usuario"])) {
-            $this->profileMapper->delete($_POST["id_usuario"]);
+        if (isset($_SESSION["userId"])) {
+            $this->profileMapper->delete($_SESSION["userId"]);
             $this->view->render("index", "unauthorized");
 
         } else {
-            throw new Exception("delete only form POST");
+            throw new Exception("There's no user");
         }
       }
     }
