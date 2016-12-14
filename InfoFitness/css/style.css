@@ -35,6 +35,13 @@ a:hover {
     /*Internet Explorer*/
 }
 
+#deletemodal {
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+
 @keyframes aparecer {
     from {
         margin-left: -5px;

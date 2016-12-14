@@ -37,18 +37,15 @@
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
     <input class="button" type="submit" name="submit" value="<?= i18n("Modify")?>">
 </form>
-<form action="?controller=profile&amp;action=delete" method="POST">
-    <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
-    <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">
-</form>
+
 
   </form>
-  <button id="delete"><?= i18n("Delete")?></button>
+  <button id="delete" class="button"><?= i18n("Delete")?></button>
 
   <div id="deletemodal" >
     <div class="deletecontent">
       <span <?= i18n("You are going to delete your profile. Are you sure?")?>></span>
-      <button id="canceldelete"><?= i18n("Cancel")?></button>
+      <button id="canceldelete" class="button"><?= i18n("Cancel")?></button>
       <form action="?controller=profile&amp;action=delete" method="POST">
           <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">
       </form>
