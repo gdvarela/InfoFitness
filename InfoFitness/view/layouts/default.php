@@ -10,6 +10,7 @@
     <title><?= $view->getVariable("title", "no title") ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="js/main.js"></script>
     <?= $view->getFragment("css") ?>
     <?= $view->getFragment("javascript") ?>
   </head>
