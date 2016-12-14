@@ -36,14 +36,12 @@
     <?= isset($errors["phone"])?$errors["phone"]:"" ?></br></br>
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
     <input class="button" type="submit" name="submit" value="<?= i18n("Modify")?>">
-<<<<<<< HEAD
 </form>
 <form action="?controller=profile&amp;action=delete" method="POST">
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
     <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">
 </form>
 
-=======
   </form>
   <button id="delete"><?= i18n("Delete")?></button>
 
