@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__."/../core/PDOConnection.php");
+require_once(__DIR__."/../model/StaticticsActivity.php");
 
 class ActivityMapper {
 
@@ -128,4 +129,87 @@ class ActivityMapper {
         $depor = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $depor[0]['id_deportista'];
     }
+
+    public function getAssistanceStatictics() {
+
+	    $stmt = $this->db->query("SELECT Actividad.nombre, count(Sesion.id_actividad) as num
+                                 FROM Sesion,Actividad,Usuario
+                                 WHERE Actividad.id_actividad = Sesion.id_actividad AND
+                                       Usuario.id_usuario = Sesion.id_usuario
+                                 GROUP BY Actividad.nombre");
+
+        $stmt1 = $this->db->query("SELECT distinct(Actividad.nombre), count(Sesion.id_actividad) as num, AVG(YEAR(CURDATE())-YEAR(Usuario.fecha_nacimiento))  AS media_edad
+                                   FROM Sesion,Actividad,Usuario
+                                   WHERE Actividad.id_actividad = Sesion.id_actividad AND
+                                         Usuario.id_usuario = Sesion.id_usuario AND
+                                         Usuario.sexo='mujer' AND Sesion.id_actividad >= 0 or Sesion.id_actividad is null
+                                   GROUP BY Actividad.nombre");
+
+      $total_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		  $total_num_women = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+
+      $women_percent = array();
+      $men_percentage = array();
+      $statictics = array();
+
+      foreach ($total_users as $keyu) {
+        foreach($total_num_women as $keyw){
+          if($keyu['nombre'] == $keyw['nombre'])
+            if($keyw['num'] > 0){
+              $women_percent['wa'][$keyu['nombre']] = ($keyw['num']/$keyu['num'])*100 . "%";
+              $women_percent['wa'][$keyu['nombre']] = ($keyw['num']/$keyu['num'])*100 . "%";
+              $men_percentage['ma'][$keyu['nombre']] = (100-($keyw['num']/$keyu['num'])*100) . "%";
+            }else{
+              $women_percent['wa'][$keyu['nombre']] = 0 ."%";
+              $men_percentage['ma'][$keyu['nombre']] = 100-0 ."%";
+            }
+        }
+
+      }
+
+      foreach ($women_percent as $key => $value) {
+          foreach ($value as $key1 => $value1) {
+            foreach ($men_percentage as $key2 => $value2) {
+                foreach ($value2 as $key3 => $value3) {
+                  if($key1 == $key3){
+                  array_push($statictics, new StaticticsActivity($activity = $key1, $women_percent=$value1,$men_percent=$value3));
+                  }
+                }
+
+            }
+         }
+
+      }
+        return $statictics;
+    }
+
+    public function getAgeStatictics() {
+
+          $stmt = $this->db->query("SELECT distinct(Actividad.nombre), AVG(YEAR(CURDATE())-YEAR(Usuario.fecha_nacimiento))  AS media_edad
+                                     FROM Sesion,Actividad,Usuario
+                                     WHERE Actividad.id_actividad = Sesion.id_actividad AND
+                                           Usuario.id_usuario = Sesion.id_usuario AND
+                                           Usuario.sexo='mujer'
+                                     GROUP BY Actividad.nombre");
+         $stmt1 = $this->db->query("SELECT distinct(Actividad.nombre), AVG(YEAR(CURDATE())-YEAR(Usuario.fecha_nacimiento))  AS media_edad
+                                    FROM Sesion,Actividad,Usuario
+                                    WHERE Actividad.id_actividad = Sesion.id_actividad AND
+                                          Usuario.id_usuario = Sesion.id_usuario AND
+                                          Usuario.sexo='hombre'
+                                    GROUP BY Actividad.nombre");
+
+        $avg_women_age = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $avg_men_age = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+        $age_statictics = array();
+
+        foreach ($avg_women_age as $key) {
+          foreach ($avg_men_age as $key1) {
+            if($key['nombre']==$key1['nombre']){
+              array_push($age_statictics, new StaticticsActivity($activity = $key['nombre'],$women_percent=null,$men_percent=null,$avg_women_age = $key['media_edad'], $avg_men_age = $key1['media_edad'] ));
+            }
+          }
+        }
+
+        return $age_statictics;
+      }
 }

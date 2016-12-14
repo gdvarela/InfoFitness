@@ -181,6 +181,15 @@ class ActivitiesController extends BaseController
         $this->activityMapper->unReserve($_SESSION["userId"], $_POST["activityId"]);
         $this->view->redirect("activities", "slotsControl");
     }
+
+    public function statictics()
+    {
+        $assitance_statictics = $this->activityMapper->getAssistanceStatictics();
+        $age_statictics = $this->activityMapper->getAgeStatictics();
+        $this->view->setVariable("assitance_statictics", $assitance_statictics);
+        $this->view->setVariable("age_statictics", $age_statictics);
+        $this->view->render("activities", "statictics");
+    }
 }
 
 ?>
