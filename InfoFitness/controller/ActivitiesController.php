@@ -61,9 +61,15 @@ class ActivitiesController extends BaseController
                 $_POST["activityDes"], $_POST["activityPrice"], $_POST["activityPlace"], $_POST["monitor"], $_POST["startTime"],
                 $_POST["endTime"], $_POST["day"]);
 
-            $this->activityMapper->update($activity);
+            try {
+                $activity->checkValidForAdd();
+                $this->activityMapper->update($activity);
+                $this->view->redirect("activities", "listActivities");
+            } catch (ValidationException $ex) {
+                $this->errors = $ex->getErrors();
+            }
+            $this->listActivities();
 
-            $this->view->redirect("activities", "listActivities");
         } else {
             throw new Exception("modify only form POST");
         }
