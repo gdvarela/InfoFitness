@@ -29,9 +29,7 @@ class ActivitiesController extends BaseController
         $this->userMapper = new UserMapper();
         $this->sessionMapper = new SessionMapper();
         $this->newActivity = new Activity();
-        // Users controller operates in a "welcome" layout
-        // different to the "default" layout where the internal
-        // menu is displayed
+
         $this->view->setLayout("default");
     }
 
