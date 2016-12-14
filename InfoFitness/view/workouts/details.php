@@ -43,5 +43,5 @@ $newTable = $view->getVariable("newTable");
     <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
     <button class="button" type="submit"><?= i18n("Register Session")?></button>
 </form>
-<input class="button" type="button" onclick="window.print()" value="<?= i18n("Print")?> " />
+<input class="button" type="button" onclick="window.print()" value="<?= i18n("Print table")?> " />
 </div>
