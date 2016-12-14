@@ -56,9 +56,8 @@ class TableMapper
 
     public function fechExercisesTable($id_tabla)
     {
-        $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Ejercicio.maquina, Ejercicio.id_ejercicio FROM Tabla_Ejercicios_Detalles inner join Ejercicio on
-                                  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio
-                                   WHERE Tabla_Ejercicios_Detalles.id_tabla=?");
+        $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Ejercicio.id_ejercicio FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina
+                WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina and Tabla_Ejercicios_Detalles.id_tabla=?");
         $stmt->execute(array($id_tabla));
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

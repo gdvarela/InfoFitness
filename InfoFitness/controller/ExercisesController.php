@@ -30,11 +30,11 @@ class ExercisesController extends BaseController {
 
       $exercises = $this->exerciseMapper->listExercises();
       $this->view->setVariable("exercises", $exercises);
+      $this->view->setVariable("title", "Exercices Management");
+      $machines = $this->machineMapper->listMachines();
 
       $this->view->setVariable("newExercise", $this->newExercise);
       if($_SESSION["type"] == 1) {
-          $this->view->setVariable("title", "Exercices Management");
-          $machines = $this->machineMapper->listMachines();
           $this->view->setVariable("machines", $machines);
           $this->view->render("exercises", "list");
       }else if($_SESSION["type"] == 0){
