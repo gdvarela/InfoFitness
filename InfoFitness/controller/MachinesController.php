@@ -76,6 +76,7 @@ class MachinesController extends BaseController
             } catch (ValidationException $ex) {
                 $this->errors = $ex->getErrors();
             }
+            $this->listMachines();
         } else {
             throw new Exception("add only form POST");
         }
