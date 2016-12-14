@@ -37,7 +37,6 @@
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
     <input class="button" type="submit" name="submit" value="<?= i18n("Modify")?>">
 </form>
-
 <form action="?controller=profile&amp;action=delete" method="POST">
     <input name="id_usuario" value="<?= $user->getIdUsr() ?>" hidden="true">
     <input class="button" type="submit" name="baja" value="<?= i18n("Delete")?>">

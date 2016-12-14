@@ -414,7 +414,7 @@ ul, ol {
     border-width: 3px;
     border-color: #94cdf2;
     padding-left: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     background: rgba(226, 240, 248, 1);
     background: -moz-linear-gradient(-45deg, rgba(226, 240, 248, 1) 0%, rgba(196, 224, 241, 1) 15%, rgba(167, 209, 234, 1) 29%, rgba(138, 193, 228, 1) 43%, rgba(108, 178, 221, 1) 57%, rgba(79, 162, 214, 1) 72%, rgba(49, 146, 207, 1) 86%, rgba(20, 131, 200, 1) 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(226, 240, 248, 1)), color-stop(15%, rgba(196, 224, 241, 1)), color-stop(29%, rgba(167, 209, 234, 1)), color-stop(43%, rgba(138, 193, 228, 1)), color-stop(57%, rgba(108, 178, 221, 1)), color-stop(72%, rgba(79, 162, 214, 1)), color-stop(86%, rgba(49, 146, 207, 1)), color-stop(100%, rgba(20, 131, 200, 1)));
@@ -436,6 +436,7 @@ ul, ol {
     cursor: pointer;
     font-weight: bold;
     color: white;
+    float: left;
 }
 
 #login .button {
@@ -454,7 +455,6 @@ ul, ol {
     border-width: 3px;
     border-color: #94cdf2;
     padding-left: 10px;
-    padding-bottom: 10px;
     background: rgba(226, 240, 248, 1);
     background: -moz-linear-gradient(-45deg, rgba(226, 240, 248, 1) 0%, rgba(196, 224, 241, 1) 15%, rgba(167, 209, 234, 1) 29%, rgba(138, 193, 228, 1) 43%, rgba(108, 178, 221, 1) 57%, rgba(79, 162, 214, 1) 72%, rgba(49, 146, 207, 1) 86%, rgba(20, 131, 200, 1) 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(226, 240, 248, 1)), color-stop(15%, rgba(196, 224, 241, 1)), color-stop(29%, rgba(167, 209, 234, 1)), color-stop(43%, rgba(138, 193, 228, 1)), color-stop(57%, rgba(108, 178, 221, 1)), color-stop(72%, rgba(79, 162, 214, 1)), color-stop(86%, rgba(49, 146, 207, 1)), color-stop(100%, rgba(20, 131, 200, 1)));
@@ -467,6 +467,7 @@ ul, ol {
     -webkit-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
     -moz-box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
     box-shadow: 10px 10px 10px -5px rgba(20, 132, 200, 1);
+    padding-bottom: 30px;
 }
 
 .registerbutton {
