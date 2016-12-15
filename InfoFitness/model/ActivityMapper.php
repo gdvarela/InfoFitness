@@ -156,9 +156,8 @@ class ActivityMapper {
         foreach($total_num_women as $keyw){
           if($keyu['nombre'] == $keyw['nombre'])
             if($keyw['num'] > 0){
-              $women_percent['wa'][$keyu['nombre']] = ($keyw['num']/$keyu['num'])*100 . "%";
-              $women_percent['wa'][$keyu['nombre']] = ($keyw['num']/$keyu['num'])*100 . "%";
-              $men_percentage['ma'][$keyu['nombre']] = (100-($keyw['num']/$keyu['num'])*100) . "%";
+              $women_percent['wa'][$keyu['nombre']] = round(($keyw['num']/$keyu['num'])*100) . "%";
+              $men_percentage['ma'][$keyu['nombre']] = round((100-($keyw['num']/$keyu['num'])*100)) . "%";
             }else{
               $women_percent['wa'][$keyu['nombre']] = 0 ."%";
               $men_percentage['ma'][$keyu['nombre']] = 100-0 ."%";
@@ -200,16 +199,34 @@ class ActivityMapper {
 
         $avg_women_age = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $avg_men_age = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+        $age_statictics_men = array();
+        $age_statictics_women = array();
         $age_statictics = array();
 
-        foreach ($avg_women_age as $key) {
-          foreach ($avg_men_age as $key1) {
-            if($key['nombre']==$key1['nombre']){
-              array_push($age_statictics, new StaticticsActivity($activity = $key['nombre'],$women_percent=null,$men_percent=null,$avg_women_age = $key['media_edad'], $avg_men_age = $key1['media_edad'] ));
-            }
+        foreach ($avg_women_age as $key => $value) {
+            foreach ($avg_men_age as $key2 => $value2) {
+              if ($value['nombre'] == $value2['nombre']){
+                $age_statictics_men['ma'][$value['nombre']] =round($value2['media_edad']);
+                $age_statictics_women['wa'][$value['nombre']] =round($value['media_edad']);
+              }
           }
-        }
+       }
 
-        return $age_statictics;
-      }
+       foreach ($age_statictics_men as $key => $value) {
+           foreach ($value as $key1 => $value1) {
+             foreach ($age_statictics_women as $key2 => $value2) {
+                 foreach ($value2 as $key3 => $value3) {
+                   if($key1 == $key3){
+                   array_push($age_statictics, new StaticticsActivity($activity = $key1, $women_percent=null,$men_percent=null,$avg_women_age = $value3, $avg_men_age = $value1));
+                   }
+                 }
+
+             }
+          }
+
+       }
+
+          return $age_statictics;
+    }
+
 }
