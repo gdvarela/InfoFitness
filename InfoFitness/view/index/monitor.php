@@ -25,7 +25,7 @@ $view = ViewManager::getInstance();
    </br></br><?= i18n("Profile") ?>
    </div>
   </a>
-  <a class="linkgeneral" href="?controller=activities&action=statictics">
+  <a class="linkgeneral" href="?controller=statictics&action=statictics">
    <div class="mainprofile">
    </br></br><?= i18n("General Statictics") ?>
    </div>
