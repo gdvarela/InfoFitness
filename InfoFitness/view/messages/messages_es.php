@@ -128,7 +128,8 @@ $i18n_messages =
         "Sport Area of Vigo University" => "Área de Deporte de la Universidade de Vigo",
         "Machines" => "Maquinas",
         "Profile" => "Perfil",
-        "Print table" => "Imprimir tabla"
+        "Print table" => "Imprimir tabla",
+        "You are going to delete your profile. Are you sure?" => "Vas a borrar tu perfil. ¿Estás seguro?"
 
     )
 ?>
