@@ -14,7 +14,7 @@ class SessionMapper
     public function listSessions()
     {
         $id = $_SESSION["userId"];
-        $stmt = $this->db->query("SELECT id_sesion, id_usuario, fecha, comentario, (case
+        $stmt = $this->db->query("SELECT DISTINCT id_sesion, id_usuario, fecha, comentario, (case
             when Sesion.id_actividad is not null
             then Actividad.descripcion else Tabla_Ejercicios.descripcion
             end) as descripcion FROM Sesion, Tabla_Ejercicios, Actividad
