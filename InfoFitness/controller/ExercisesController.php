@@ -34,13 +34,8 @@ class ExercisesController extends BaseController {
       $machines = $this->machineMapper->listMachines();
 
       $this->view->setVariable("newExercise", $this->newExercise);
-      if($_SESSION["type"] == 1) {
-          $this->view->setVariable("machines", $machines);
-          $this->view->render("exercises", "list");
-      }else if($_SESSION["type"] == 0){
-          $this->view->setVariable("title", "Exercices");
-          $this->view->render("exercises", "listPublic");
-      }
+      $this->view->setVariable("machines", $machines);
+      $this->view->render("exercises", "list");
   }
 
   public function modify() {
