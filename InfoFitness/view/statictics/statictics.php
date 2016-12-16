@@ -11,7 +11,7 @@ $assitance_statictics = $view->getVariable("assitance_statictics");
 $age_statictics = $view->getVariable("age_statictics");
 $errors = $view->getVariable("errors");
 ?>
-<p class="tittletext"><?= i18n("Assistance Statictics") ?></p>
+<p class="tittletext"><?= i18n("Assistance Statistics") ?></p>
 <div class="datagrid">
 <table>
     <tr class="topTable">
@@ -29,7 +29,7 @@ $errors = $view->getVariable("errors");
 </table>
 </div>
 
-<p class="tittletext"><?= i18n("Age Statictics") ?></p>
+<p class="tittletext"><?= i18n("Age Statistics") ?></p>
 <div class="datagrid">
 <table>
     <tr class="topTable">

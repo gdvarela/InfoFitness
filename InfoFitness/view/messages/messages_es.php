@@ -130,16 +130,16 @@ $i18n_messages =
         "Profile" => "Perfil",
         "Print table" => "Imprimir tabla",
         "You are going to delete your profile. Are you sure?" => "Vas a borrar tu perfil. ¿Estás seguro?",
-        "Assistance Statictics" => "Estadísticas de Asistencia",
-        "Age Statictics" => "Estadísticas de Edad",
+        "Assistance Statistics" => "Estadísticas de Asistencia",
+        "Age Statistics" => "Estadísticas de Edad",
         "Percentage Used Tables" => "Porcentaje de Uso de Tablas",
         "Women Percentage" => "Porcentaje de Mujeres",
         "Men Percentage" => "Porcentaje de Hombres",
         "Tables" => "Tablas",
         "Women Average Age" => "Media de Edad de Mujeres",
         "Men Average Age" => "Media de Edad de Hombres",
-        "Use Percentage" => "Porcentaje de Uso"
-
+        "Use Percentage" => "Porcentaje de Uso",
+        "General Statistics" => "Estadisticas generales"
 
     )
 ?>
