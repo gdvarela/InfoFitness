@@ -747,20 +747,17 @@ ul, ol {
 .mainnotifications {
     border: solid;
     width: 49.55%;
-    float: right;
-    margin-right: 25%;
+    float: left;
     height: 150px;
     text-align: center;
     color: white;
     z-index: 1;
-    background: rgba(20, 131, 200, 1);
-    background: -moz-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(20, 131, 200, 1)), color-stop(14%, rgba(49, 146, 207, 1)), color-stop(28%, rgba(79, 162, 214, 1)), color-stop(43%, rgba(108, 178, 221, 1)), color-stop(57%, rgba(138, 193, 228, 1)), color-stop(71%, rgba(167, 209, 234, 1)), color-stop(85%, rgba(196, 224, 241, 1)), color-stop(100%, rgba(226, 240, 248, 1)));
-    background: -webkit-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-    background: -o-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-    background: linear-gradient(to bottom, rgba(20, 131, 200, 1) 0%, rgba(49, 146, 207, 1) 14%, rgba(79, 162, 214, 1) 28%, rgba(108, 178, 221, 1) 43%, rgba(138, 193, 228, 1) 57%, rgba(167, 209, 234, 1) 71%, rgba(196, 224, 241, 1) 85%, rgba(226, 240, 248, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1483c8', endColorstr='#e2f0f8', GradientType=0);
+    background: rgb(226,240,248); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgb(226,240,248) 0%, rgb(196,224,241) 15%, rgb(167,209,234) 29%, rgb(138,193,228) 43%, rgb(108,178,221) 57%, rgb(79,162,214) 72%, rgb(49,146,207) 86%, rgb(20,131,200) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgb(226,240,248) 0%,rgb(196,224,241) 15%,rgb(167,209,234) 29%,rgb(138,193,228) 43%,rgb(108,178,221) 57%,rgb(79,162,214) 72%,rgb(49,146,207) 86%,rgb(20,131,200) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgb(226,240,248) 0%,rgb(196,224,241) 15%,rgb(167,209,234) 29%,rgb(138,193,228) 43%,rgb(108,178,221) 57%,rgb(79,162,214) 72%,rgb(49,146,207) 86%,rgb(20,131,200) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2f0f8', endColorstr='#1483c8',GradientType=1 ); /* IE6-9 */
+
     transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     /* Firefox */
@@ -771,6 +768,62 @@ ul, ol {
 }
 
 .mainnotifications:hover {
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    /* Firefox */
+    -webkit-transform: scale(1.1);
+    /* Chrome - Safari */
+    -o-transform: scale(1.1);
+    /* Opera */
+    -ms-transform: scale(1.1);
+    /* IE9 */
+}
+
+#admin .mainstatistics{
+  border: solid;
+  width: 49.55%;
+  float: right;;
+  height: 150px;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  background: rgb(226,240,248); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgb(226,240,248) 0%, rgb(196,224,241) 15%, rgb(167,209,234) 29%, rgb(138,193,228) 43%, rgb(108,178,221) 57%, rgb(79,162,214) 72%, rgb(49,146,207) 86%, rgb(20,131,200) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgb(226,240,248) 0%,rgb(196,224,241) 15%,rgb(167,209,234) 29%,rgb(138,193,228) 43%,rgb(108,178,221) 57%,rgb(79,162,214) 72%,rgb(49,146,207) 86%,rgb(20,131,200) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgb(226,240,248) 0%,rgb(196,224,241) 15%,rgb(167,209,234) 29%,rgb(138,193,228) 43%,rgb(108,178,221) 57%,rgb(79,162,214) 72%,rgb(49,146,207) 86%,rgb(20,131,200) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2f0f8', endColorstr='#1483c8',GradientType=1 ); /* IE6-9 */
+  transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  /* Firefox */
+  -webkit-transition: 0.2s ease;
+  /* Chrome - Safari */
+  -o-transition: 0.2s ease;
+  /* Opera */
+}
+
+.mainmachines {
+    border: solid;
+    width: 49.55%;
+    float: right;;
+    height: 150px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    background: rgb(20,131,200); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgb(20,131,200) 0%, rgb(49,146,207) 14%, rgb(79,162,214) 28%, rgb(108,178,221) 43%, rgb(138,193,228) 57%, rgb(167,209,234) 71%, rgb(196,224,241) 85%, rgb(226,240,248) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgb(20,131,200) 0%,rgb(49,146,207) 14%,rgb(79,162,214) 28%,rgb(108,178,221) 43%,rgb(138,193,228) 57%,rgb(167,209,234) 71%,rgb(196,224,241) 85%,rgb(226,240,248) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgb(20,131,200) 0%,rgb(49,146,207) 14%,rgb(79,162,214) 28%,rgb(108,178,221) 43%,rgb(138,193,228) 57%,rgb(167,209,234) 71%,rgb(196,224,241) 85%,rgb(226,240,248) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1483c8', endColorstr='#e2f0f8',GradientType=1 ); /* IE6-9 */
+    transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    /* Firefox */
+    -webkit-transition: 0.2s ease;
+    /* Chrome - Safari */
+    -o-transition: 0.2s ease;
+    /* Opera */
+}
+
+.mainmachines:hover {
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     /* Firefox */
@@ -899,7 +952,7 @@ ul, ol {
     /* IE9 */
 }
 
-.mainstatistics{
+#monitor .mainstatistics{
   border: solid;
   width: 49.55%;
   float: left;

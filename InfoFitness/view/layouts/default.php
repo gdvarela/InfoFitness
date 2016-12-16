@@ -40,6 +40,7 @@
                 <div class="submenu"><a href="index.php?controller=tables&amp;action=listWorkouts"><?=i18n("My workouts")?></a></div>
                 <div class="submenu"><a href="index.php?controller=activities&amp;action=slotsControl"><?=i18n("My activities")?></a></div>
                 <?php endif ?>
+                <div class="submenu"><a href="index.php?controller=profile&amp;action=showUser"><?=i18n("Profile")?></a></div>
   	            <div class="submenu"><a href="index.php?controller=users&amp;action=logout"><?=i18n("Logout")?></a></div>
               </ul>
   	        </div>

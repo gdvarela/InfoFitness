@@ -25,12 +25,12 @@ $view = ViewManager::getInstance();
     </div>
   </a>
   <a class="linkgeneral" href="?controller=profile&action=showUser">
-   <div class="mainexercisespublic">
+   <div class="mainprofile">
    </br></br><?= i18n("Profile") ?>
    </div>
   </a>
   <a class="linkgeneral" href="?controller=statictics&action=statictics">
-   <div class="mainexercisespublic">
+   <div class="mainstatistics">
    </br></br><?= i18n("General Statictics") ?>
    </div>
   </a>
