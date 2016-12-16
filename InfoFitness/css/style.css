@@ -289,11 +289,11 @@ textarea {
 }
 
 #userimg {
-    position: absolute;
     width: 60px;
     height: 60px;
-    left: 1115px;
-    top: 10px;
+    float:left;
+    margin-left: 30%;
+    margin-top: 3%;
 }
 
 ul, ol {
@@ -303,6 +303,7 @@ ul, ol {
 .profile {
     float: right;
     border: solid;
+    border-radius: 5px;
     border-color: white;
     display: block;
     width: 150px;
@@ -324,7 +325,6 @@ ul, ol {
 #nav>div.menu {
     float: left;
     z-index: 3;
-    margin-top: 40px;
 }
 
 #nav div.submenu a {
@@ -340,18 +340,23 @@ ul, ol {
     border-top: solid;
     border-left: solid;
     border-right: solid;
+    border-radius: 5px;
 }
 
 #nav div.menu ul .submenu:nth-child(2) {
     border-left: solid;
     border-right: solid;
     border-top: solid;
+    border-radius: 5px;
+
 }
 
 #nav div.menu ul .submenu:nth-child(3) {
     border-left: solid;
     border-right: solid;
     border-top: solid;
+    border-radius: 5px;
+
 }
 
 #nav div.menu ul div.submenu:last-child {
@@ -359,6 +364,8 @@ ul, ol {
     border-right: solid;
     border-bottom: solid;
     border-top: solid;
+    border-radius: 5px;
+
 }
 
 #nav div.submenu a:hover {
