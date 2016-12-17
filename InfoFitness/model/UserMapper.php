@@ -74,8 +74,8 @@ class UserMapper
             $user->getPasswd(), $user->getPermiso(), $user->getTelefono(), $user->getFechanac()));
 
 
-        //************************************PREGUNTAR ***********
-        /*if($user->getPermiso()==0){
+        //***********************************************
+        if($user->getPermiso()==0){
           $stmt = $this->db->prepare("INSERT INTO Deportista (tipo_tarjeta, comentario) VALUES (?,?)");
           $stmt->execute(array($user->getTipoDeportista(), $user->getComentario()));
         }
@@ -83,7 +83,7 @@ class UserMapper
         if($user->getPermiso()==1){
           $stmt = $this->db->prepare("INSERT INTO Monitor (jornada) VALUES (?)");
           $stmt->execute(array($user->getJornada()));
-        }*/
+        }
     }
 
     public function usernameExists($username)
