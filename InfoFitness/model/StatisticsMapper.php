@@ -1,11 +1,11 @@
 <?php
-// file: model/StaticticsMapper.php
+// file: model/StatisticsMapper.php
 
 require_once(__DIR__ . "/../core/PDOConnection.php");
-require_once(__DIR__."/../model/StaticticsActivity.php");
-require_once(__DIR__."/../model/StaticticsTable.php");
+require_once(__DIR__."/../model/StatisticsActivity.php");
+require_once(__DIR__."/../model/StatisticsTable.php");
 
-class StaticticsMapper{
+class StatisticsMapper{
 
   private $db;
 
@@ -14,7 +14,7 @@ class StaticticsMapper{
       $this->db = PDOConnection::getInstance();
   }
 
-      public function getAssistanceStatictics() {
+      public function getAssistanceStatistics() {
 
   	    $stmt = $this->db->query("SELECT Actividad.nombre, count(Sesion.id_actividad) as num
                                    FROM Sesion,Actividad,Usuario
@@ -34,7 +34,7 @@ class StaticticsMapper{
 
         $women_percent = array();
         $men_percentage = array();
-        $statictics = array();
+        $statistics = array();
 
         foreach ($total_users as $keyu) {
           foreach($total_num_women as $keyw){
@@ -55,7 +55,7 @@ class StaticticsMapper{
               foreach ($men_percentage as $key2 => $value2) {
                   foreach ($value2 as $key3 => $value3) {
                     if($key1 == $key3){
-                    array_push($statictics, new StaticticsActivity($activity = $key1, $women_percent=$value1,$men_percent=$value3));
+                    array_push($statistics, new StatisticsActivity($activity = $key1, $women_percent=$value1,$men_percent=$value3));
                     }
                   }
 
@@ -63,10 +63,10 @@ class StaticticsMapper{
            }
 
         }
-          return $statictics;
+          return $statistics;
       }
 
-      public function getAgeStatictics() {
+      public function getAgeStatistics() {
 
       $stmt = $this->db->query("SELECT distinct(Actividad.nombre), AVG(YEAR(CURDATE())-YEAR(Usuario.fecha_nacimiento))  AS media_edad
                                  FROM Sesion,Actividad,Usuario
@@ -83,25 +83,25 @@ class StaticticsMapper{
 
     $avg_women_age = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $avg_men_age = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-    $age_statictics_men = array();
-    $age_statictics_women = array();
-    $age_statictics = array();
+    $age_statistics_men = array();
+    $age_statistics_women = array();
+    $age_statistics = array();
 
     foreach ($avg_women_age as $key => $value) {
         foreach ($avg_men_age as $key2 => $value2) {
           if ($value['nombre'] == $value2['nombre']){
-            $age_statictics_men['ma'][$value['nombre']] =round($value2['media_edad']);
-            $age_statictics_women['wa'][$value['nombre']] =round($value['media_edad']);
+            $age_statistics_men['ma'][$value['nombre']] =round($value2['media_edad']);
+            $age_statistics_women['wa'][$value['nombre']] =round($value['media_edad']);
           }
       }
    }
 
-   foreach ($age_statictics_men as $key => $value) {
+   foreach ($age_statistics_men as $key => $value) {
        foreach ($value as $key1 => $value1) {
-         foreach ($age_statictics_women as $key2 => $value2) {
+         foreach ($age_statistics_women as $key2 => $value2) {
              foreach ($value2 as $key3 => $value3) {
                if($key1 == $key3){
-               array_push($age_statictics, new StaticticsActivity($activity = $key1, $women_percent=null,$men_percent=null,$avg_women_age = $value3, $avg_men_age = $value1));
+               array_push($age_statistics, new StatisticsActivity($activity = $key1, $women_percent=null,$men_percent=null,$avg_women_age = $value3, $avg_men_age = $value1));
                }
              }
 
@@ -110,12 +110,12 @@ class StaticticsMapper{
 
    }
 
-      return $age_statictics;
+      return $age_statistics;
 }
 
 
 
-  public function getTableStatictics() {
+  public function getTableStatistics() {
   $stmt = $this->db->query("SELECT (Tabla_Ejercicios.nombre), count(Tabla_Ejercicios_Deportista.id_tabla) as num
                   FROM tabla_ejercicios, tabla_ejercicios_deportista
                   WHERE Tabla_Ejercicios.id_tabla= Tabla_Ejercicios_Deportista.id_tabla GROUP BY Tabla_Ejercicios.nombre");
@@ -123,12 +123,12 @@ class StaticticsMapper{
 
   $tables = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $total_tables = $stmt1->fetchColumn();
-  $table_statictics = array();
+  $table_statistics = array();
 
   foreach ($tables as $key => $value) {
-    array_push($table_statictics, new StaticticsTable($table = $value['nombre'],$table_percent = round(($value['num']/$total_tables)*100) . "%" ));
+    array_push($table_statistics, new StatisticsTable($table = $value['nombre'],$table_percent = round(($value['num']/$total_tables)*100) . "%" ));
   }
-  return $table_statictics;
+  return $table_statistics;
   }
 }
 ?>

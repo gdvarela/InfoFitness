@@ -3,7 +3,7 @@
 require_once(__DIR__."/../core/ValidationException.php");
 
 
-class StaticticsActivity {
+class StatisticsActivity {
 
     private $activity;
     private $women_percent;

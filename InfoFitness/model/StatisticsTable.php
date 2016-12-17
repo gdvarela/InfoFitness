@@ -3,7 +3,7 @@
 require_once(__DIR__."/../core/ValidationException.php");
 
 
-class StaticticsTable {
+class StatisticsTable {
 
     private $table;
     private $table_percent;

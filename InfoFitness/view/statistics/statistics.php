@@ -6,9 +6,9 @@ $view = ViewManager::getInstance();
 if($_SESSION["type"] == 0)  {
     $view->redirect("index", "unauthorized");
 }
-$table_statictics = $view->getVariable("table_statictics");
-$assitance_statictics = $view->getVariable("assitance_statictics");
-$age_statictics = $view->getVariable("age_statictics");
+$table_statistics = $view->getVariable("table_statistics");
+$assitance_statistics = $view->getVariable("assitance_statistics");
+$age_statistics = $view->getVariable("age_statistics");
 $errors = $view->getVariable("errors");
 ?>
 <p class="tittletext"><?= i18n("Assistance Statistics") ?></p>
@@ -19,7 +19,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Women Percentage")?></th>
 		    <th><?= i18n("Men Percentage")?></th>
     </tr>
-    <?php foreach ($assitance_statictics as $activity):?>
+    <?php foreach ($assitance_statistics as $activity):?>
       <tr class="mainTable">
         <td><?= $activity->getActivityName() ?></td>
         <td><?= $activity->getWomenPercent() ?></td>
@@ -37,7 +37,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Women Average Age")?></th>
 		    <th><?= i18n("Men Average Age")?></th>
     </tr>
-    <?php foreach ($age_statictics as $act):?>
+    <?php foreach ($age_statistics as $act):?>
       <tr class="mainTable">
         <td><?= $act->getActivityName() ?></td>
         <td><?= $act->getAvgWomenAge() ?></td>
@@ -54,7 +54,7 @@ $errors = $view->getVariable("errors");
         <th><?= i18n("Tables")?></th>
         <th><?= i18n("Use Percentage")?></th>
     </tr>
-    <?php foreach ($table_statictics as $table):?>
+    <?php foreach ($table_statistics as $table):?>
       <tr class="mainTable">
         <td><?= $table->getTableName() ?></td>
         <td><?= $table->getTablePercent() ?></td>
