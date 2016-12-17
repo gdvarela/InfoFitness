@@ -323,7 +323,7 @@ CREATE TABLE `Tabla_Ejercicios_Deportista` (
 
 LOCK TABLES `Tabla_Ejercicios_Deportista` WRITE;
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Deportista` DISABLE KEYS */;
-INSERT INTO `Tabla_Ejercicios_Deportista` VALUES 
+INSERT INTO `Tabla_Ejercicios_Deportista` VALUES
 (1, 1),
 (3, 1),
 (2, 2),
@@ -426,6 +426,9 @@ INSERT INTO `Usuario` (`id_usuario`, `login`, `dni`, `nombre`, `apellidos`, `mai
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+GRANT USAGE ON *.* TO 'infoFitness'@'localhost';
+DROP USER 'infoFitness'@'localhost';
 
 CREATE USER 'infoFitness'@'localhost' IDENTIFIED BY 'infoFitness';
 GRANT ALL PRIVILEGES ON * . * TO 'infoFitness'@'localhost';
