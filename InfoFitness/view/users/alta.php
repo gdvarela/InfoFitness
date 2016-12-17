@@ -35,10 +35,10 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificardeportista" method="POST">
 
-                    <th> <input size=10 name="username" value="<?= $user->getUsername() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $user->getUsername() ?>" required> </th>
                     <th> <input size=10 name="nombre" value="<?= $user->getNombre() ?>"> </th>
                     <th> <input size=10 name="apellidos" value="<?= $user->getApellidos() ?>"> </th>
-                    <th> <input size=8 name="dni" value="<?= $user->getDni() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $user->getDni() ?>" required> </th>
                     <th> <input type="date" name="fechanac" value="<?= $user->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $user->getEmail() ?>"> </th>
                     <th> <input size=8 name="telef" value="<?= $user->getTelefono() ?>"> </th>
@@ -87,10 +87,10 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificarmonitor" method="POST">
 
-                    <th> <input size=10 name="username" value="<?= $monitor->getUsername() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $monitor->getUsername() ?>" required> </th>
                     <th> <input size=10 name="nombre" value="<?= $monitor->getNombre() ?>"> </th>
                     <th> <input size=10 name="apellidos" value="<?= $monitor->getApellidos() ?>"> </th>
-                    <th> <input size=8 name="dni" value="<?= $monitor->getDni() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $monitor->getDni() ?>" required> </th>
                     <th> <input type="date" name="fechanac" value="<?= $monitor->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $monitor->getEmail() ?>"> </th>
                     <th> <input size=8 name="telef" value="<?= $monitor->getTelefono() ?>"> </th>
@@ -134,10 +134,10 @@ $admins = $view->getVariable("admins");
             <tr class="mainTable">
                 <form action="?controller=users&amp;action=modificaradmin" method="POST">
 
-                    <th> <input size=10 name="username" value="<?= $admin->getUsername() ?>"> </th>
+                    <th> <input size=10 name="username" value="<?= $admin->getUsername() ?>" required> </th>
                     <th> <input size=10 name="nombre" value="<?= $admin->getNombre() ?>"> </th>
                     <th> <input size=10 name="apellidos" value="<?= $admin->getApellidos() ?>"> </th>
-                    <th> <input size=8 name="dni" value="<?= $admin->getDni() ?>"> </th>
+                    <th> <input size=8 name="dni" value="<?= $admin->getDni() ?>" required> </th>
                     <th> <input type="date" name="fechanac" value="<?= $admin->getFechanac() ?>"> </th>
                     <th> <input type="email" name="email" value="<?= $admin->getEmail() ?>"> </th>
                     <th> <input size=8 name="telef" value="<?= $admin->getTelefono() ?>"> </th>

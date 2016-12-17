@@ -141,7 +141,7 @@ class UsersController extends BaseController
                 $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], NULL, NULL, NULL);
 
             try {
-                //$this->user->checkIsValidForRegister();
+              //  $user->checkIsValidForRegister();
                 $this->userMapper->updateAdmin($user);
             } catch (ValidationException $ex) {
                 // Obtener los errores de la validacion
@@ -163,7 +163,7 @@ class UsersController extends BaseController
                 $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], NULL, NULL, $_POST["jornada_laboral"]);
 
             try {
-                //$this->user->checkIsValidForRegister();
+            //    $user->checkIsValidForRegister();
                 $this->userMapper->updatemonitor($user);
             } catch (ValidationException $ex) {
                 // Obtener los errores de la validacion
@@ -186,7 +186,7 @@ class UsersController extends BaseController
                 $_POST["fechanac"], $_POST["permiso"], $_POST["email"], $_POST["telef"], $_POST["tipo_deportista"], $_POST["comentario"], NULL);
 
             try {
-                //$this->user->checkIsValidForRegister();
+                //$user->checkIsValidForRegister();
                 $this->userMapper->updatedepor($user);
             } catch (ValidationException $ex) {
                 // Obtener los errores de la validacion
