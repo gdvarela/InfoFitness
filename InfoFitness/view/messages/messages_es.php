@@ -139,7 +139,9 @@ $i18n_messages =
         "Women Average Age" => "Media de Edad de Mujeres",
         "Men Average Age" => "Media de Edad de Hombres",
         "Use Percentage" => "Porcentaje de Uso",
-        "General Statistics" => "Estadisticas generales"
+        "General Statistics" => "Estadisticas generales",
+        "Charge(Kg)" => "Carga(Kg)",
+        "Repetitions" => "Repeticiones"
 
     )
 ?>

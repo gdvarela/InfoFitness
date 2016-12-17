@@ -56,7 +56,7 @@ class TableMapper
 
     public function fechExercisesTable($id_tabla)
     {
-        $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Ejercicio.id_ejercicio FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina
+        $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Tabla_Ejercicios_Detalles.carga, Tabla_Ejercicios_Detalles.repeticiones,Ejercicio.id_ejercicio FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina
                 WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina and Tabla_Ejercicios_Detalles.id_tabla=?");
         $stmt->execute(array($id_tabla));
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -120,10 +120,10 @@ class TableMapper
         return $users;
     }
 
-    public function addExercise($id_exercise, $id_tabla)
+    public function addExercise($id_exercise, $id_tabla, $charge, $repetitions)
     {
-        $stmt = $this->db->prepare("INSERT INTO Tabla_Ejercicios_Detalles (id_tabla,id_ejercicio) values(?,?)");
-        $stmt->execute(array($id_tabla, $id_exercise));
+        $stmt = $this->db->prepare("INSERT INTO Tabla_Ejercicios_Detalles (id_tabla,id_ejercicio,carga,repeticiones) values(?,?,?,?)");
+        $stmt->execute(array($id_tabla, $id_exercise, $charge, $repetitions));
     }
 
     public function deleteExecise($id_exercise, $id_tabla)

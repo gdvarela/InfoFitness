@@ -72,7 +72,7 @@ class TablesController extends BaseController
     public function detailsAdd()
     {
         if (isset($_POST["exerciseId"])) {
-            $this->tableMapper->addExercise($_POST["exerciseId"], $_POST["tableId"]);
+            $this->tableMapper->addExercise($_POST["exerciseId"], $_POST["tableId"],$_POST["charge"],$_POST["repetitions"] );
             $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
             $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
             $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);

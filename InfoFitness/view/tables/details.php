@@ -39,6 +39,8 @@ $newTable = $view->getVariable("newTable");
           <th><?= i18n("Dificulty")?></th>
           <th><?= i18n("Muscle group")?></th>
           <th><?= i18n("Machine")?></th>
+          <th><?= i18n("Charge(Kg)")?></th>
+          <th><?= i18n("Repetitions")?></th>
         </tr>
         <?php
           if($exercisesTable != null){
@@ -51,6 +53,8 @@ $newTable = $view->getVariable("newTable");
               <th> <?= $exercise["dificultad"]?></th>
               <th> <?= $exercise["grupo_muscular"]?></th>
               <th> <?= $exercise["maquina"]?></th>
+              <th> <?= $exercise["carga"]?></th>
+              <th> <?= $exercise["repeticiones"]?></th>
               <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
               <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
               <th>
@@ -65,6 +69,8 @@ $newTable = $view->getVariable("newTable");
   <table>
       <tr class="topTable">
         <th><?= i18n("Name")?></th>
+        <th><?= i18n("Charge(Kg)")?></th>
+        <th><?= i18n("Repetitions")?></th>
       </tr>
       <?php
         if($exercises != null){
@@ -73,6 +79,8 @@ $newTable = $view->getVariable("newTable");
       <tr>
           <form action="?controller=tables&amp;action=detailsAdd" method="POST">
             <th><?= $exercise["nombre"]?></th>
+            <td><input name="charge" value="0"></td>
+            <td><input name="repetitions" value="0"></td>
             <input name="exerciseId" value="<?= $exercise["id_ejercicio"] ?>" hidden="true">
             <input name="tableId" value="<?= $tables->getId() ?>" hidden="true">
             <th>

@@ -350,6 +350,8 @@ DROP TABLE IF EXISTS `Tabla_Ejercicios_Detalles`;
 CREATE TABLE `Tabla_Ejercicios_Detalles` (
   `id_tabla` int(11) NOT NULL,
   `id_ejercicio` int(11) NOT NULL,
+  `carga` int(11) DEFAULT NULL,
+  `repeticiones` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_tabla`,`id_ejercicio`),
   KEY `id_ejercicio_idx` (`id_ejercicio`),
   CONSTRAINT `id_ejercicio` FOREIGN KEY (`id_ejercicio`) REFERENCES `Ejercicio` (`id_ejercicio`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -363,7 +365,15 @@ CREATE TABLE `Tabla_Ejercicios_Detalles` (
 
 LOCK TABLES `Tabla_Ejercicios_Detalles` WRITE;
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Detalles` DISABLE KEYS */;
-INSERT INTO `Tabla_Ejercicios_Detalles` VALUES (1,2),(1,3),(2,3),(1,4),(2,5),(1,7),(2,7),(2,8);
+INSERT INTO `Tabla_Ejercicios_Detalles` VALUES
+(1,2,20,15),
+(1,3,15,15),
+(2,3,30,10),
+(1,4,15,15),
+(2,5,30,10),
+(1,7,20,15),
+(2,7,20,10),
+(2,8,20,10);
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Detalles` ENABLE KEYS */;
 UNLOCK TABLES;
 
