@@ -75,10 +75,10 @@ class UserMapper
 
 
         //***********************************************
-        /*$stmt2 = $this->db->prepare("SELECT id_usuario FROM Usuario WHERE login=?");
+        $stmt2 = $this->db->prepare("SELECT id_usuario FROM Usuario WHERE login=?");
         $stmt2->execute(array($user->getUsername()));
-        $id = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        $id = $stmt2->fetch(PDO::FETCH_ASSOC);
+        var_dump($id);
         if($user->getPermiso()==0){
           $stmt = $this->db->prepare("INSERT INTO Deportista (tipo_tarjeta, comentario, id_usuario) VALUES (?,?, ?)");
           $stmt->execute(array($user->getTipoDeportista(), $user->getComentario(), $id["id_usuario"]));
@@ -87,7 +87,7 @@ class UserMapper
         if($user->getPermiso()==1){
           $stmt = $this->db->prepare("INSERT INTO Monitor (jornada, id_usuario) VALUES (?,?)");
           $stmt->execute(array($user->getJornada(), $id["id_usuario"]));
-        }*/
+        }
     }
 
     public function usernameExists($username)
