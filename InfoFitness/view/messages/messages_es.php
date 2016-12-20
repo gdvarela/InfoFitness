@@ -141,7 +141,8 @@ $i18n_messages =
         "Use Percentage" => "Porcentaje de Uso",
         "General Statistics" => "Estadisticas generales",
         "Charge(Kg)" => "Carga(Kg)",
-        "Repetitions" => "Repeticiones"
+        "Repetitions" => "Repeticiones",
+        "Cancel" => "Cancelar"
 
     )
 ?>
