@@ -15,7 +15,7 @@ $newTable = $view->getVariable("newTable");
 ?>
 <script src="./../../js/print.js" type="text/javascript"></script>
 <div class="datagrid">
-<table>
+<table class="usertable">
         <tr class="topTable">
             <th><?= i18n("Table Exercises")?></th>
             <th><?= i18n("Description")?></th>
