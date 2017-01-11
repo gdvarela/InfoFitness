@@ -59,7 +59,7 @@ class TableMapper
         $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Tabla_Ejercicios_Detalles.carga, Tabla_Ejercicios_Detalles.repeticiones,Ejercicio.id_ejercicio,
                                   Tabla_Ejercicios_Deportista.comentario,Tabla_Ejercicios_Deportista.id_tabla,Tabla_Ejercicios_Deportista.id_deportista,Tabla_Ejercicios_Deportista.id_ejercicio as ejer FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina,Tabla_Ejercicios_Deportista
                 WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina and Tabla_Ejercicios_Deportista.id_tabla=Tabla_Ejercicios_Detalles.id_tabla
-                        and Tabla_Ejercicios_Deportista.id_ejercicio=Tabla_Ejercicios_Detalles.id_ejercicio and Tabla_Ejercicios_Detalles.id_tabla=? GROUP BY Tabla_Ejercicios_Detalles.id_ejercicio");
+                        and Tabla_Ejercicios_Deportista.id_ejercicio=Tabla_Ejercicios_Detalles.id_ejercicio and Tabla_Ejercicios_Detalles.id_tabla=?");
         $stmt->execute(array($id_tabla));
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
