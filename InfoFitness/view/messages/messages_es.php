@@ -142,7 +142,8 @@ $i18n_messages =
         "General Statistics" => "Estadisticas generales",
         "Charge(Kg)" => "Carga(Kg)",
         "Repetitions" => "Repeticiones",
-        "Cancel" => "Cancelar"
+        "Cancel" => "Cancelar",
+        "Table does not contain exercises." => "Tabla no contiene ejercicios"
 
     )
 ?>

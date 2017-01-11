@@ -21,6 +21,9 @@ $newTable = $view->getVariable("newTable");
             <th><?= i18n("Description")?></th>
             <th><?= i18n("Muscular Group")?></th>
             <th><?= i18n("Machine")?></th>
+            <th><?= i18n("Charge(Kg)")?></th>
+            <th><?= i18n("Repetitions")?></th>
+            <th><?= i18n("Comment")?></th>
         </tr>
         <?php
           if($exercises != null){
@@ -31,6 +34,15 @@ $newTable = $view->getVariable("newTable");
               <th><?= $exercise["descripcion"] ?></th>
               <th><?= $exercise["grupo_muscular"] ?></th>
               <th><?= $exercise["maquina"] ?></th>
+              <th> <?= $exercise["carga"]?></th>
+              <th> <?= $exercise["repeticiones"]?></th>
+              <form action="?controller=tables&action=addcomment" method="POST">
+                <th><input name="commentExercise" value="<?= $exercise["comentario"]?>"></th>
+                <input name="exerciseID" value="<?= $exercise["ejer"]?>" hidden="true">
+                <input name="tableID" value="<?= $exercise["id_tabla"]?>" hidden="true">
+                <input name="deporID" value="<?= $exercise["id_deportista"]?>" hidden="true">
+                <th><button class="button" type="submit"><?= i18n("Add") ?></button></th>
+              </form>
             </tr>
             <?php endforeach;
         }?>

@@ -48,7 +48,7 @@ class TablesController extends BaseController
     public function details()
     {
         $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
-        $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
+        $exercisesTable = $this->tableMapper->fechExercisesSimpleTable($_REQUEST["tableId"]);
         $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
         $this->view->setVariable("tables", $tables);
         $this->view->setVariable("newTable", $this->newTable);
@@ -74,7 +74,7 @@ class TablesController extends BaseController
         if (isset($_POST["exerciseId"])) {
             $this->tableMapper->addExercise($_POST["exerciseId"], $_POST["tableId"],$_POST["charge"],$_POST["repetitions"] );
             $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
-            $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
+            $exercisesTable = $this->tableMapper->fechExercisesSimpleTable($_REQUEST["tableId"]);
             $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
             $this->view->setVariable("tables", $tables);
             $this->view->setVariable("newTable", $this->newTable);
@@ -92,7 +92,7 @@ class TablesController extends BaseController
         if (isset($_POST["exerciseId"])) {
             $this->tableMapper->deleteExecise($_POST["exerciseId"], $_POST["tableId"]);
             $tables = $this->tableMapper->fechTable($_REQUEST["tableId"]);
-            $exercisesTable = $this->tableMapper->fechExercisesTable($_REQUEST["tableId"]);
+            $exercisesTable = $this->tableMapper->fechExercisesSimpleTable($_REQUEST["tableId"]);
             $exercises = $this->tableMapper->fechExercises($_REQUEST["tableId"]);
             $this->view->setVariable("tables", $tables);
             $this->view->setVariable("newTable", $this->newTable);
@@ -153,8 +153,15 @@ class TablesController extends BaseController
     public function addUser()
     {
         if (isset($_POST["tableId"])) {
-            $this->tableMapper->addUser($_POST["users"], $_POST["tableId"]);
-            $this->view->redirect("tables", "assign", "tableId=".$_POST["tableId"]);
+            $add_user = $this->tableMapper->addUser($_POST["users"], $_POST["tableId"]);
+            if($add_user){
+              $this->view->redirect("tables", "assign", "tableId=".$_POST["tableId"]);
+            }
+            else{
+              $this->view->setFlash(sprintf(i18n("Table does not contain exercises.")));
+              $this->view->redirect("tables", "assign", "tableId=".$_POST["tableId"]);
+            }
+
         } else {
             throw new Exception("add only form POST");
         }
@@ -168,6 +175,17 @@ class TablesController extends BaseController
         } else {
             throw new Exception("delete only form POST");
         }
+    }
+
+
+    public function addcomment()
+    {
+      echo $_POST["tableID"];
+
+       if($_POST["tableID"] && $_POST["exerciseID"] && $_POST["deporID"]){
+         $this->tableMapper->addcomment($_POST["tableID"],$_POST["exerciseID"],$_POST["deporID"],$_POST["commentExercise"]);
+         $this->view->redirect("tables", "detailsPublic", "tableId=".$_POST["tableID"]);
+       }
     }
 }
 

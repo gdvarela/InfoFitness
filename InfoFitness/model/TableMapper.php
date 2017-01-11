@@ -31,7 +31,7 @@ class TableMapper
         $id = $_SESSION["userId"];
         $stmt = $this->db->query("select te.id_tabla, nombre, descripcion from Tabla_Ejercicios_Deportista as ted, Tabla_Ejercicios as te, Deportista as de
             where de.id_usuario = $id and de.id_deportista = ted.id_deportista and ted.id_tabla=te.id_tabla
-            ");
+            GROUP BY te.id_tabla");
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $workouts = array();
 
@@ -56,8 +56,22 @@ class TableMapper
 
     public function fechExercisesTable($id_tabla)
     {
+        $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Tabla_Ejercicios_Detalles.carga, Tabla_Ejercicios_Detalles.repeticiones,Ejercicio.id_ejercicio,
+                                  Tabla_Ejercicios_Deportista.comentario,Tabla_Ejercicios_Deportista.id_tabla,Tabla_Ejercicios_Deportista.id_deportista,Tabla_Ejercicios_Deportista.id_ejercicio as ejer FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina,Tabla_Ejercicios_Deportista
+                WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina and Tabla_Ejercicios_Deportista.id_tabla=Tabla_Ejercicios_Detalles.id_tabla
+                        and Tabla_Ejercicios_Deportista.id_ejercicio=Tabla_Ejercicios_Detalles.id_ejercicio and Tabla_Ejercicios_Detalles.id_tabla=? GROUP BY Tabla_Ejercicios_Detalles.id_ejercicio");
+        $stmt->execute(array($id_tabla));
+        $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($exercises != null) {
+            return $exercises;
+        }
+    }
+
+    public function fechExercisesSimpleTable($id_tabla)
+    {
         $stmt = $this->db->prepare("SELECT Ejercicio.nombre, Ejercicio.descripcion,Ejercicio.grupo_muscular, Ejercicio.dificultad, Ejercicio.multimedia, Maquina.nombre as maquina, Tabla_Ejercicios_Detalles.carga, Tabla_Ejercicios_Detalles.repeticiones,Ejercicio.id_ejercicio FROM Tabla_Ejercicios_Detalles, Ejercicio, Maquina
-                WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina and Tabla_Ejercicios_Detalles.id_tabla=?");
+                WHERE  Tabla_Ejercicios_Detalles.id_ejercicio=Ejercicio.id_ejercicio and Ejercicio.maquina = Maquina.idMaquina  and Tabla_Ejercicios_Detalles.id_tabla=?");
         $stmt->execute(array($id_tabla));
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,7 +99,7 @@ class TableMapper
         $stmt = $this->db->prepare("select Usuario.id_usuario, Usuario.nombre, Usuario.apellidos from Usuario, Deportista, Tabla_Ejercicios_Deportista
           where Deportista.id_deportista = Tabla_Ejercicios_Deportista.id_deportista and
           Usuario.id_usuario = Deportista.id_usuario and Tabla_Ejercicios_Deportista.id_tabla = ?
-          ");
+          GROUP BY Usuario.id_usuario ");
         $stmt->execute(array($id_tabla));
         $list_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -134,16 +148,32 @@ class TableMapper
 
     public function addUser($users, $id_tabla)
     {
+
         $stmt = $this->db->prepare("SELECT id_deportista FROM Deportista WHERE id_usuario = ?");
         $depors = array();
+
         foreach ($users as $user):
             $stmt->execute(array($user));
             array_push($depors, $stmt->fetch(PDO::FETCH_ASSOC));
         endforeach;
-        $stmt = $this->db->prepare("INSERT INTO Tabla_Ejercicios_Deportista (id_tabla, id_deportista) values(?,?)");
-        foreach ($depors as $depor):
-            $stmt->execute(array($id_tabla, $depor["id_deportista"]));
-        endforeach;
+
+        $stmt = $this->db->prepare("SELECT id_ejercicio FROM Tabla_Ejercicios_Detalles WHERE id_tabla = ?");
+        $stmt->execute(array($id_tabla));
+        $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(!empty($exercises)){
+          $stmt = $this->db->prepare("INSERT INTO Tabla_Ejercicios_Deportista (id_tabla, id_deportista,id_ejercicio) values(?,?,?)");
+          foreach ($depors as $depor):
+             foreach ($exercises as $exercise):
+              $stmt->execute(array($id_tabla, $depor["id_deportista"],$exercise["id_ejercicio"]));
+              endforeach;
+          endforeach;
+          return true;
+          }
+          else{
+            return null;
+          }
+
+
     }
 
     public function deleteUser($users, $id_tabla)
@@ -177,6 +207,14 @@ class TableMapper
         $stmt = $this->db->prepare("DELETE FROM Tabla_Ejercicios WHERE id_tabla=?");
         $stmt->execute(array($tableId));
     }
+
+    public function addcomment($tableId,$exerciseId,$deporId,$comment)
+    {
+        $stmt = $this->db->prepare("UPDATE Tabla_Ejercicios_Deportista set comentario=? where id_tabla=? and id_deportista=? and id_ejercicio=?");
+        $stmt->execute(array($comment,$tableId,$deporId,$exerciseId));
+    }
+
+
 
 
 }

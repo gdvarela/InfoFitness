@@ -310,10 +310,13 @@ DROP TABLE IF EXISTS `Tabla_Ejercicios_Deportista`;
 CREATE TABLE `Tabla_Ejercicios_Deportista` (
   `id_tabla` int(11) NOT NULL,
   `id_deportista` int(11) NOT NULL,
-  PRIMARY KEY (`id_tabla`,`id_deportista`),
+  `id_ejercicio` int(11) NOT NULL,
+  `comentario` varchar(45) COLLATE latin1_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_tabla`,`id_deportista`,`id_ejercicio`),
   KEY `id_tabla_deportista_idx` (`id_deportista`),
   CONSTRAINT `id_tabla_deportista` FOREIGN KEY (`id_deportista`) REFERENCES `Deportista` (`id_deportista`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_tabla_ejercicios` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `id_tabla_ejercicios` FOREIGN KEY (`id_tabla`) REFERENCES `Tabla_Ejercicios` (`id_tabla`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_ejercicios` FOREIGN KEY (`id_ejercicio`) REFERENCES `Ejercicio` (`id_ejercicio`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -324,19 +327,42 @@ CREATE TABLE `Tabla_Ejercicios_Deportista` (
 LOCK TABLES `Tabla_Ejercicios_Deportista` WRITE;
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Deportista` DISABLE KEYS */;
 INSERT INTO `Tabla_Ejercicios_Deportista` VALUES
-(1, 1),
-(3, 1),
-(2, 2),
-(1, 3),
-(3, 3),
-(4, 3),
-(1, 4),
-(2, 4),
-(4, 4),
-(1, 5),
-(2, 5),
-(3, 5),
-(4, 5);
+(1, 1, 2,'Bajar repeticiones'),
+(1, 1, 3, 'Subir repeticiones'),
+(1, 1, 4, 'Bajar carga'),
+(1, 1, 7, 'Subir carga'),
+(3, 1, 3,'Bajar repeticiones'),
+(3, 1, 7,'Subir carga'),
+(3, 1, 11,'Subir carga'),
+(3, 1, 14,'Subir carga'),
+(2, 2, 3,'Bajar repeticiones'),
+(2, 2, 5,'Subir carga'),
+(2, 2, 7,'Subir repeticiones'),
+(2, 2, 8,'Subir carga'),
+(1, 3, 2,'Subir carga'),
+(1, 3, 3,'Bajar repeticiones'),
+(1, 3, 4,'Bajar carga'),
+(1, 3, 7,'Subir carga'),
+(3, 3, 3,'Bajar repeticiones'),
+(3, 3, 7,'Subir carga'),
+(3, 3, 11,'Subir repeticiones'),
+(3, 3, 14,'Subir repeticiones'),
+(1, 4, 2,'Bajar carga'),
+(1, 4, 3,'Subir carga'),
+(1, 4, 4,'Subir carga'),
+(1, 4, 7,'Bajar repeticiones'),
+(2, 4, 3,'Subir carga'),
+(2, 4, 5,'Subir carga'),
+(2, 4, 7,'Bajar repeticiones'),
+(2, 4, 8,'Subir carga'),
+(1, 25, 2,'Bajar repeticiones'),
+(1, 25, 3,'Bajar carga'),
+(1, 25, 4,'Subir carga'),
+(1, 25, 7,'Subir carga'),
+(2, 25, 3,'Bajar repeticiones'),
+(2, 25, 5,'Subir repeticiones'),
+(2, 25, 7,'Bajar carga'),
+(2, 25, 8,'Subir carga');
 /*!40000 ALTER TABLE `Tabla_Ejercicios_Deportista` ENABLE KEYS */;
 UNLOCK TABLES;
 
