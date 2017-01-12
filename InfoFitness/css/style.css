@@ -346,14 +346,14 @@ ul, ol {
     border-left: solid;
     border-right: solid;
     border-top: solid;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #nav div.menu ul .submenu:nth-child(3) {
     border-left: solid;
     border-right: solid;
     border-top: solid;
-    border-radius: 5px;
 }
 
 #nav div.menu ul div.submenu:last-child {
@@ -361,7 +361,9 @@ ul, ol {
     border-right: solid;
     border-bottom: solid;
     border-top: solid;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
 }
 
 #nav div.submenu a:hover {
