@@ -2,6 +2,7 @@
 // file: model/User.php
 
 require_once(__DIR__."/../core/ValidationException.php");
+require_once(__DIR__."/../core/I18n.php");
 
 
 class User {
@@ -153,34 +154,35 @@ class User {
 
       //login
       if(strlen($this->username) < 5) {
-	       $errors["username"] = "Username must be at least 5 characters length";
+
+	       $errors["username"] = i18n("Username must be at least 5 characters length");
       }
 
       //passwd
       if(strlen($this->passwd) < 6) {
-	        $errors["passwd"] = "Password must be at least 6 characters length";
+	        $errors["passwd"] = i18n("Password must be at least 6 characters length");
       }
 
       //nombre
       if (preg_match($patron_texto, $this->nombre) == 0) {
-          $errors["name"] = "Nombre solo debe contener letras";
+          $errors["name"] = i18n("Name must only contain letters");
       }
 
       //apellidos
       if (preg_match($patron_texto, $this->apellidos) == 0) {
-          $errors["lastname"] = "Apellidos solo debe contener letras";
+          $errors["lastname"] = i18n("Surnames must only contain letters");
       }
 
       //dnie
       if(strlen($this->dni) != 9){
-          $errors["dni_length"] = "DNI must be  9 characters length";
+          $errors["dni_length"] = i18n("DNI must be  9 characters length");
       }elseif (preg_match($patron_dnie, $this->dni) == 0) {
-            $errors["dni"] = "DNI/NIE must be  like this 12345678A/Z1234567Q";
+            $errors["dni"] = i18n("DNI/NIE must be  like this 12345678A/Z1234567Q");
       }
 
       //email
       if (preg_match($patron_email, $this->email) == 0) {
-          $errors["email"] = "Email must be like aaa@gsaf.cv";
+          $errors["email"] = i18n("Email must be like aaa@gsaf.cv");
       }
 
       //telef
@@ -190,7 +192,7 @@ class User {
 
 
       if (sizeof($errors)>0){
-	       throw new ValidationException($errors, "user is not valid");
+	       throw new ValidationException($errors, i18n("User is not valid"));
       }
   } //fin funcion chek is valid
 

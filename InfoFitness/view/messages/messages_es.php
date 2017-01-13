@@ -143,7 +143,15 @@ $i18n_messages =
         "Charge(Kg)" => "Carga(Kg)",
         "Repetitions" => "Repeticiones",
         "Cancel" => "Cancelar",
-        "Table does not contain exercises." => "Tabla no contiene ejercicios"
+        "Table does not contain exercises." => "Tabla no contiene ejercicios",
+        "Username must be at least 5 characters length" => "El nombre de usuario debe contener al menos 5 caracteres",
+        "Password must be at least 6 characters length" => "La contraseña debe contener al menos 6 caracteres",
+        "Name must only contain letters"=>"Nombre solo debe contener letras",
+        "Surnames must only contain letters" =>"Apellidos solo debe contener letras",
+        "DNI must be  9 characters length" => "DNI debe contener 9 caracteres",
+        "DNI/NIE must be  like this 12345678A/Z1234567Q" => "DNI/NIE debe ser: 12345678A/Z1234567Q",
+        "Email must be like aaa@gsaf.cv" => "Email debe ser: aaa@gsaf.cv",
+        "User is not valid" => "Usuario no valido"
 
     )
 ?>
