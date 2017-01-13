@@ -77,8 +77,10 @@ a:hover {
 }
 
 #flash {
-    background-color: green;
+    background-color: red;
     animation: backgroundflash 5s forwards;
+    font-weight: bold;
+    text-align: center;
 }
 
 .datagrid .halftable {
