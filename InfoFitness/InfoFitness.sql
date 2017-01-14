@@ -75,7 +75,24 @@ CREATE TABLE `Deportista` (
 
 LOCK TABLES `Deportista` WRITE;
 /*!40000 ALTER TABLE `Deportista` DISABLE KEYS */;
-INSERT INTO `Deportista` VALUES (1,'flojillo',1,1),(2,'to tochowa',0,2),(3,'vago',0,6),(4,'Grande',1,7),(25,NULL,NULL,11);
+INSERT INTO `Deportista` VALUES
+(1,'Flojillo',1,1),
+(2,'Fuerte',0,2),
+(3,'Vago',0,6),
+(4,'Grande',1,7),
+(5,'Hiperactivo',0,13),
+(6,NULL,1,14),
+(7,NULL,1,15),
+(8,NULL,0,16),
+(9,NULL,1,17),
+(10,NULL,1,18),
+(11,NULL,0,19),
+(12,NULL,0,20),
+(13,NULL,1,21),
+(14,NULL,0,22),
+(15,NULL,1,23),
+(16,NULL,0,24),
+(25,"Trabajador",0,11);
 /*!40000 ALTER TABLE `Deportista` ENABLE KEYS */;
 UNLOCK TABLES;
 
