@@ -24,7 +24,12 @@ $date = date('Y-m-d H:m', time());
     <tr class="mainTable">
         <th><?= $activity->getActivityName() ?></th>
         <th><?= $activity->getPlace() ?></th>
-        <th><?= $monitors[0]["nombre"] ?></th>
+        <th><?php foreach($monitors as $monitor):
+                  if($monitor["id_entrenador"] == $activity->getMonitor()) {
+                 echo $monitor["nombre"];
+                }
+             endforeach; ?>
+            </th>
         <th><form action="?controller=activities&action=assistanceControl" method="POST">
                 <input name="activityId" value="<?= $activity->getId() ?>" hidden="true">
                 <input name="activityName" value="<?= $activity->getActivityName() ?>" hidden="true">
