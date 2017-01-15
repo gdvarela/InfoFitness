@@ -117,7 +117,7 @@ class StatisticsMapper{
 
   public function getTableStatistics() {
   $stmt = $this->db->query("SELECT (Tabla_Ejercicios.nombre), count(Tabla_Ejercicios_Deportista.id_tabla) as num
-                  FROM tabla_ejercicios, tabla_ejercicios_deportista
+                  FROM Tabla_Ejercicios, Tabla_Ejercicios_Deportista
                   WHERE Tabla_Ejercicios.id_tabla= Tabla_Ejercicios_Deportista.id_tabla GROUP BY Tabla_Ejercicios.nombre");
   $stmt1 = $this->db->query("SELECT count(id_tabla) FROM Tabla_Ejercicios_Deportista");
 
